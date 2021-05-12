@@ -193,6 +193,7 @@ hl.config({
 
     follow_mouse = 1,
     sensitivity = -0.75,
+    numlock_by_default = true,
   },
 })
 
