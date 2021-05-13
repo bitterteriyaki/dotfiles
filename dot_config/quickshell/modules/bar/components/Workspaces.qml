@@ -13,7 +13,7 @@ Item {
 
   Behavior on implicitWidth {
     NumberAnimation {
-      duration: 150
+      duration: 200
       easing.type: Easing.OutCubic
     }
   }
@@ -39,15 +39,36 @@ Item {
         readonly property bool active: modelData.id === Hyprland.focusedMonitor?.activeWorkspace?.id
 
         Layout.alignment: Qt.AlignVCenter
-        Layout.preferredWidth: active ? 8 : 6
-        Layout.preferredHeight: active ? 8 : 6
+        Layout.preferredWidth: 8
+        Layout.preferredHeight: 8
 
         Rectangle {
           anchors.centerIn: parent
-          width: parent.width
-          height: parent.height
+          width: parent.active ? 8 : 6
+          height: parent.active ? 8 : 6
           radius: width / 2
-          color: parent.active ? "#e9243d" : Appearance.colors.grayLayer0
+          color: parent.active ? Appearance.colors.white : Appearance.colors.grayLayer0
+
+          Behavior on width {
+            NumberAnimation {
+              duration: 200
+              easing.type: Easing.OutCubic
+            }
+          }
+
+          Behavior on height {
+            NumberAnimation {
+              duration: 200
+              easing.type: Easing.OutCubic
+            }
+          }
+
+          Behavior on color {
+            ColorAnimation {
+              duration: 200
+              easing.type: Easing.OutCubic
+            }
+          }
         }
 
         MouseArea {

@@ -24,6 +24,8 @@ Singleton {
 
     property color grayLayer0: "#393F4E"
 
+    property color white: "#FFFFFF"
+
     property color colShadow: ColorUtils.transparentize("#000000", 0.7)
   }
 }
