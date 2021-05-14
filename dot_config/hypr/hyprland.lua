@@ -210,8 +210,10 @@ local main_mod = "ALT"
 hl.bind(main_mod .. " + Return", hl.dsp.exec_cmd(terminal))
 hl.bind(main_mod .. " + W", hl.dsp.window.close())
 hl.bind(main_mod .. " + M", hl.dsp.exec_cmd("hyprshutdown --vt 2"))
+hl.bind(main_mod .. " + D", hl.dsp.exec_cmd("qs ipc call launcher toggle"))
+hl.bind(main_mod .. " + V", hl.dsp.window.float({ action = "toggle" }))
+
 -- hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
--- hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 -- hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 -- hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 -- hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
@@ -257,10 +259,7 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true 
 -- hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"),                  { locked = true, repeating = true })
 -- hl.bind("XF86MonBrightnessDown",hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"),                  { locked = true, repeating = true })
 
---------------------------------
----- WINDOWS AND WORKSPACES ----
---------------------------------
-
+-- Windows & Workspaces
 -- See https://wiki.hypr.land/Configuring/Basics/Window-Rules/
 -- and https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
 
@@ -290,13 +289,13 @@ hl.window_rule({
     no_focus = true,
 })
 
--- Layer rules also return a handle.
--- local overlayLayerRule = hl.layer_rule({
---     name  = "no-anim-overlay",
---     match = { namespace = "^my-overlay$" },
---     no_anim = true,
--- })
--- overlayLayerRule:set_enabled(false)
+hl.layer_rule({
+  -- Let the launcher's own QML animation drive its fade/zoom instead of
+  -- stacking Hyprland's compositor-side layer fade on top of it.
+  name = "no-anim-launcher",
+  match = { namespace = "^quickshell:launcher$" },
+  no_anim = true,
+})
 
 -- Hyprland-run windowrule
 hl.window_rule({
