@@ -19,7 +19,7 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd(browser)
   hl.exec_cmd(spotify)
 
-  -- hl.exec_cmd(desktop)
+  hl.exec_cmd(desktop)
 end)
 
 -- Environment Variables
@@ -104,7 +104,6 @@ hl.config({
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Animations/
 
 hl.curve("out_quint", { type = "bezier", points = { {0.23, 1}, {0.32, 1} } })
-hl.curve("liquid_glass", { type = "spring", mass = 1, stiffness = 200, dampening = 32 })
 
 -- Animations
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Animations/
@@ -180,6 +179,7 @@ hl.config({
   misc = {
     force_default_wallpaper = 1,
     disable_hyprland_logo = true,
+    disable_splash_rendering = true,
   },
 })
 
@@ -213,6 +213,12 @@ hl.bind(main_mod .. " + W", hl.dsp.window.close())
 hl.bind(main_mod .. " + M", hl.dsp.exec_cmd("hyprshutdown --vt 2"))
 hl.bind(main_mod .. " + D", hl.dsp.exec_cmd("qs ipc call launcher toggle"))
 hl.bind(main_mod .. " + V", hl.dsp.window.float({ action = "toggle" }))
+
+-- Move focus with mainMod + vim-like HJKL
+hl.bind(main_mod .. " + H", hl.dsp.focus({ direction = "left" }))
+hl.bind(main_mod .. " + J", hl.dsp.focus({ direction = "down" }))
+hl.bind(main_mod .. " + K", hl.dsp.focus({ direction = "up" }))
+hl.bind(main_mod .. " + L", hl.dsp.focus({ direction = "right" }))
 
 -- hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 -- hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
