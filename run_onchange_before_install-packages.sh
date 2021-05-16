@@ -4,7 +4,9 @@ packages=(
   # Applications:
   firefox
   spotify-launcher
-  timeshift
+  bitwarden
+  pavucontrol
+  discord
   # Fonts:
   ttf-dejavu
   ttf-jetbrains-mono-nerd
@@ -47,8 +49,6 @@ packages=(
   wl-clipboard
   proton-vpn-cli
   playerctl
-  # Filesystem:
-  timeshift-autosnap
   # Look & Feel:
   quickshell
   # Hyprland:
