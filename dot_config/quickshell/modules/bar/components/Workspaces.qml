@@ -18,12 +18,6 @@ Item {
     }
   }
 
-  Rectangle {
-    anchors.fill: parent
-    color: Appearance.colors.colLayer1
-    radius: height / 2
-  }
-
   RowLayout {
     id: row
 
