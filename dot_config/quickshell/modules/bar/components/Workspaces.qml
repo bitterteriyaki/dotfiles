@@ -64,12 +64,6 @@ Item {
             }
           }
         }
-
-        MouseArea {
-          anchors.fill: parent
-          onClicked: Hyprland.dispatch("workspace " + parent.modelData.id)
-          cursorShape: Qt.PointingHandCursor
-        }
       }
     }
   }
