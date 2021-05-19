@@ -10,4 +10,8 @@ config.colors = {
   background = "#0D070C",
 }
 
+config.default_cursor_style = "BlinkingBar"
+config.animation_fps = 60
+config.max_fps = 60
+
 return config
