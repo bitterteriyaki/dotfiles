@@ -51,6 +51,7 @@ packages=(
   playerctl
   # Look & Feel:
   quickshell
+  qt6ct
   # Hyprland:
   uwsm
   hyprmoncfg
@@ -69,12 +70,15 @@ packages=(
   inotify-tools
 )
 
-yay -S --needed --noconfirm "${packages[@]}"
+printf '\033[1;33m=> Installing packages\033[0m\n'
+yay -S --needed --noconfirm "${packages[@]}" > /dev/null
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+  printf '\033[1;33m=> Installing Oh My Zsh\033[0m\n'
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended > /dev/null
 fi
 
 if [ ! -f "$HOME/.local/bin/claude" ]; then
-  curl -fsSL https://claude.ai/install.sh | bash
+  printf '\033[1;33m=> Installing Claude Code\033[0m\n'
+  curl -fsSL https://claude.ai/install.sh | bash > /dev/null
 fi

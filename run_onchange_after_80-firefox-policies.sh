@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Install Firefox policies
+printf '\033[1;33m=> Installing Firefox policies\033[0m\n'
 
 POLICY_DIR="/usr/lib/firefox/distribution"
 
