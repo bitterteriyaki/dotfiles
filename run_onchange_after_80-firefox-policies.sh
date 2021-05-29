@@ -5,7 +5,7 @@ printf '\033[1;33m=> Installing Firefox policies\033[0m\n'
 POLICY_DIR="/usr/lib/firefox/distribution"
 
 sudo mkdir -p "$POLICY_DIR"
-sudo tee "$POLICY_DIR/policies.json" > /dev/null << 'EOF'
+sudo tee "$POLICY_DIR/policies.json" << 'EOF'
 {
   "policies": {
     "SkipTermsOfUse": true,

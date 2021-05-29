@@ -11,7 +11,7 @@ Item {
   property var corner: RoundCorner.CornerPosition.TopLeft
 
   property int implicitSize: 25
-  property color color: Appearance.colors.colLayer0
+  property color color: Appearance.colors.background
 
   implicitWidth: implicitSize
   implicitHeight: implicitSize

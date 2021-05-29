@@ -13,6 +13,6 @@ RectangularShadow {
   offset: Qt.vector2d(0.0, 1.0)
   spread: 1
 
-  color: Appearance.colors.colShadow
+  color: Appearance.colors.shadow
   cached: true
 }

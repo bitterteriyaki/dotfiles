@@ -132,7 +132,7 @@ Scope {
         height: Math.min(560, header.implicitHeight + Math.max(resultsList.contentHeight, 1) + 40)
 
         radius: 14
-        color: Appearance.colors.colLayer1
+        color: Appearance.colors.secondary
 
         opacity: window.showAnim
         scale: 0.9 + 0.1 * window.showAnim
@@ -159,9 +159,9 @@ Scope {
 
             Text {
               text: ""
-              color: Appearance.colors.white
+              color: Appearance.colors.foreground
               font.pixelSize: 16
-              font.family: "JetBrainsMono Nerd Font"
+              font.family: Appearance.font
             }
 
             TextInput {
@@ -169,8 +169,8 @@ Scope {
 
               Layout.fillWidth: true
               font.pixelSize: 16
-              font.family: "JetBrainsMono Nerd Font"
-              color: Appearance.colors.white
+              font.family: Appearance.font
+              color: Appearance.colors.foreground
               clip: true
 
               text: root.searchText
@@ -216,7 +216,7 @@ Scope {
 
               Text {
                 text: "Search apps..."
-                color: Appearance.colors.white
+                color: Appearance.colors.foreground
                 font: parent.font
                 visible: !parent.text.length
               }
@@ -226,7 +226,7 @@ Scope {
           Rectangle {
             Layout.fillWidth: true
             height: 1
-            color: Appearance.colors.grayLayer0
+            color: Appearance.colors.muted
             opacity: 0.4
           }
         }
@@ -261,7 +261,7 @@ Scope {
             width: resultsList.width
             height: 48
             radius: 8
-            color: index === root.selectedIndex ? Appearance.colors.colLayer0 : "transparent"
+            color: index === root.selectedIndex ? Appearance.colors.background : "transparent"
 
             Behavior on color {
               ColorAnimation {
@@ -292,9 +292,9 @@ Scope {
                   Layout.fillWidth: true
 
                   text: entryDelegate.modelData.name
-                  color: Appearance.colors.white
+                  color: Appearance.colors.foreground
                   font.pixelSize: 14
-                  font.family: "JetBrainsMono Nerd Font"
+                  font.family: Appearance.font
                   elide: Text.ElideRight
                 }
 
@@ -302,10 +302,12 @@ Scope {
                   Layout.fillWidth: true
 
                   text: entryDelegate.modelData.comment
+                  color: Appearance.colors.muted
                   visible: text.length > 0
-                  color: Appearance.colors.grayLayer0
+
                   font.pixelSize: 11
-                  font.family: "JetBrainsMono Nerd Font"
+                  font.family: Appearance.font
+
                   elide: Text.ElideRight
                   maximumLineCount: 1
                 }

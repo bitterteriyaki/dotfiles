@@ -193,7 +193,7 @@ hl.config({
     kb_variant = "intl",
 
     follow_mouse = 1,
-    sensitivity = -0.75,
+    sensitivity = -0.85,
     numlock_by_default = true,
   },
 })
@@ -215,7 +215,7 @@ hl.bind(main_mod .. " + M", hl.dsp.exec_cmd("hyprshutdown --vt 2"))
 hl.bind(main_mod .. " + D", hl.dsp.exec_cmd("qs ipc call launcher toggle"))
 hl.bind(main_mod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 
--- Move focus with mainMod + vim-like HJKL
+-- Move focus with main_mod + vim-like HJKL
 hl.bind(main_mod .. " + H", hl.dsp.focus({ direction = "left" }))
 hl.bind(main_mod .. " + J", hl.dsp.focus({ direction = "down" }))
 hl.bind(main_mod .. " + K", hl.dsp.focus({ direction = "up" }))
@@ -298,10 +298,10 @@ hl.window_rule({
 })
 
 hl.layer_rule({
-  -- Let the launcher's own QML animation drive its fade/zoom instead of
-  -- stacking Hyprland's compositor-side layer fade on top of it.
-  name = "no-anim-launcher",
-  match = { namespace = "^quickshell:launcher$" },
+  -- Let quickshell's own QML animations (if any) drive fade/zoom instead of
+  -- stacking Hyprland's compositor-side layer fade on top of them.
+  name = "no-anim-quickshell",
+  match = { namespace = "^quickshell:.*$" },
   no_anim = true,
 })
 

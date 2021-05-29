@@ -38,10 +38,12 @@ Item {
 
         Rectangle {
           anchors.centerIn: parent
+
           width: parent.active ? 8 : 6
           height: parent.active ? 8 : 6
+
           radius: width / 2
-          color: parent.active ? Appearance.colors.white : Appearance.colors.grayLayer0
+          color: parent.active ? Appearance.colors.foreground : Appearance.colors.muted
 
           Behavior on width {
             NumberAnimation {

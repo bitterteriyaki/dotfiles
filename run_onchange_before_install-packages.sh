@@ -67,18 +67,17 @@ packages=(
   nvidia-utils
   # Others:
   xdg-user-dirs
-  inotify-tools
 )
 
 printf '\033[1;33m=> Installing packages\033[0m\n'
-yay -S --needed --noconfirm "${packages[@]}" > /dev/null
+yay -S --needed --noconfirm "${packages[@]}"
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   printf '\033[1;33m=> Installing Oh My Zsh\033[0m\n'
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended > /dev/null
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
 
 if [ ! -f "$HOME/.local/bin/claude" ]; then
   printf '\033[1;33m=> Installing Claude Code\033[0m\n'
-  curl -fsSL https://claude.ai/install.sh | bash > /dev/null
+  curl -fsSL https://claude.ai/install.sh | bash
 fi

@@ -14,29 +14,37 @@ Item {
     id: background
 
     anchors.fill: parent
-    color: Appearance.colors.colLayer0
+    color: Appearance.colors.background
   }
 
   StyledRectangularShadow {
     target: background
   }
 
-  Workspaces {
-    id: workspaces
+  Item {
+    id: content
 
-    anchors.centerIn: parent
-  }
+    anchors.fill: parent
+    anchors.leftMargin: Appearance.sizes.barPaddingHorizontal
+    anchors.rightMargin: Appearance.sizes.barPaddingHorizontal
 
-  RowLayout {
-    id: right
+    Workspaces {
+      id: workspaces
 
-    anchors.left: workspaces.right
-    anchors.right: parent.right
-    anchors.top: parent.top
-    anchors.bottom: parent.bottom
+      anchors.centerIn: parent
+    }
 
-    layoutDirection: Qt.RightToLeft
+    RowLayout {
+      id: right
 
-    ClockWidget {}
+      anchors.left: workspaces.right
+      anchors.right: parent.right
+      anchors.top: parent.top
+      anchors.bottom: parent.bottom
+
+      layoutDirection: Qt.RightToLeft
+
+      ClockWidget {}
+    }
   }
 }
