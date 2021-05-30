@@ -13,10 +13,32 @@ apply them to different machines with ease.
 
 ## 📚 Table of Contents
 
+- [📝 TODO](#-todo)
 - [🏷 Secure Boot](#-secure-boot)
 - [📼 BTRFS, Timeshift and GRUB](#-btrfs-timeshift-and-grub)
 - [🖥️ Dual boot with Windows](#-dual-boot-with-windows)
 - [💻 NVIDIA](#-nvidia)
+
+## 📝 TODO
+
+- [ ] Configure Limine to enable Secure Boot
+- [ ] Update the README's Secure Boot section accordingly
+- [ ] Configure dual boot with Windows on Limine
+- [ ] Update the README's dual boot with Windows section accordingly
+- [ ] Customize Limine's theme
+- [ ] Add a README section teaching the quickstart to install the dotfiles
+- [ ] Setup Hyprland's config (keybinds, animations, window/layer rules)
+- [ ] Setup Neovim's config (plugins, keybinds, LSPs)
+- [ ] Setup Quickshell's config (bar, launcher, widgets)
+- [ ] Setup WezTerm's config (colors, fonts, keybinds)
+- [ ] Setup Zellij's config (theme, keybinds, layouts)
+- [ ] Setup monitor config (`hyprmoncfg`)
+- [ ] Setup Zsh's config (aliases, prompt, plugins)
+- [ ] Configure dark theme for GTK and Qt
+- [ ] Configure Firefox (policies, settings, extensions)
+- [ ] Configure periodic snapshots and snapshots after installations
+- [ ] Update the README's BTRFS, Timeshift and GRUB section accordingly
+- [ ] Setup Spotify with Spicetify (custom theme)
 
 ## 🏷 Secure Boot
 
