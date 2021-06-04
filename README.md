@@ -21,14 +21,15 @@ apply them to different machines with ease.
 
 ## 📝 TODO
 
-- [ ] Configure Limine to enable Secure Boot
-- [ ] Update the README's Secure Boot section accordingly
+- [x] Update the README's Secure Boot section accordingly
 - [ ] Configure dual boot with Windows on Limine
 - [ ] Update the README's dual boot with Windows section accordingly
 - [ ] Customize Limine's theme
 - [ ] Add a README section teaching the quickstart to install the dotfiles
 - [ ] Setup Hyprland's config (keybinds, animations, window/layer rules)
 - [ ] Setup Neovim's config (plugins, keybinds, LSPs)
+  - [x] Configure LSP and autocomplete
+  - [ ] Configure the theme
 - [ ] Setup Quickshell's config (bar, launcher, widgets)
 - [ ] Setup WezTerm's config (colors, fonts, keybinds)
 - [ ] Setup Zellij's config (theme, keybinds, layouts)
@@ -39,6 +40,8 @@ apply them to different machines with ease.
 - [ ] Configure periodic snapshots and snapshots after installations
 - [ ] Update the README's BTRFS, Timeshift and GRUB section accordingly
 - [ ] Setup Spotify with Spicetify (custom theme)
+- [ ] Build a wallpaper system that automatically applies the color scheme
+- [ ] Add an `archinstall` profile so the system is installed the same way
 
 ## 🏷 Secure Boot
 
@@ -46,23 +49,14 @@ apply them to different machines with ease.
 > This section is a personal note about enabling Secure Boot on Arch Linux. If
 > you are not interested in this topic, you can skip this section, as this
 > section is not related to the dotfiles themselves. This also assumes you are
-> using Arch Linux as your distro and GRUB as your bootloader.
+> using Arch Linux as your distro and Limine as your bootloader.
 
-There is many ways to enable Secure Boot on Arch Linux. This section will show
-the most straightforward and simplest way. First of all, you may make use of
-CA Keys on GRUB, you can do that by running this following command, assuming
-that `/boot` is your EFI system partition (ESP):
-
-```
-# grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB --modules="tpm" --disable-shim-lock
-```
-
-Now, you may put the firmware in Setup Mode. This can be achieved by removing
-the Platform Key of your firmware. Reboot your machine, access the BIOS and
-remove the Platform Key under the "Security" tab. If you ran my automatic
-installation scripts, the `sbctl` tool should be already be installed on your
-system. If you didn't run my scripts, you can install this tool manually by
-running:
+You need to put the firmware in Setup Mode, and this can be achieved by
+removing the Platform Key of your firmware. Reboot your machine, access the
+BIOS and remove the Platform Key, generally under the "Security" tab. If you
+ran my automatic installation scripts, the `sbctl` tool should be already be
+installed on your system. If you didn't run the scripts, you can install this
+tool manually by running:
 
 ```
 # yay -S sbctl
@@ -108,7 +102,7 @@ the boot loader and OS load, secure boot should be working. Check with
 `sbctl status`. For more information or troubleshooting, check the references
 below.
 
-- [GRUB - ArchWiki](https://wiki.archlinux.org/title/GRUB)
+- [Limine - ArchWiki](https://wiki.archlinux.org/title/Limine)
 - [Unified Extensible Firmware Interface/Secure Boot - ArchWiki](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot)
 
 ## 📼 BTRFS, Timeshift and GRUB
