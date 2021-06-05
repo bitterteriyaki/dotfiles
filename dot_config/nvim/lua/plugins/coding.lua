@@ -6,6 +6,12 @@ return {
     config = true,
   },
 
+  -- WakaTime
+  {
+    "wakatime/vim-wakatime",
+    lazy = false,
+  },
+
   -- Completion
   {
     "saghen/blink.cmp",
