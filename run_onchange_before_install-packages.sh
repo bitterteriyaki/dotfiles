@@ -63,6 +63,7 @@ packages=(
   gmp
   tree-sitter
   postgresql-libs
+  unixodbc
   # Drivers:
   nvidia-utils
   # Others:

@@ -30,11 +30,14 @@ apply them to different machines with ease.
 - [ ] Setup Neovim's config (plugins, keybinds, LSPs)
   - [x] Configure LSP and autocomplete
   - [ ] Configure the theme
-  - [ ] Configure the WakaTime plugin and API key
+  - [x] Configure the WakaTime plugin and API key
+  - [ ] Configure the status line
+  - [ ] Configure the command line UI (`noice.nvim`)
+  - [ ] Configure indentation guides (`hlchunk.nvim`)
 - [ ] Setup Quickshell's config (bar, launcher, widgets)
 - [ ] Setup WezTerm's config (colors, fonts, keybinds)
 - [ ] Setup Zellij's config (theme, keybinds, layouts)
-- [ ] Setup monitor config (`hyprmoncfg`)
+- [x] Setup monitor config (`hyprmoncfg`)
 - [ ] Setup Zsh's config (aliases, prompt, plugins)
 - [ ] Configure dark theme for GTK and Qt
 - [ ] Configure SDDM's theme and appearance

@@ -1,5 +1,6 @@
 README.md
 LICENSE
+.luarc.json
 
 {{ if ne .chezmoi.os "linux" }}
 .XCompose

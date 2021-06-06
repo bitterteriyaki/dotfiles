@@ -43,6 +43,12 @@ return {
           map("n", "<leader>d", vim.diagnostic.open_float, { buffer = event.buf })
         end,
       })
+
+      vim.api.nvim_create_autocmd("CursorHold", {
+        callback = function()
+          vim.diagnostic.open_float(nil, { focusable = false })
+        end,
+      })
     end,
   },
 }
