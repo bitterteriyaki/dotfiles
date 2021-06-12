@@ -14,7 +14,7 @@ local desktop = "quickshell"
 -- Autostart
 -- See https://wiki.hypr.land/Configuring/Basics/Autostart/
 
-hl.on("hyprland.start", function () 
+hl.on("hyprland.start", function ()
   hl.exec_cmd(terminal)
   hl.exec_cmd(browser)
   hl.exec_cmd(spotify)
@@ -91,7 +91,7 @@ hl.config({
 
     active_opacity = 1.0,
     inactive_opacity = 1.0,
- 
+
     shadow = {
       enabled = true,
       range = 4,
@@ -216,10 +216,12 @@ hl.bind(main_mod .. " + D", hl.dsp.exec_cmd("qs ipc call launcher toggle"))
 hl.bind(main_mod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 
 -- Move focus with main_mod + vim-like HJKL
-hl.bind(main_mod .. " + H", hl.dsp.focus({ direction = "left" }))
-hl.bind(main_mod .. " + J", hl.dsp.focus({ direction = "down" }))
-hl.bind(main_mod .. " + K", hl.dsp.focus({ direction = "up" }))
-hl.bind(main_mod .. " + L", hl.dsp.focus({ direction = "right" }))
+local vim_keys = { H = "left", J = "down", K = "up", L = "right" }
+
+for key, dir in pairs(vim_keys) do
+  hl.bind(main_mod .. " + " .. key, hl.dsp.focus({ direction = dir }))
+  hl.bind(main_mod .. " + SHIFT + " .. key, hl.dsp.window.move({ direction = dir }))
+end
 
 -- hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 -- hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
@@ -307,9 +309,9 @@ hl.layer_rule({
 
 -- Hyprland-run windowrule
 hl.window_rule({
-    name  = "move-hyprland-run",
-    match = { class = "hyprland-run" },
+  name  = "move-hyprland-run",
+  match = { class = "hyprland-run" },
 
-    move  = "20 monitor_h-120",
-    float = true,
+  move  = "20 monitor_h-120",
+  float = true,
 })
