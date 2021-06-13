@@ -11,7 +11,7 @@ Singleton {
 
   property QtObject sizes: QtObject {
     property int barHeight: 40
-    property real eleveationMargin: 10
+    property real elevationMargin: 10
     property int barPaddingHorizontal: 16
   }
 

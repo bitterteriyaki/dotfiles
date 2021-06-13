@@ -1,4 +1,6 @@
 import qs.modules.common
+import qs.modules.common.functions
+import qs.modules.common.widgets
 
 import QtQuick
 import QtQuick.Layouts
@@ -77,13 +79,19 @@ Rectangle {
       onClicked: root.detailsVisible = false
     }
 
+    StyledRectangularShadow {
+      target: card
+    }
+
     Rectangle {
+      id: card
+
       anchors.verticalCenter: parent.verticalCenter
 
       x: parent.width - detailsWindow.showAnim * (width + 24)
 
       width: 340
-      height: 420
+      height: content.implicitHeight + 40
       radius: 14
       color: Appearance.colors.secondary
       clip: true
@@ -91,36 +99,41 @@ Rectangle {
       border.width: 1
       border.color: Appearance.colors.muted
 
-      opacity: detailsWindow.showAnim
-
       MouseArea {
         anchors.fill: parent
       }
 
       ColumnLayout {
+        id: content
+
         anchors.fill: parent
         anchors.margins: 20
-        spacing: 12
+        spacing: 20
 
-        Text {
+        ColumnLayout {
           Layout.alignment: Qt.AlignHCenter
+          spacing: 0
 
-          text: Qt.formatDateTime(clock.date, "hh:mm:ss")
-          color: Appearance.colors.foreground
+          Text {
+            Layout.alignment: Qt.AlignHCenter
 
-          font.family: Appearance.font
-          font.pixelSize: 32
-          font.bold: true
-        }
+            text: Qt.formatDateTime(clock.date, "hh:mm:ss")
+            color: Appearance.colors.foreground
 
-        Text {
-          Layout.alignment: Qt.AlignHCenter
+            font.family: Appearance.font
+            font.pixelSize: 32
+            font.bold: true
+          }
 
-          text: Qt.formatDate(clock.date, "MMMM yyyy")
-          color: Appearance.colors.foreground
+          Text {
+            Layout.alignment: Qt.AlignHCenter
 
-          font.family: Appearance.font
-          font.pixelSize: 16
+            text: Qt.formatDate(clock.date, "d MMMM yyyy")
+            color: ColorUtils.transparentize(Appearance.colors.foreground, 0.4)
+
+            font.family: Appearance.font
+            font.pixelSize: 16
+          }
         }
 
         Rectangle {
@@ -147,7 +160,7 @@ Rectangle {
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
 
-            color: Appearance.colors.secondary
+            color: Appearance.colors.foreground
 
             font.family: Appearance.font
             font.pixelSize: 13
