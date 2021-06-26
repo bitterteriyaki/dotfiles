@@ -21,6 +21,14 @@ return {
         capabilities = require("blink.cmp").get_lsp_capabilities(),
       })
 
+      vim.lsp.config("qmlls", {
+        cmd = {
+          "qmlls",
+          "-I", "/usr/lib/qt6/qml",
+          "-I", vim.fn.expand("~/.cache/quickshell-qmlls"),
+        },
+      })
+
       vim.lsp.config("lua_ls", {
         settings = {
           Lua = {
@@ -41,6 +49,26 @@ return {
           map("n", "<leader>rn", vim.lsp.buf.rename, { buffer = event.buf })
           map("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = event.buf })
           map("n", "<leader>d", vim.diagnostic.open_float, { buffer = event.buf })
+
+          local client = vim.lsp.get_client_by_id(event.data.client_id)
+
+          if client and client:supports_method("textDocument/documentHighlight") then
+            local group = vim.api.nvim_create_augroup("lsp_document_highlight", { clear = false })
+
+            vim.api.nvim_clear_autocmds({ buffer = event.buf, group = group })
+
+            vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+              buffer = event.buf,
+              group = group,
+              callback = vim.lsp.buf.document_highlight,
+            })
+
+            vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+              buffer = event.buf,
+              group = group,
+              callback = vim.lsp.buf.clear_references,
+            })
+          end
         end,
       })
 
