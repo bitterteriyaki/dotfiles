@@ -215,7 +215,13 @@ hl.bind(main_mod .. " + M", hl.dsp.exec_cmd("hyprshutdown --vt 2"))
 hl.bind(main_mod .. " + D", hl.dsp.exec_cmd("qs ipc call launcher toggle"))
 hl.bind(main_mod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 
--- Move focus with main_mod + vim-like HJKL
+-- hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
+-- hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
+-- hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
+-- hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
+
+-- Move focus or window with main_mod + vim-like HJKL
+
 local vim_keys = { H = "left", J = "down", K = "up", L = "right" }
 
 for key, dir in pairs(vim_keys) do
@@ -223,19 +229,8 @@ for key, dir in pairs(vim_keys) do
   hl.bind(main_mod .. " + SHIFT + " .. key, hl.dsp.window.move({ direction = dir }))
 end
 
--- hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
--- hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
--- hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
--- hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
--- 
--- -- Move focus with mainMod + arrow keys
--- hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
--- hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
--- hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" }))
--- hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
---
--- Switch workspaces with mainMod + [0-9]
--- Move active window to a workspace with mainMod + SHIFT + [0-9]
+-- Switch workspaces with main_mod + [0-9]
+-- Move active window to a workspace with main_mod + SHIFT + [0-9]
 
 for i = 1, 10 do
   local key = i % 10
