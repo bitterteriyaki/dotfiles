@@ -22,11 +22,7 @@ return {
       })
 
       vim.lsp.config("qmlls", {
-        cmd = {
-          "qmlls",
-          "-I", "/usr/lib/qt6/qml",
-          "-I", vim.fn.expand("~/.cache/quickshell-qmlls"),
-        },
+        cmd = { "qmlls", "-E" },
       })
 
       vim.lsp.config("lua_ls", {
