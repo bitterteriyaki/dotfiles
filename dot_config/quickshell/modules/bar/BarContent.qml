@@ -44,7 +44,7 @@ Item {
 
       layoutDirection: Qt.RightToLeft
 
-      ClockWidget {}
+      Clock {}
     }
   }
 }
