@@ -1,6 +1,7 @@
 README.md
 LICENSE
 .luarc.json
+.config/quickshell/.qmlls.ini
 
 {{ if ne .chezmoi.os "linux" }}
 .XCompose

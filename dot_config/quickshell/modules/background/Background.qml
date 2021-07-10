@@ -13,10 +13,11 @@ Variants {
   model: Quickshell.screens
 
   readonly property var monitors: Hyprland.monitors.values
+  // TODO: replace with a wallpaper picker
   readonly property string wallpaper: `${Directories.wallpapers}/default.png`
 
   readonly property int minX: {
-    let v = 0
+    let v = Infinity
 
     for (const m of monitors)
       v = Math.min(v, m.x)
@@ -25,7 +26,7 @@ Variants {
   }
 
   readonly property int minY: {
-    let v = 0
+    let v = Infinity
 
     for (const m of monitors)
       v = Math.min(v, m.y)
@@ -34,7 +35,7 @@ Variants {
   }
 
   readonly property int totalW: {
-    let v = 0
+    let v = -Infinity
 
     for (const m of monitors)
       v = Math.max(v, m.x + m.width)
@@ -43,7 +44,7 @@ Variants {
   }
 
   readonly property int totalH: {
-    let v = 0
+    let v = -Infinity
 
     for (const m of monitors)
       v = Math.max(v, m.y + m.height)
@@ -80,10 +81,11 @@ Variants {
 
       StyledImage {
         source: root.wallpaper
-        fillMode: Image.Stretch
+        fillMode: Image.PreserveAspectCrop
 
         width: root.totalW
         height: root.totalH
+        smooth: true
 
         x: -(background.hyprMonitor ? background.hyprMonitor.x - root.minX : 0)
         y: -(background.hyprMonitor ? background.hyprMonitor.y - root.minY : 0)
