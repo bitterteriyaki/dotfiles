@@ -28,12 +28,13 @@ apply them to different machines with ease.
 - [ ] Add a README section teaching the quickstart to install the dotfiles
 - [ ] Setup Hyprland's config (keybinds, animations, window/layer rules)
 - [ ] Setup Neovim's config (plugins, keybinds, LSPs)
-  - [x] Configure LSP and autocomplete
+  - [ ] Configure LSP and autocomplete
   - [ ] Configure the theme
   - [x] Configure the WakaTime plugin and API key
   - [ ] Configure the status line
   - [ ] Configure the command line UI (`noice.nvim`)
   - [ ] Configure indentation guides (`hlchunk.nvim`)
+  - [ ] Configure AI tooling (`claudecode.nvim`)
 - [ ] Setup Quickshell's config (bar, launcher, widgets)
 - [ ] Setup WezTerm's config (colors, fonts, keybinds)
 - [ ] Setup Zellij's config (theme, keybinds, layouts)
