@@ -15,7 +15,10 @@ Singleton {
     property int barPaddingHorizontal: 16
   }
 
-  property string font: "JetBrainsMono Nerd Font"
+  property QtObject fonts: QtObject {
+    property string mono: "JetBrainsMono Nerd Font"
+    property string icons: "Material Icons"
+  }
 
   property QtObject colors: QtObject {
     property color foreground: "#DFE1DE"

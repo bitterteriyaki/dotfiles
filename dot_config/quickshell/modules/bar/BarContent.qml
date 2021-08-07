@@ -37,14 +37,13 @@ Item {
     RowLayout {
       id: right
 
-      anchors.left: workspaces.right
       anchors.right: parent.right
-      anchors.top: parent.top
-      anchors.bottom: parent.bottom
+      anchors.verticalCenter: parent.verticalCenter
 
-      layoutDirection: Qt.RightToLeft
+      spacing: 8
 
       Clock {}
+      StatusIcons {}
     }
   }
 }

@@ -29,7 +29,7 @@ RowLayout {
       text: Qt.formatDateTime(clock.date, "dddd, dd/MM")
       color: Appearance.colors.foreground
 
-      font.family: Appearance.font
+      font.family: Appearance.fonts.mono
       font.pixelSize: 12
     }
   }
@@ -49,7 +49,7 @@ RowLayout {
       text: Qt.formatDateTime(clock.date, "hh:mm AP")
       color: Appearance.colors.foreground
 
-      font.family: Appearance.font
+      font.family: Appearance.fonts.mono
       font.pixelSize: 12
     }
   }

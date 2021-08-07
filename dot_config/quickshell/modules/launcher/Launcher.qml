@@ -161,7 +161,7 @@ Scope {
               text: ""
               color: Appearance.colors.foreground
               font.pixelSize: 16
-              font.family: Appearance.font
+              font.family: Appearance.fonts.mono
             }
 
             TextInput {
@@ -169,7 +169,7 @@ Scope {
 
               Layout.fillWidth: true
               font.pixelSize: 16
-              font.family: Appearance.font
+              font.family: Appearance.fonts.mono
               color: Appearance.colors.foreground
               clip: true
 
@@ -294,7 +294,7 @@ Scope {
                   text: entryDelegate.modelData.name
                   color: Appearance.colors.foreground
                   font.pixelSize: 14
-                  font.family: Appearance.font
+                  font.family: Appearance.fonts.mono
                   elide: Text.ElideRight
                 }
 
@@ -306,7 +306,7 @@ Scope {
                   visible: text.length > 0
 
                   font.pixelSize: 11
-                  font.family: Appearance.font
+                  font.family: Appearance.fonts.mono
 
                   elide: Text.ElideRight
                   maximumLineCount: 1
