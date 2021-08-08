@@ -1,7 +1,11 @@
 README.md
+CLAUDE.md
+TASKS.md
 LICENSE
+docs
 .luarc.json
 .config/quickshell/.qmlls.ini
+.claude
 
 {{ if ne .chezmoi.os "linux" }}
 .XCompose
