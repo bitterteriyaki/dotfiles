@@ -13,6 +13,10 @@ Singleton {
     property int barHeight: 40
     property real elevationMargin: 10
     property int barPaddingHorizontal: 16
+
+    property int sidebarWidth: 460
+    property int sidebarMargin: 12
+    property int sidebarRadius: 14
   }
 
   property QtObject fonts: QtObject {

@@ -36,6 +36,14 @@ apply them to different machines with ease.
   - [ ] Configure indentation guides (`hlchunk.nvim`)
   - [ ] Configure AI tooling (`claudecode.nvim`)
 - [ ] Setup Quickshell's config (bar, launcher, widgets)
+  - [x] Open a right-side sidebar when the status icons are clicked
+  - [ ] Show a calendar in the sidebar
+  - [ ] Show the current date and time in the sidebar
+  - [ ] Manage networks from the sidebar (view/connect)
+  - [ ] Show old notifications in the sidebar
+  - [ ] Add a shutdown/restart/sleep dialog to the sidebar
+  - [ ] Support do not disturb in the sidebar
+  - [ ] Add a volume mixer to the sidebar
 - [ ] Setup WezTerm's config (colors, fonts, keybinds)
 - [ ] Setup Zellij's config (theme, keybinds, layouts)
 - [x] Setup monitor config (`hyprmoncfg`)

@@ -1,4 +1,5 @@
 import qs.modules.common
+import qs.modules.sidebar
 
 import QtQuick
 import QtQuick.Layouts
@@ -83,13 +84,15 @@ Rectangle {
   //     font.family: Appearance.fonts.mono
   //     font.pixelSize: 13
   //   }
-  // }
+  }
 
   HoverHandler {
     id: hoverHandler
+
+    cursorShape: Qt.PointingHandCursor
   }
 
-  // TapHandler {
-  //   onTapped: {}
+  TapHandler {
+    onTapped: SidebarState.open()
   }
 }
