@@ -1,0 +1,9 @@
+# Global mise tools.
+#
+# node is required by the Neovim language servers that mason installs from
+# npm (bash-language-server, json-lsp, yaml-language-server): without a
+# global version pinned here, mise's npm shim aborts and mason cannot
+# install them.
+
+[tools]
+node = "lts"

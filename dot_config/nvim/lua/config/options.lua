@@ -15,4 +15,6 @@ opt.termguicolors = true -- True color support
 opt.smoothscroll = true -- Enable smooth scrolling
 opt.scrolloff = 4 -- Lines of context
 opt.sidescrolloff = 8 -- Columns of context
+opt.winborder = "rounded" -- Rounded borders on every floating window
+opt.signcolumn = "yes" -- Always show the sign column, so text never shifts
 opt.updatetime = 1000 -- Time to wait before triggering CursorHold (ms)
