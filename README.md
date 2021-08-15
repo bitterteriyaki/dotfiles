@@ -28,7 +28,7 @@ apply them to different machines with ease.
 - [ ] Add a README section teaching the quickstart to install the dotfiles
 - [ ] Setup Hyprland's config (keybinds, animations, window/layer rules)
 - [ ] Setup Neovim's config (plugins, keybinds, LSPs)
-  - [ ] Configure LSP and autocomplete
+  - [x] Configure LSP and autocomplete
   - [ ] Configure the theme
   - [x] Configure the WakaTime plugin and API key
   - [ ] Configure the status line
