@@ -1,31 +1,30 @@
 pragma ComponentBehavior: Bound
 
 import qs.modules.common
-import qs.modules.common.widgets
 import qs.modules.sidebar
+// import qs.modules.common.widgets
 
 import QtQuick
 import Quickshell
 import Quickshell.Wayland
+import Quickshell.Hyprland
 
 Scope {
   id: root
 
   Variants {
-    model: {
-      const screens = Config.options.bar.screens
-
-      if (!screens || screens.length === 0)
-        return screens
-
-      return Quickshell.screens.filter(screen => screens.includes(screen.name))
-    }
+    model: Quickshell.screens
 
     PanelWindow {
       id: window
 
       required property var modelData
       screen: modelData
+
+      readonly property bool isBarScreen: {
+        const screens = Config.options.bar.screens
+        return !!screens && screens.includes(modelData.name)
+      }
 
       property real showAnim: SidebarState.visible ? 1 : 0
 
@@ -36,36 +35,37 @@ Scope {
         }
       }
 
-      visible: showAnim > 0.001
-
       WlrLayershell.namespace: "quickshell:sidebar"
       WlrLayershell.layer: WlrLayer.Overlay
-      WlrLayershell.keyboardFocus: visible ? WlrKeyboardFocus.Exclusive : WlrKeyboardFocus.None
+
+      WlrLayershell.keyboardFocus: visible && window.isBarScreen
+        ? WlrKeyboardFocus.Exclusive
+        : WlrKeyboardFocus.None
 
       exclusionMode: ExclusionMode.Ignore
       color: "transparent"
 
-      anchors {
-        top: true
-        bottom: true
-        left: true
-        right: true
-      }
+      visible: showAnim
 
-      Connections {
-        target: SidebarState
+      anchors.top: true
+      anchors.bottom: true
+      anchors.left: true
+      anchors.right: true
 
-        function onVisibleChanged() {
-          if (SidebarState.visible)
-            keys.forceActiveFocus()
-        }
+      HyprlandFocusGrab {
+        active: SidebarState.visible && window.isBarScreen
+        windows: [window]
+
+        onCleared: SidebarState.close()
       }
 
       Item {
         id: keys
 
-        anchors.fill: parent
         focus: true
+        visible: window.isBarScreen
+
+        anchors.fill: parent
 
         Keys.onEscapePressed: SidebarState.close()
       }
@@ -73,9 +73,10 @@ Scope {
       Rectangle {
         id: scrim
 
-        anchors.fill: parent
-        color: "#99000000"
+        color: "#40000000"
         opacity: window.showAnim
+
+        anchors.fill: parent
 
         MouseArea {
           anchors.fill: parent
@@ -86,24 +87,35 @@ Scope {
       Item {
         id: panelContainer
 
+        width: Appearance.sizes.sidebarWidth
+        visible: window.isBarScreen
+        opacity: window.showAnim
+
         anchors.top: parent.top
         anchors.bottom: parent.bottom
         anchors.right: parent.right
 
-        anchors.topMargin: Appearance.sizes.barHeight + Appearance.sizes.sidebarMargin
+        anchors.topMargin: {
+          const sizes = Appearance.sizes
+
+          return sizes.barHeight + sizes.sidebarMargin
+        }
+
         anchors.bottomMargin: Appearance.sizes.sidebarMargin
         anchors.rightMargin: Appearance.sizes.sidebarMargin
 
-        width: Appearance.sizes.sidebarWidth
-        opacity: window.showAnim
-
         transform: Translate {
-          x: (1 - window.showAnim) * (panelContainer.width + Appearance.sizes.sidebarMargin)
+          x: {
+            const hidden = panelContainer.width + Appearance.sizes.sidebarMargin
+            const offset = 1 - window.showAnim
+
+            return offset * hidden
+          }
         }
 
-        StyledRectangularShadow {
-          target: panel
-        }
+        // StyledRectangularShadow {
+        //   target: panel
+        // }
 
         Rectangle {
           id: panel
