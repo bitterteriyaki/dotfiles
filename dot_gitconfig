@@ -1,0 +1,11 @@
+[user]
+  name = kyomi
+  email = personal@kyomi.codes
+  signingkey = C51D20B8BAB830E3
+
+[commit]
+  gpgsign = true
+
+[credential "https://git.tecnisys.com.br"]
+  username = caio.alexandre
+
