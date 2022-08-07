@@ -54,10 +54,6 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 font pango:JetBrains Mono Nerd Font 10
 gaps inner 10
 
-bar {
-  status_command i3status
-}
-
 assign [class="Google-chrome"] $ws2
 assign [class="discord"] $ws3
 
@@ -72,5 +68,7 @@ exec spotify
 exec --no-startup-id picom -b
 exec --no-startup-id nm-applet
 exec --no-startup-id setxkbmap -layout us -variant intl
+
 exec_always --no-startup-id feh --bg-scale $HOME/Pictures/Wallpaper.jpg
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
