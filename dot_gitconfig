@@ -1,7 +1,7 @@
 [user]
   name = kyomi
   email = personal@kyomi.codes
-  signingkey = C51D20B8BAB830E3
+  signingkey = E22B0E5557FE7778
 
 [commit]
   gpgsign = true
