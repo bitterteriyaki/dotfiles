@@ -1,8 +1,6 @@
 # Enviroment Variables
 export ZSH="$HOME/.oh-my-zsh"
 export GPG_TTY=$(tty)
-export EDITOR="/usr/bin/nvim"
-export VISUAL="/usr/bin/nvim"
 
 # Theme
 ZSH_THEME="spaceship"
