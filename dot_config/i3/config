@@ -8,6 +8,9 @@ bindsym $mod+Shift+r restart
 
 bindsym $mod+d exec --no-startup-id dmenu_run
 
+bindsym $mod+h split h
+bindsym $mod+v split v
+
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 bindsym $mod+Down focus down
