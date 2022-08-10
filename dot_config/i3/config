@@ -23,6 +23,7 @@ bindsym $mod+Shift+Left move left
 
 client.focused #41414d #41414d #41414d #41414d #41414d
 client.unfocused #191622 #191622 #191622 #191622 #191622
+client.focused_inactive #191622 #191622 #191622 #191622 #191622
 
 set $ws1 "1"
 set $ws2 "2"
