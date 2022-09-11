@@ -24,17 +24,17 @@ font:
 
 colors:
   primary:
-    background: '#191622'
+    background: '#27203b'
     foreground: '#e1e1e6'
 
   normal:
-    black: '#201b2d'
-    red: '#ff79c6'
-    green: '#67e480'
-    yellow: '#e7de79'
-    blue: '#78d1e1'
-    magenta: '#988bc7'
-    cyan: '#a1efe4'
+    black: '#27212e'
+    red: '#fc176b'
+    green: '#30fc3f'
+    yellow: '#fceb30'
+    blue: '#30d5fc'
+    magenta: '#e609c8'
+    cyan: '#96eaff'
     white: '#e1e1e6'
 
   bright:
