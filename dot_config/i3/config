@@ -85,6 +85,7 @@ exec google-chrome-stable
 exec spotify
 
 exec --no-startup-id picom -b
+exec --no-startup-id dunst
 exec --no-startup-id setxkbmap -layout us -variant intl
 
 exec_always --no-startup-id feh --bg-scale $HOME/Pictures/Wallpaper.jpg
