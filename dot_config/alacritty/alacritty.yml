@@ -24,7 +24,7 @@ font:
 
 colors:
   primary:
-    background: '#27203b'
+    background: '#211d2e'
     foreground: '#e1e1e6'
 
   normal:

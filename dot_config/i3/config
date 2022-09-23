@@ -67,6 +67,10 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 font pango:JetBrains Mono Nerd Font 10
 gaps inner 12
+gaps outer 10
+
+client.focused #00000000 #00000000 #00000000 #00000000 #1166b5
+client.focused_inactive #00000000 #00000000 #00000000 #00000000 #211d2e
 
 assign [class="Google-chrome"] $ws2
 assign [class="discord"] $ws3
