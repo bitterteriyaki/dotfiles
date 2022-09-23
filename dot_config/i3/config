@@ -72,13 +72,14 @@ gaps outer 10
 client.focused #00000000 #00000000 #00000000 #00000000 #1166b5
 client.focused_inactive #00000000 #00000000 #00000000 #00000000 #211d2e
 
+assign [class="Code"] $ws1
 assign [class="Google-chrome"] $ws2
 assign [class="discord"] $ws3
 
 for_window [class=".*"] border pixel 2
 for_window [class="Spotify"] move container to workspace $ws4
 
-exec alacritty
+exec code
 exec discord
 exec google-chrome-stable
 exec spotify
