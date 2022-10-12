@@ -18,7 +18,7 @@ SPACESHIP_PROMPT_ORDER=(
   rust
   docker
   venv
-  pyenv
+  python
   exec_time
   line_sep
   jobs
