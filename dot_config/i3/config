@@ -88,6 +88,6 @@ exec --no-startup-id picom -b
 exec --no-startup-id dunst
 exec --no-startup-id setxkbmap -layout us -variant intl
 
-exec_always --no-startup-id feh --bg-scale $HOME/Pictures/Wallpaper.jpg
+exec_always --no-startup-id feh --bg-scale $HOME/Pictures/Wallpaper.png
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
