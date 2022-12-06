@@ -10,4 +10,3 @@ $ chezmoi init bitterteriyaki --ssh
 ```
 
 Your system should already have been properly configured after this command.
-

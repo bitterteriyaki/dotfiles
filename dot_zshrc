@@ -63,4 +63,3 @@ source /opt/asdf-vm/asdf.sh
 # Aliases
 alias ls="exa --icons"
 alias cat="bat"
-
