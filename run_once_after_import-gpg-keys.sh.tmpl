@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo "{{ (bitwarden "item" "Public GPG").notes }}" | gpg --import -
+echo "{{ (bitwarden "item" "Private GPG").notes }}" | gpg --import -
