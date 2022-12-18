@@ -1,8 +1,0 @@
-#!/bin/sh
-
-# Import my GPG public and private keys.
-echo "{{ (bitwarden "item" "Public GPG").notes }}" | gpg --import -
-echo "{{ (bitwarden "item" "Private GPG").notes }}" | gpg --import -
-
-# Create user directories.
-LC_ALL=C xdg-user-dirs-update
