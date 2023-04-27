@@ -43,7 +43,7 @@ install_homebrew() {
 }
 
 install_yay() {
-  if command -v yay &> /dev/null; then
+  if ! command -v yay &> /dev/null; then
     echo -n "=> Installing Yay..."
     git clone $YAY_URL /tmp/yay >/dev/null 2>&1
     (cd /tmp/yay && makepkg -sirc --noconfirm >/dev/null 2>&1)
@@ -61,6 +61,18 @@ install_package_manager() {
   fi
 }
 
+install_dependencies() {
+  echo -n "=> Installing dependencies..."
+
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    echo "=> Not implemented yet."
+  elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    yay -S --needed --noconfirm git chezmoi bitwarden-cli >/dev/null 2>&1
+  fi
+
+  echo -e "\r\e[K=> Dependencies have been installed."
+}
+
 ###############
 # Main script #
 ###############
@@ -70,6 +82,7 @@ setup() {
   read -n 1 -r -s -p $'=> Press any key to continue or Ctrl+C to abort...\n'
 
   install_package_manager
+  install_dependencies
 }
 
 setup
