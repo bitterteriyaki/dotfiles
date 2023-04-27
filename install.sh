@@ -21,6 +21,22 @@
 # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+###########
+# Helpers #
+###########
+
+start() {
+  echo -n "$1"
+}
+
+finish() {
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    echo -e "\r$1"
+  elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    echo -e "\r\e[K$1"
+  fi
+}
+
 #############
 # Variables #
 #############
@@ -34,9 +50,9 @@ OMZ_URL="https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 install_homebrew() {
   if ! command -v brew &> /dev/null; then
-    echo "=> Installing Homebrew..."
+    start "=> Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL $HB_URL)"
-    echo -e "=> Homebrew has been installed."
+    finish "=> Homebrew has been installed."
   else
     echo "=> Homebrew is already installed."
   fi
@@ -44,10 +60,10 @@ install_homebrew() {
 
 install_yay() {
   if ! command -v yay &> /dev/null; then
-    echo -n "=> Installing Yay..."
+    start "=> Installing Yay..."
     git clone https://aur.archlinux.org/yay.git /tmp/yay >/dev/null 2>&1
     (cd /tmp/yay && makepkg -sirc --noconfirm >/dev/null 2>&1)
-    echo -e "\r=> Yay has been installed."
+    finish "=> Yay has been installed."
   else
     echo "=> Yay is already installed."
   fi
@@ -62,27 +78,22 @@ install_package_manager() {
 }
 
 install_dependencies() {
-  echo -n "=> Installing dependencies..."
+  start "=> Installing dependencies..."
 
   if [[ "$OSTYPE" == "darwin"* ]]; then
     brew install git chezmoi bitwarden-cli >/dev/null 2>&1
-    echo -e "\r=> Dependencies have been installed."
   elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
     yay -S --needed --noconfirm git chezmoi bitwarden-cli zsh >/dev/null 2>&1
-    echo -e "\r\e[K=> Dependencies have been installed."
   fi
+
+  finish "=> Dependencies have been installed."
 }
 
 install_omz() {
   if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
-    echo -n "=> Installing Oh My Zsh..."
+    start "=> Installing Oh My Zsh..."
     /bin/bash -c "$(curl -fsSL $OMZ_URL)" >/dev/null 2>&1
-
-    if [[ "$OSTYPE" == "darwin"* ]]; then
-      echo -e "\r=> Oh My Zsh has been installed."
-    elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-      echo -e "\r\e[K=> Oh My Zsh has been installed."
-    fi
+    finish "=> Oh My Zsh has been installed."
   else
     echo "=> Oh My Zsh is already installed."
   fi
