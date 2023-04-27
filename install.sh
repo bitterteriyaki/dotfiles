@@ -28,7 +28,6 @@
 HB_URL="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
 YAY_URL="https://aur.archlinux.org/yay.git"
 
-
 ########################
 # Installation scripts #
 ########################
@@ -44,11 +43,11 @@ install_homebrew() {
 }
 
 install_yay() {
-  if ! command -v yay &> /dev/null; then
+  if command -v yay &> /dev/null; then
     echo -n "=> Installing Yay..."
-    git clone https://aur.archlinux.org/yay.git /tmp/yay
-    (cd /tmp/yay && makepkg -sirc)
-    echo -e "=> Yay has been installed."
+    git clone $YAY_URL /tmp/yay >/dev/null 2>&1
+    (cd /tmp/yay && makepkg -sirc --noconfirm >/dev/null 2>&1)
+    echo -e "\r=> Yay has been installed."
   else
     echo "=> Yay is already installed."
   fi
@@ -59,8 +58,6 @@ install_package_manager() {
     install_homebrew
   elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
     install_yay
-  else
-    echo "=> Unknown OS."
   fi
 }
 
