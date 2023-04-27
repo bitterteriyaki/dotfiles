@@ -34,7 +34,7 @@ YAY_URL="https://aur.archlinux.org/yay.git"
 
 install_homebrew() {
   if ! command -v brew &> /dev/null; then
-    echo -n "=> Installing Homebrew..."
+    echo "=> Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL $HB_URL)"
     echo -e "=> Homebrew has been installed."
   else
@@ -65,12 +65,12 @@ install_dependencies() {
   echo -n "=> Installing dependencies..."
 
   if [[ "$OSTYPE" == "darwin"* ]]; then
-    echo "=> Not implemented yet."
+    brew install git chezmoi bitwarden-cli >/dev/null 2>&1
+    echo -e "\r=> Dependencies have been installed."
   elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    yay -S --needed --noconfirm git chezmoi bitwarden-cli >/dev/null 2>&1
+    yay -S --needed --noconfirm git chezmoi bitwarden-cli zsh >/dev/null 2>&1
+    echo -e "\r\e[K=> Dependencies have been installed."
   fi
-
-  echo -e "\r\e[K=> Dependencies have been installed."
 }
 
 ###############
