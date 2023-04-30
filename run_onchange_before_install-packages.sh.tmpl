@@ -45,10 +45,24 @@ packages=(
   xorg
   bspwm
   sxhkd
+  discord
+  google-chrome
+  spotify
+  visual-studio-code-bin
 )
 
 start "=> Installing packages..."
 yay -S --needed --noconfirm "${packages[@]}" > /dev/null 2>&1
 finish "=> Packages have been installed."
 {{ else if eq .chezmoi.os "darwin" }}
+casks=(
+  discord
+  google-chrome
+  spotify
+  visual-studio-code
+)
+
+start "=> Installing casks..."
+brew install --cask --quiet "${casks[@]}" > /dev/null 2>&1
+finish "=> Casks have been installed."
 {{ end }}
