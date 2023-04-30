@@ -61,8 +61,8 @@ install_homebrew() {
 install_yay() {
   if ! command -v yay &> /dev/null; then
     start "=> Installing Yay..."
-    git clone https://aur.archlinux.org/yay.git /tmp/yay >/dev/null 2>&1
-    (cd /tmp/yay && makepkg -sirc --noconfirm >/dev/null 2>&1)
+    git clone https://aur.archlinux.org/yay.git /tmp/yay > /dev/null 2>&1
+    (cd /tmp/yay && makepkg -sirc --noconfirm > /dev/null 2>&1)
     finish "=> Yay has been installed."
   else
     echo "=> Yay is already installed."
@@ -81,9 +81,9 @@ install_dependencies() {
   start "=> Installing dependencies..."
 
   if [[ "$OSTYPE" == "darwin"* ]]; then
-    brew install git chezmoi bitwarden-cli >/dev/null 2>&1
+    brew install git chezmoi bitwarden-cli > /dev/null 2>&1
   elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    yay -S --needed --noconfirm git chezmoi bitwarden-cli zsh >/dev/null 2>&1
+    yay -S --needed --noconfirm git chezmoi bitwarden-cli zsh > /dev/null 2>&1
   fi
 
   finish "=> Dependencies have been installed."
@@ -92,7 +92,7 @@ install_dependencies() {
 install_omz() {
   if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
     start "=> Installing Oh My Zsh..."
-    /bin/bash -c "$(curl -fsSL $OMZ_URL)" >/dev/null 2>&1
+    /bin/bash -c "$(curl -fsSL $OMZ_URL)" > /dev/null 2>&1
     finish "=> Oh My Zsh has been installed."
   else
     echo "=> Oh My Zsh is already installed."
@@ -100,7 +100,7 @@ install_omz() {
 }
 
 unlock_bitwarden_vault() {
-  bw login --check >/dev/null 2>&1
+  bw login --check > /dev/null 2>&1
 
   if [ $? -eq 0 ]; then
     export BW_SESSION=$(bw unlock --raw)
