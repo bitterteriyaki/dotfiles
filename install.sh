@@ -81,7 +81,7 @@ install_dependencies() {
   start "=> Installing dependencies..."
 
   if [[ "$OSTYPE" == "darwin"* ]]; then
-    brew install git chezmoi bitwarden-cli > /dev/null 2>&1
+    brew install chezmoi bitwarden-cli > /dev/null 2>&1
   elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
     yay -S --needed --noconfirm git chezmoi bitwarden-cli zsh > /dev/null 2>&1
   fi
