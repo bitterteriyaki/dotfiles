@@ -42,24 +42,45 @@ finish() {
 #######################
 {{ if eq .chezmoi.os "linux" }}
 packages=(
+  # Fonts:
+  ttf-jetbrains-mono-nerd
+  # Window manager:
   xorg
   bspwm
   sxhkd
+  # Essentials:
   discord
   google-chrome
   spotify
   visual-studio-code-bin
+  # Utilities:
+  openssh
 )
 
 start "=> Installing packages..."
 yay -S --needed --noconfirm "${packages[@]}" > /dev/null 2>&1
 finish "=> Packages have been installed."
 {{ else if eq .chezmoi.os "darwin" }}
+taps=(
+  homebrew/cask-fonts
+)
+
+start "=> Tapping repositories..."
+for tap in "${taps[@]}"; do
+  brew tap "$tap" --quiet
+done
+finish "=> Repositories have been tapped."
+
 casks=(
+  # Fonts:
+  font-jetbrains-mono-nerd-font
+  # Essentials:
   discord
   google-chrome
   spotify
   visual-studio-code
+  # Utilities:
+  openssh
 )
 
 start "=> Installing casks..."
