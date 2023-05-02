@@ -21,22 +21,6 @@
 # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-###########
-# Helpers #
-###########
-
-start() {
-  echo -n "$1"
-}
-
-finish() {
-  if [[ "$OSTYPE" == "darwin"* ]]; then
-    echo -e "\r$1"
-  elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    echo -e "\r\e[K$1"
-  fi
-}
-
 #######################
 # Installing packages #
 #######################
@@ -56,19 +40,19 @@ packages=(
   exa
 )
 
-start "=> Installing packages..."
-yay -S --needed --noconfirm "${packages[@]}" > /dev/null 2>&1
-finish "=> Packages have been installed."
+echo -e "=> Installing packages..."
+yay -S --needed --noconfirm "${packages[@]}"
+echo -e "=> Packages have been installed."
 {{ else if eq .chezmoi.os "darwin" }}
 taps=(
   homebrew/cask-fonts
 )
 
-start "=> Tapping repositories..."
+echo -e "=> Tapping repositories..."
 for tap in "${taps[@]}"; do
   brew tap "$tap" --quiet
 done
-finish "=> Repositories have been tapped."
+echo -e "=> Repositories have been tapped."
 
 casks=(
   # Fonts:
@@ -82,9 +66,9 @@ casks=(
   docker
 )
 
-start "=> Installing casks..."
-brew install --cask --quiet "${casks[@]}" > /dev/null 2>&1
-finish "=> Casks have been installed."
+echo -e "=> Installing casks..."
+brew install --cask --quiet "${casks[@]}"
+echo -e "=> Casks have been installed."
 
 formulae=(
   # Essentials:
@@ -94,7 +78,14 @@ formulae=(
   exa
 )
 
-start "=> Installing formulae..."
-brew install --quiet "${formulae[@]}" > /dev/null 2>&1
-finish "=> Formulae have been installed."
+echo -e "=> Installing formulae..."
+brew install --quiet "${formulae[@]}"
+echo -e "=> Formulae have been installed."
 {{ end }}
+
+echo -e "=> Installing Visual Studio Code extensions..."
+vscode_packages=(
+  # Themes
+  dracula-theme.theme-dracula
+  PKief.material-icon-theme
+)
