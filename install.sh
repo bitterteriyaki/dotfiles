@@ -54,7 +54,7 @@ install_git() {
     if [[ "$OSTYPE" == "darwin"* ]]; then
       brew install git > /dev/null 2>&1
     elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-      yay -S --needed --noconfirm git > /dev/null 2>&1
+      sudo pacman -S --needed --noconfirm git > /dev/null 2>&1
     fi
     finish "=> Git has been installed."
   else
