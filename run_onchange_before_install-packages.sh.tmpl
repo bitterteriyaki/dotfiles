@@ -51,6 +51,7 @@ packages=(
   visual-studio-code-bin
   # Utilities:
   openssh
+  docker
 )
 
 start "=> Installing packages..."
@@ -76,10 +77,20 @@ casks=(
   spotify
   visual-studio-code
   # Utilities:
-  openssh
+  docker
 )
 
 start "=> Installing casks..."
 brew install --cask --quiet "${casks[@]}" > /dev/null 2>&1
 finish "=> Casks have been installed."
+
+formulae=(
+  # Utilities:
+  openssh
+)
+
+start "=> Installing formulae..."
+brew install --quiet "${formulae[@]}" > /dev/null 2>&1
+finish "=> Formulae have been installed."
+
 {{ end }}
