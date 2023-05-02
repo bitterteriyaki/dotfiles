@@ -83,7 +83,6 @@ brew install --quiet "${formulae[@]}"
 echo -e "=> Formulae have been installed."
 {{ end }}
 
-echo -e "=> Installing Visual Studio Code extensions..."
 vscode_packages=(
   # Themes
   dracula-theme.theme-dracula
@@ -92,3 +91,10 @@ vscode_packages=(
   GitHub.copilot
   WakaTime.vscode-wakatime
 )
+
+
+echo -e "=> Installing Visual Studio Code extensions..."
+for vscode_package in "${vscode_packages[@]}"; do
+  code --install-extension "$vscode_package" --force
+done
+echo -e "=> Visual Studio Code extensions have been installed."
