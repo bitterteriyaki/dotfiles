@@ -21,22 +21,6 @@
 # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-###########
-# Helpers #
-###########
-
-start() {
-  echo -n "$1"
-}
-
-finish() {
-  if [[ "$OSTYPE" == "darwin"* ]]; then
-    echo -e "\r$1"
-  elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    echo -e "\r\e[K$1"
-  fi
-}
-
 #############
 # Variables #
 #############
@@ -50,34 +34,35 @@ OMZ_URL="https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 install_git() {
   if ! command -v git &> /dev/null; then
-    start "=> Installing Git..."
+    echo -e "=> Installing Git..."
+    
     if [[ "$OSTYPE" == "darwin"* ]]; then
-      brew install git > /dev/null 2>&1
+      brew install git
     elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-      sudo pacman -S --needed --noconfirm git > /dev/null 2>&1
+      sudo pacman -S --needed --noconfirm git
     fi
-    finish "=> Git has been installed."
+    echo -e "=> Git has been installed."
   else
-    echo "=> Git is already installed."
+    echo -e "=> Git is already installed."
   fi
 }
 
 install_homebrew() {
   if ! command -v brew &> /dev/null; then
-    start "=> Installing Homebrew..."
+    echo -e "=> Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL $HB_URL)"
-    finish "=> Homebrew has been installed."
+    echo -e "=> Homebrew has been installed."
   else
-    echo "=> Homebrew is already installed."
+    echo -e "=> Homebrew is already installed."
   fi
 }
 
 install_yay() {
   if ! command -v yay &> /dev/null; then
-    start "=> Installing Yay..."
-    git clone https://aur.archlinux.org/yay.git /tmp/yay > /dev/null 2>&1
-    (cd /tmp/yay && makepkg -sirc --noconfirm > /dev/null 2>&1)
-    finish "=> Yay has been installed."
+    echo -e "=> Installing Yay..."
+    git clone https://aur.archlinux.org/yay.git /tmp/yay
+    (cd /tmp/yay && makepkg -sirc --noconfirm)
+    echo -e "=> Yay has been installed."
   else
     echo "=> Yay is already installed."
   fi
@@ -92,22 +77,22 @@ install_package_manager() {
 }
 
 install_dependencies() {
-  start "=> Installing dependencies..."
+  echo -e "=> Installing dependencies..."
 
   if [[ "$OSTYPE" == "darwin"* ]]; then
-    brew install chezmoi bitwarden-cli > /dev/null 2>&1
+    brew install chezmoi bitwarden-cli
   elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    yay -S --needed --noconfirm chezmoi bitwarden-cli zsh > /dev/null 2>&1
+    yay -S --needed --noconfirm chezmoi bitwarden-cli zsh
   fi
 
-  finish "=> Dependencies have been installed."
+  echo -e "=> Dependencies have been installed."
 }
 
 install_omz() {
   if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
-    start "=> Installing Oh My Zsh..."
-    /bin/bash -c "$(curl -fsSL $OMZ_URL)" > /dev/null 2>&1
-    finish "=> Oh My Zsh has been installed."
+    echo -e "=> Installing Oh My Zsh..."
+    /bin/bash -c "$(curl -fsSL $OMZ_URL)" "" --unattended
+    echo -e "=> Oh My Zsh has been installed."
   else
     echo "=> Oh My Zsh is already installed."
   fi
