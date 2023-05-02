@@ -1,5 +1,18 @@
 # `dotfiles/bitterteriyaki`
 
+## Bitwarden Vault
+
+I use Bitwarden to store my passwords and other sensitive information. This
+guide assumes that you have a Bitwarden account and that you have the
+following items in your vault:
+
+- `public_ssh`: your public SSH key
+- `private_ssh`: your private SSH key
+- `public_gpg`: your public GPG key
+- `private_gpg`: your private GPG key
+
+You can put these items in any folder you want.
+
 ## Installing
 
 This guide assumes that you are using Arch Linux **or** macOS Big Sur. If you
