@@ -2,9 +2,9 @@
 
 ## Bitwarden Vault
 
-I use Bitwarden to store my passwords and other sensitive information. This
-guide assumes that you have a Bitwarden account and that you have the
-following items in your vault:
+I use [Bitwarden](https://bitwarden.com/) to store my passwords and other
+sensitive information. This guide assumes that you have a Bitwarden account
+and that you have the following items in your vault:
 
 - `public_ssh`: your public SSH key
 - `private_ssh`: your private SSH key
