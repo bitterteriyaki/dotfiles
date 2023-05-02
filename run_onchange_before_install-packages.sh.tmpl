@@ -26,15 +26,13 @@
 #######################
 {{ if eq .chezmoi.os "linux" }}
 packages=(
-  # Fonts:
   ttf-jetbrains-mono-nerd
-  # Essentials:
   discord
   google-chrome
   spotify
   visual-studio-code-bin
-  # Utilities:
   openssh
+  gnupg
   docker
   bat
   exa
@@ -55,14 +53,11 @@ done
 echo -e "=> Repositories have been tapped."
 
 casks=(
-  # Fonts:
   font-jetbrains-mono-nerd-font
-  # Essentials:
   discord
   google-chrome
   spotify
   visual-studio-code
-  # Utilities:
   docker
 )
 
@@ -71,9 +66,8 @@ brew install --cask --quiet "${casks[@]}"
 echo -e "=> Casks have been installed."
 
 formulae=(
-  # Essentials:
   openssh
-  # Utilities:
+  gnupg
   bat
   exa
 )
@@ -91,7 +85,6 @@ vscode_packages=(
   GitHub.copilot
   WakaTime.vscode-wakatime
 )
-
 
 echo -e "=> Installing Visual Studio Code extensions..."
 for vscode_package in "${vscode_packages[@]}"; do
