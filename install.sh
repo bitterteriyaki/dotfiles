@@ -48,6 +48,20 @@ OMZ_URL="https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.
 # Installation scripts #
 ########################
 
+install_git() {
+  if ! command -v git &> /dev/null; then
+    start "=> Installing Git..."
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+      brew install git > /dev/null 2>&1
+    elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+      yay -S --needed --noconfirm git > /dev/null 2>&1
+    fi
+    finish "=> Git has been installed."
+  else
+    echo "=> Git is already installed."
+  fi
+}
+
 install_homebrew() {
   if ! command -v brew &> /dev/null; then
     start "=> Installing Homebrew..."
@@ -83,7 +97,7 @@ install_dependencies() {
   if [[ "$OSTYPE" == "darwin"* ]]; then
     brew install chezmoi bitwarden-cli > /dev/null 2>&1
   elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    yay -S --needed --noconfirm git chezmoi bitwarden-cli zsh > /dev/null 2>&1
+    yay -S --needed --noconfirm chezmoi bitwarden-cli zsh > /dev/null 2>&1
   fi
 
   finish "=> Dependencies have been installed."
@@ -119,6 +133,7 @@ setup() {
   echo -e "=> This script will setup kyomi's dotfiles on your system."
   read -n 1 -r -s -p $'=> Press any key to continue or Ctrl+C to abort...\n'
 
+  install_git
   install_package_manager
   install_dependencies
   install_omz
