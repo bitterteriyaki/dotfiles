@@ -35,7 +35,7 @@ OMZ_URL="https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.
 install_git() {
   if ! command -v git &> /dev/null; then
     echo -e "=> Installing Git..."
-    
+
     if [[ "$OSTYPE" == "darwin"* ]]; then
       brew install git
     elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
