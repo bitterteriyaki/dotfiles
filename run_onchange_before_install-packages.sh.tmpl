@@ -52,6 +52,8 @@ packages=(
   # Utilities:
   openssh
   docker
+  bat
+  exa
 )
 
 start "=> Installing packages..."
@@ -85,12 +87,14 @@ brew install --cask --quiet "${casks[@]}" > /dev/null 2>&1
 finish "=> Casks have been installed."
 
 formulae=(
-  # Utilities:
+  # Essentials:
   openssh
+  # Utilities:
+  bat
+  exa
 )
 
 start "=> Installing formulae..."
 brew install --quiet "${formulae[@]}" > /dev/null 2>&1
 finish "=> Formulae have been installed."
-
 {{ end }}
