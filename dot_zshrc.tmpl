@@ -1,0 +1,106 @@
+# Copyright (c) 2022-2023 kyomi
+#
+# Permission is hereby granted, free of charge, to any person obtaining
+# a copy of this software and associated documentation files (the
+# "Software"), to deal in the Software without restriction, including
+# without limitation the rights to use, copy, modify, merge, publish,
+# distribute, sublicense, and/or sell copies of the Software, and to
+# permit persons to whom the Software is furnished to do so, subject to
+# the following conditions:
+#
+# The above copyright notice and this permission notice shall be
+# included in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+# NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+# LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+# OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+# WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+##########################
+# Environment Variables #
+##########################
+
+export ZSH="$HOME/.oh-my-zsh"
+export GPG_TTY=$(tty)
+
+########
+# Path #
+########
+
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+
+###########
+# Theming #
+###########
+
+ZSH_THEME="spaceship"
+
+SPACESHIP_PROMPT_ADD_NEWLINE=false
+SPACESHIP_PROMPT_ORDER=(
+  dir
+  git
+  package
+  node
+  ruby
+  elixir
+  php
+  rust
+  venv
+  python
+  golang
+  java
+  kotlin
+  scala
+  docker
+  docker_compose
+  exec_time
+  line_sep
+  jobs
+  exit_code
+  char
+)
+SPACESHIP_CHAR_SYMBOL="󰁔"
+SPACESHIP_CHAR_SUFFIX=" "
+SPACESHIP_GIT_BRANCH_COLOR=magenta
+SPACESHIP_GIT_STATUS_COLOR=magenta
+
+######################
+# Oh My Zsh settings #
+######################
+
+zstyle ':omz:update' mode auto
+zstyle ':omz:update' frequency 14
+
+plugins=(
+  git
+  python
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
+
+###########
+# Scripts #
+###########
+
+source $ZSH/oh-my-zsh.sh
+
+{{- if eq .chezmoi.os "linux" }}
+source /opt/asdf-vm/asdf.sh
+{{- else if eq .chezmoi.os "darwin" }}
+source /usr/local/opt/asdf/libexec/asdf.sh
+
+HB_CNF_HANDLER="$(brew --repository)/Library/Taps/homebrew/homebrew-command-not-found/handler.sh"
+if [ -f "$HB_CNF_HANDLER" ]; then
+  source "$HB_CNF_HANDLER";
+fi
+{{- end }}
+
+###########
+# Aliases #
+###########
+
+alias ls="exa --icons"
+alias cat="bat --theme Dracula"

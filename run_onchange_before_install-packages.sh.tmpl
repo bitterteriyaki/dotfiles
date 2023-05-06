@@ -46,6 +46,7 @@ echo -e "=> Packages have been installed."
 {{ else if eq .chezmoi.os "darwin" }}
 taps=(
   homebrew/cask-fonts
+  homebrew/command-not-found
 )
 
 echo -e "=> Tapping repositories..."
