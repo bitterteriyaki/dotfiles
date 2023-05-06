@@ -23,8 +23,8 @@ To install the dotfiles, you need to have [Chezmoi](https://chezmoi.io/)
 installed in your system. Check the documentation for instructions on how to
 install it.
 
-Once you have Chezmoi installed, run the `install.sh` script to setup some
-dependencies:
+Once you have Chezmoi installed, run the `install.sh` script to setup the
+dependencies and install the dotfiles:
 
 ```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/bitterteriyaki/dotfiles/HEAD/install.sh)"
