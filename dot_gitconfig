@@ -1,0 +1,16 @@
+[user]
+name = "kyomi"
+email = "me@kyomi.codes"
+signingkey = "9651D23DB81598DB"
+
+[init]
+defaultBranch = "main"
+
+[commit]
+gpgsign = true
+
+[tag]
+gpgsign = true
+
+[fetch]
+prune = true
