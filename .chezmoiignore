@@ -5,3 +5,9 @@ LICENSE
 pyproject.toml
 poetry.lock
 install.sh
+
+{{- if ne .chezmoi.os "linux" -}}
+.config/Code/User/settings.json
+{{- else if ne .chezmoi.os "darwin" -}}
+Library/Application Support/Code/User/settings.json
+{{- end -}}
