@@ -11,7 +11,6 @@
   "editor.fontLigatures": true,
   "editor.inlineSuggest.enabled": true,
   "editor.smoothScrolling": true,
-  
 
   // Workbench related settings
   "workbench.colorTheme": "Dracula",
@@ -26,5 +25,22 @@
   "[dockerfile][shellscript][json][jsonc]": {
     "editor.tabSize": 2,
     "editor.rulers": [79]
-  }
+  },
+
+  "[python]": {
+    "editor.tabSize": 4,
+    "editor.rulers": [72, 79],
+    "editor.formatOnType": true
+  },
+
+  // Python extension related settings
+  "python.formatting.provider": "black",
+  "python.linting.mypyEnabled": true,
+  "python.linting.mypyArgs": [
+    "--follow-imports=silent",
+    "--ignore-missing-imports",
+    "--show-column-numbers",
+    "--no-pretty",
+    "--scrict"
+  ]
 }
