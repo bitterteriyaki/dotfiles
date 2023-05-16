@@ -1,0 +1,7 @@
+{
+  // Files related settings
+  "files.autoSave": "afterDelay",
+  
+  // Editor related settings
+  "editor.accessibilitySupport": "off"
+}
