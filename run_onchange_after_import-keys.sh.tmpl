@@ -26,6 +26,7 @@
 ########
 
 echo -e "=> Importing GPG keys..."
+export GPG_TTY=$(tty)
 echo "{{ (bitwarden "item" "gpg_private").notes }}" | gpg --import -
 echo "{{ (bitwarden "item" "gpg_public").notes }}" | gpg --import -
 echo -e "=> GPG keys successfully imported."
