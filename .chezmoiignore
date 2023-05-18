@@ -8,4 +8,5 @@ install.sh
 Library/
 {{ else if ne .chezmoi.os "linux" }}
 .config/Code/
+.XCompose
 {{ end }}
