@@ -98,18 +98,6 @@ install_omz() {
   fi
 }
 
-unlock_bitwarden_vault() {
-  bw login --check > /dev/null 2>&1
-
-  if [ $? -eq 0 ]; then
-    export BW_SESSION=$(bw unlock --raw)
-  else
-    export BW_SESSION=$(bw login --raw)
-  fi
-
-  echo "=> Bitwarden vault has been unlocked."
-}
-
 ###############
 # Main script #
 ###############
@@ -122,7 +110,6 @@ setup() {
   install_package_manager
   install_dependencies
   install_omz
-  unlock_bitwarden_vault
 
   chezmoi init bitterteriyaki --apply
 }
