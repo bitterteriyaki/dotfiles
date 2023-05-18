@@ -1,7 +1,4 @@
 {
-  // Files related settings
-  "files.autoSave": "afterDelay",
-
   // Editor related settings
   "editor.accessibilitySupport": "off",
   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
@@ -9,14 +6,31 @@
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true,
+  "editor.guides.bracketPairs": true,
   "editor.inlineSuggest.enabled": true,
+  "editor.minimap.autohide": true,
+  "editor.minimap.renderCharacters": false,
   "editor.smoothScrolling": true,
+  "editor.suggestSelection": "recentlyUsedByPrefix",
 
   // Workbench related settings
   "workbench.colorTheme": "Dracula",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.list.smoothScrolling": true,
   "workbench.startupEditor": "none",
+
+  // Files related settings
+  "files.autoSave": "afterDelay",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+
+  // Explorer related settings
+  "explorer.compactFolders": false,
+
+  // Telemetry related settings
+  "telemetry.telemetryLevel": "off",
 
   // Extensions related settings
   "extensions.ignoreRecommendations": true,
@@ -29,8 +43,7 @@
 
   "[python]": {
     "editor.tabSize": 4,
-    "editor.rulers": [72, 79],
-    "editor.formatOnType": true
+    "editor.rulers": [72, 79]
   },
 
   // Python extension related settings
@@ -42,8 +55,5 @@
     "--show-column-numbers",
     "--no-pretty",
     "--scrict"
-  ],
-
-  // Telemetry related settings
-  "telemetry.telemetryLevel": "off"
+  ]
 }
