@@ -1,7 +1,7 @@
 {
   // Files related settings
   "files.autoSave": "afterDelay",
-  
+
   // Editor related settings
   "editor.accessibilitySupport": "off",
   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
@@ -42,5 +42,8 @@
     "--show-column-numbers",
     "--no-pretty",
     "--scrict"
-  ]
+  ],
+
+  // Telemetry related settings
+  "telemetry.telemetryLevel": "off"
 }
