@@ -41,6 +41,7 @@ You can install the Git hooks by running the following commands:
 ```sh
 poetry install
 poetry run pre-commit install
+poetry run pre-commit install --hook-type commit-msg
 ```
 
 And that's it! Now, whenever you commit a change, the hooks will run and
