@@ -46,6 +46,11 @@
     "editor.rulers": [72, 79]
   },
 
+  "[markdown]": {
+    "editor.tabSize": 4,
+    "editor.rulers": [79]
+  },
+
   // Python extension related settings
   "python.formatting.provider": "black",
   "python.linting.mypyEnabled": true,
