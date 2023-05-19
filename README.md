@@ -10,6 +10,7 @@ and that you have the following items in your vault:
 - `private_ssh`: your private SSH key
 - `public_gpg`: your public GPG key
 - `private_gpg`: your private GPG key
+- `wakatime_key`: a [WakaTime](https://wakatime.com/) API key
 
 You can put these items in any folder you want.
 
