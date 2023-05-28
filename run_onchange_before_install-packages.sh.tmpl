@@ -24,33 +24,49 @@
 #######################
 # Installing packages #
 #######################
-{{ if eq .chezmoi.os "linux" }}
+
+{{- if eq .chezmoi.os "linux" }}
+
 packages=(
+  # Fonts:
+  noto-fonts-emoji
   ttf-jetbrains-mono-nerd
+  $(yay -Ssq adobe-source-han-sans)
+  # Applications:
   discord
-  google-chrome
   spotify
+  flameshot
+  google-chrome
   visual-studio-code-bin
+  # Utilities
   openssh
   gnupg
-  docker
-  bat
-  exa
-  asdf-vm
-  gitflow-avh
   xclip
   unzip
-  flameshot
-  libappindicator-gtk3
-  noto-fonts-emoji
-  $(yay -Ssq adobe-source-han-sans)
+  # CLI Tools
+  bat
+  exa
+  # Widget Toolkits
   tk
+  libappindicator-gtk3
+  # Programming
+  docker
+  asdf-vm
+  gitflow-avh
+  # Ricing
+  eww
+  picom
+  bspwm
+  sxhkd
+  # Other stuff
+  xdg-user-dirs
 )
 
 echo -e "=> Installing packages..."
 yay -S --needed --noconfirm "${packages[@]}"
 echo -e "=> Packages have been installed."
-{{ else if eq .chezmoi.os "darwin" }}
+{{- else if eq .chezmoi.os "darwin" }}
+
 taps=(
   homebrew/cask-fonts
   homebrew/command-not-found
@@ -88,7 +104,8 @@ formulae=(
 echo -e "=> Installing formulae..."
 brew install --quiet "${formulae[@]}"
 echo -e "=> Formulae have been installed."
-{{ end }}
+
+{{- end }}
 
 vscode_packages=(
   # Theming
