@@ -24,10 +24,10 @@ picom -b
 eww daemon
 eww open bar
 
-code &
-discord &
-spotify &
-google-chrome-stable &
+pgrep -x code > /dev/null || code &
+pgrep -x Discord > /dev/null || discord &
+pgrep -x spotify > /dev/null || spotify &
+pgrep -x chrome > /dev/null || google-chrome-stable &
 
 xinput --set-prop 'pointer:Logitech G Pro ' 'libinput Accel Speed' -0.75
 xinput --set-prop 'pointer:Logitech G Pro ' 'libinput Accel Profile Enabled' 0, 1
