@@ -1,13 +1,19 @@
-#!/bin/sh
+#!/bin/bash
 
-pgrep -x sxhkd > /dev/null || sxhkd &
-
-xrandr --output DVI-D-0 --mode 1360x768 --pos 1920x312 --rotate normal --output HDMI-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal --rate 144.0
+#
+# Wallpaper
+#
 feh --no-fehbg --bg-scale --no-xinerama '/home/kyomi/Pictures/wallpaper.png'
 
+#
+# Monitors
+#
 bspc monitor HDMI-0 -d 1 3 5
 bspc monitor DVI-D-0 -d 2 4 6
 
+#
+# Configuration
+#
 bspc config border_width 1
 bspc config window_gap 12
 
@@ -15,19 +21,30 @@ bspc config split_ratio 0
 bspc config borderless_monocle true
 bspc config gapless_monocle true
 
+#
+# Window rules
+#
 bspc rule -a Code desktop='^1'
 bspc rule -a Google-chrome desktop='^2'
 bspc rule -a discord desktop='^3'
 bspc rule -a Spotify desktop='^4'
 
+#
+# X Compositor
+#
 picom -b
+
+#
+# Bar and widgets
+#
 eww daemon
 eww open bar
 
+#
+# Programs
+#
+pgrep -x sxhkd > /dev/null || sxhkd &
 pgrep -x code > /dev/null || code &
 pgrep -x Discord > /dev/null || discord &
 pgrep -x spotify > /dev/null || spotify &
 pgrep -x chrome > /dev/null || google-chrome-stable &
-
-xinput --set-prop 'pointer:Logitech G Pro ' 'libinput Accel Speed' -0.75
-xinput --set-prop 'pointer:Logitech G Pro ' 'libinput Accel Profile Enabled' 0, 1
