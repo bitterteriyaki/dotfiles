@@ -1,0 +1,29 @@
+(include "yuck/widgets/clock.yuck")
+
+;;
+;; Modules
+;;
+(defwidget left []
+  (box
+    :halign "start"
+    "left"
+  )
+)
+
+(defwidget right []
+  (box
+    :halign "end"
+    (clock)
+  )
+)
+
+;;
+;; Main bar widget
+;;
+(defwidget bar []
+  (box
+    :class "bar"
+    (left)
+    (right)
+  )
+)

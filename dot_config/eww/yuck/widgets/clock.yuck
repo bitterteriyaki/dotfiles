@@ -1,0 +1,15 @@
+(include "yuck/widgets/sep.yuck")
+
+;;
+;; Widget
+;;
+(defwidget clock []
+  (box
+    :class "clock"
+    :space-evenly false
+    :spacing 5
+    (label :text "${time.hour}")
+    (sep :size "1.4")
+    (label :text "${time.min}")
+  )
+)

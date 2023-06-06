@@ -38,7 +38,7 @@ picom -b
 # Bar and widgets
 #
 eww daemon
-eww open bar
+eww open main
 
 #
 # Programs
