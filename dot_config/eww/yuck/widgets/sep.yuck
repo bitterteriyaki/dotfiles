@@ -2,5 +2,5 @@
 ;; Widget
 ;;
 (defwidget sep [size]
-  (label :text "┇" :style "font-size: ${size}rem; margin-bottom: 4px")
+  (label :text "┇" :style "font-size: ${size}rem;")
 )

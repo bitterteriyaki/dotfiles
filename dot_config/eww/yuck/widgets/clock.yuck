@@ -9,7 +9,7 @@
     :space-evenly false
     :spacing 5
     (label :text "${time.hour}")
-    (sep :size "1.4")
+    (sep :size "1")
     (label :text "${time.min}")
   )
 )
