@@ -11,6 +11,7 @@ and that you have the following items in your vault:
 - `public_gpg`: your public GPG key
 - `private_gpg`: your private GPG key
 - `wakatime_key`: a [WakaTime](https://wakatime.com/) API key
+- `openweather_api_key`: a [OpenWeather](https://openweathermap.org/) API key
 
 You can put these items in any folder you want.
 
