@@ -1,0 +1,23 @@
+/*
+ * Weather
+**/
+.weather {
+  background-color: $secondary;
+  border-radius: $border-radius;
+  padding: 10px 15px;
+}
+
+.temperature label:first-child {
+  font-weight: bold;
+  font-size: 1.35rem;
+}
+
+.temperature label:last-child {
+  color: $foreground;
+}
+
+.temperature-icon label {
+  font-family: 'Font Awesome 6 Brands';
+  font-size: 1.75rem;
+  padding-right: 7px;
+}

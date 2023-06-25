@@ -1,0 +1,30 @@
+;;
+;; Widget
+;;
+(defwidget temperature []
+  (box
+    :orientation "v"
+    :space-evenly false
+    :spacing 2
+    :class "temperature"
+    (label :halign "start" :text "${weather.data.weather[0].main}")
+    (label :halign "start" :text "${round(weather.data.main.temp, 0)}°C")
+  )
+)
+
+(defwidget icon []
+  (box
+    :halign "end"
+    :valign "end"
+    :class "temperature-icon"
+    (label :text "${weather.icon}" :style "color: ${weather.color};")
+  )
+)
+
+(defwidget weather []
+  (box
+    :class "weather"
+    (temperature)
+    (icon)
+  )
+)

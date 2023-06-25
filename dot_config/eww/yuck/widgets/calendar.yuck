@@ -1,0 +1,16 @@
+;;
+;; Widget
+;;
+(defwidget cal []
+  (box
+    :class "calendar-container"
+    (calendar
+      :class "calendar"
+      :show-details false
+      :show-heading false
+      :day "${time.day_num}"
+      :month "${time.month_num}"
+      :year "${time.year}"
+    )
+  )
+)

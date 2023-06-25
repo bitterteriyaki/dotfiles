@@ -4,12 +4,19 @@
 ;; Widget
 ;;
 (defwidget clock []
-  (box
+  (eventbox
     :class "clock"
-    :space-evenly false
-    :spacing 5
-    (label :text "${time.hour}")
-    (sep :size "1")
-    (label :text "${time.min}")
+    :onclick "
+      eww update is_ctx_revealed=${is_ctx_revealed ? false : true} \
+      && eww ${is_ctx_revealed ? 'close' : 'open'} context
+    "
+    (box
+      :class "clock-container"
+      :spacing 2
+      :space-evenly false
+      (label :text "${time.hour}")
+      (sep :text "󰇙" :size "1.6")
+      (label :text "${time.min}")
+    )
   )
 )

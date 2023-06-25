@@ -1,0 +1,12 @@
+;;
+;; Widget
+;;
+(defwidget time []
+  (box
+    :class "time"
+    :orientation "v"
+    :space-evenly false
+    (label :text "${time.pretty}")
+    (label :text "${time.day}")
+  )
+)

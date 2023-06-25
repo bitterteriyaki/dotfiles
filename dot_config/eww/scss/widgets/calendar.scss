@@ -1,0 +1,28 @@
+/*
+ * Calendar
+**/
+.calendar {
+  padding: 3px 0;
+  color: $foreground;
+
+  &:selected {
+    color: white;
+    font-weight: bold;
+  }
+
+  &:indeterminate {
+    color: $drop-border;
+
+  }
+}
+
+.calendar.highlight {
+  color: white;
+  font-weight: bold;
+}
+
+.calendar-container {
+  background-color: $secondary;
+  border-radius: $border-radius;
+  padding: 15px 10px 10px;
+}

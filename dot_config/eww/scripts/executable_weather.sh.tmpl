@@ -1,0 +1,67 @@
+#!/bin/bash
+
+# You will need an API Key from OpenWeather (you can get one for free).
+api_key="{{ (bitwarden "item" "openweather_api_key").notes }}"
+
+# Coordenates for my city (Brasília, Brazil).
+lat="-15.7934036"
+lon="-47.8823172"
+unit="metric"
+
+url="http://api.openweathermap.org/data/2.5/weather?appid=$api_key&lat=$lat&lon=$lon&units=$unit"
+
+weather=$(curl -sf $url)
+weather_icon=$(echo "$weather" | jq -r ".weather[].icon" | head -1)
+
+case $weather_icon in
+  "01d")
+    icon=""
+    color="#C6A679"
+    ;;
+  "01n")
+    icon=""
+    color="#9EC3C4"
+    ;;
+  "02d")
+    icon=""
+    color="#CEB188"
+    ;;
+  "02n")
+    icon=""
+    color="#ADADFF"
+    ;;
+  "03d" | "03n")
+    icon=""
+    color="#CACACA"
+    ;;
+  "04d" | "04n")
+    icon=""
+    color="#4C4C4C"
+    ;;
+  "09d" | "09n")
+    icon=""
+    color="#A39EC4"
+    ;;
+  "10d")
+    icon=""
+    color="#9EC3C4"
+    ;;
+  "10n")
+    icon=""
+    color="#9EC3C4"
+    ;;
+  "11d" | "11n")
+    icon=""
+    color="#CEB188"
+    ;;
+  "13d" | "13n")
+    icon=""
+    color="#CACACA"
+    ;;
+  *)
+    icon=""
+    color="#4C4C4C"
+    ;;
+esac
+
+echo "{\"data\":$weather,\"icon\":\"$icon\",\"color\":\"$color\"}"

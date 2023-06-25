@@ -9,7 +9,11 @@
 **/
 @import "scss/widgets/sep";
 @import "scss/widgets/bar";
+@import "scss/widgets/context";
 @import "scss/widgets/clock";
+@import "scss/widgets/time";
+@import "scss/widgets/weather";
+@import "scss/widgets/calendar";
 
 // * {
 //     all: unset; //Unsets everything so you can style everything from scratch

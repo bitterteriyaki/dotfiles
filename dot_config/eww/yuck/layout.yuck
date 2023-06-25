@@ -1,7 +1,10 @@
 (include "yuck/widgets/clock.yuck")
+(include "yuck/widgets/time.yuck")
+(include "yuck/widgets/weather.yuck")
+(include "yuck/widgets/calendar.yuck")
 
 ;;
-;; Modules
+;; Main bar widget
 ;;
 (defwidget left []
   (box
@@ -17,13 +20,39 @@
   )
 )
 
-;;
-;; Main bar widget
-;;
 (defwidget bar []
   (box
     :class "bar"
     (left)
     (right)
+  )
+)
+
+;;
+;; Context dialog
+;;
+(defwidget first_container []
+  (box
+    :class "first-container"
+    :spacing 15
+    (time)
+    (weather)
+  )
+)
+
+(defwidget second_container []
+  (box
+    (cal)
+  )
+)
+
+(defwidget context_dialog []
+  (box
+    :class "ctx-container"
+    :space-evenly false
+    :spacing 10
+    :orientation "v"
+    (first_container)
+    (second_container)
   )
 )

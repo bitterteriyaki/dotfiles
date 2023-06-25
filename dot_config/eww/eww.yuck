@@ -11,9 +11,25 @@
   :geometry (geometry
     :x "0%"
     :y "8px"
-    :width "95%"
+    :width "1895px"
     :height "40px"
     :anchor "top center"
   )
   (bar)
+)
+
+;;
+;; Context window
+;;
+(defwindow context
+  :monitor 0
+  :windowtype "dialog"
+  :wm-ignore true
+  :geometry (geometry
+    :x "1495px"
+    :y "70px"
+    :width "400px"
+    :height "400px"
+  )
+  (context_dialog)
 )
