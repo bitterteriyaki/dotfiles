@@ -4,4 +4,6 @@
 .bar {
   background-color: $background;
   border-radius: $border-radius;
+  padding: 4px;
+  border: 1px $secondary solid;
 }

@@ -12,7 +12,7 @@
     :x "0%"
     :y "8px"
     :width "1895px"
-    :height "40px"
+    :height "35px"
     :anchor "top center"
   )
   (bar)
