@@ -1,6 +1,11 @@
 #!/bin/bash
 
 #
+# Variables
+#
+network_name=$(nmcli -c no -t -f NAME connection show --active | head -n 1)
+
+#
 # Wallpaper
 #
 feh --no-fehbg --bg-scale --no-xinerama '/home/kyomi/Pictures/wallpaper.png'
@@ -42,7 +47,9 @@ picom -b
 #
 eww daemon
 eww open main
+
 eww update current_volume=$(pamixer --get-volume)
+eww update network_name="$network_name"
 
 #
 # Programs

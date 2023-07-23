@@ -2,7 +2,7 @@
  * Controllers
 **/
 .controllers {
-  padding: 1px 8px 0 6px;
+  padding: 1px 8px 0;
   border-radius: $border-radius;
   background-color: $secondary;
 }
@@ -13,24 +13,24 @@
 }
 
 /*
- * Music Slider
+ * Volume Slider
 **/
-.music-slider {
+.volume-slider {
   padding: 0 3px 0 6px;
 }
 
-.music-slider trough {
+.volume-slider trough {
   min-width: 100px;
   border-radius: $border-radius;
   background-color: $drop-border;
 }
 
-.music-slider highlight {
+.volume-slider highlight {
   background-color: white;
   border-radius: $border-radius;
 }
 
-.music-slider slider {
+.volume-slider slider {
   background-color: white;
   border-radius: $border-radius;
   min-width: 6px;
