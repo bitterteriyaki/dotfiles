@@ -1,0 +1,39 @@
+/*
+ * Controllers
+**/
+.controllers {
+  padding: 1px 8px 0 6px;
+  border-radius: $border-radius;
+  background-color: $secondary;
+}
+
+.controllers * label {
+  font-size: 1.5rem;
+  padding: 0 5px;
+}
+
+/*
+ * Music Slider
+**/
+.music-slider {
+  padding: 0 3px 0 6px;
+}
+
+.music-slider trough {
+  min-width: 100px;
+  border-radius: $border-radius;
+  background-color: $drop-border;
+}
+
+.music-slider highlight {
+  background-color: white;
+  border-radius: $border-radius;
+}
+
+.music-slider slider {
+  background-color: white;
+  border-radius: $border-radius;
+  min-width: 6px;
+  min-height: 6px;
+  background-image: none;
+}

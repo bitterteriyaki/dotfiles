@@ -2,6 +2,7 @@
 (include "yuck/widgets/time.yuck")
 (include "yuck/widgets/weather.yuck")
 (include "yuck/widgets/calendar.yuck")
+(include "yuck/widgets/controllers.yuck")
 
 ;;
 ;; Main bar widget
@@ -16,6 +17,9 @@
 (defwidget right []
   (box
     :halign "end"
+    :space-evenly false
+    :spacing 5
+    (controllers)
     (clock)
   )
 )

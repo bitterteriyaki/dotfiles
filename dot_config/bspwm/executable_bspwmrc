@@ -42,6 +42,7 @@ picom -b
 #
 eww daemon
 eww open main
+eww update current_volume=$(pamixer --get-volume)
 
 #
 # Programs
