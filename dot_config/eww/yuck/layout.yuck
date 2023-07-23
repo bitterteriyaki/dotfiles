@@ -38,7 +38,7 @@
 (defwidget first_container []
   (box
     :class "first-container"
-    :spacing 15
+    :spacing 8
     (time)
     (weather)
   )
@@ -55,7 +55,6 @@
   (box
     :class "ctx-container"
     :space-evenly false
-    :spacing 6
     :orientation "v"
     (first_container)
     (second_container)
