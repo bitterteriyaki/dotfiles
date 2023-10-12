@@ -1,0 +1,13 @@
+###########################
+#  Environment variables  #
+###########################
+
+export ZSH="$HOME/.oh-my-zsh"
+export GPG_TTY=$(tty)
+
+#############
+#  Scripts  #
+#############
+
+source $ZSH/oh-my-zsh.sh
+
