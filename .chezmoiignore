@@ -1,12 +1,4 @@
 README.md
 LICENSE
-pyproject.toml
-poetry.lock
 install.sh
 
-{{ if ne .chezmoi.os "darwin" }}
-Library/
-{{ else if ne .chezmoi.os "linux" }}
-.config/
-.XCompose
-{{ end }}

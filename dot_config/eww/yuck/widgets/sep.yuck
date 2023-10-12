@@ -1,6 +1,0 @@
-;;
-;; Widget
-;;
-(defwidget sep [text size]
-  (label :text "${text}" :style "font-size: ${size}rem;")
-)
