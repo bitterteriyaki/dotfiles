@@ -1,0 +1,35 @@
+#!/bin/bash
+
+######################
+#  Install packages  #
+######################
+
+{{- if eq .chezmoi.os "linux" }}
+
+packages=(
+  # Applications:
+  discord
+  google-chrome
+  spotify
+  flameshot
+  # Fonts:
+  noto-fonts-emoji
+  ttf-jetbrains-mono-nerd
+  ttf-dejavu
+  $(yay -Ssq adobe-source-han-sans)
+  # Tools:
+  openssh
+  gnupg
+  gnome-keyring
+  # System and ricing:
+  bspwm
+  sxhkd
+  # Other:
+  xdg-user-dirs
+)
+
+echo -e "=> Installing packages..."
+yay -S --needed --noconfirm "${packages[@]}"
+echo -e "=> Packages have been installed."
+{{- end }}
+
