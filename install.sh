@@ -14,10 +14,21 @@ configure_monitors() {
   FILE=/etc/X11/xorg.conf.d/10-monitor.conf
 
   if [ ! -f "$FILE" ]; then
-    sudo cp confs/10-monitor.conf /etc/X11/xorg.conf.d/10-monitor.conf
+    sudo cp confs/10-monitor.conf "$FILE"
     echo -e "=> Monitors configured successfully."
   else
     echo -e "=> Monitors already configured."
+  fi
+}
+
+configure_pointer() {
+  FILE=/etc/X11/xorg.conf.d/99-libinput-custom-config.conf
+
+  if [ ! -f "$FILE" ]; then
+    sudo cp confs/99-libinput-custom-config.conf "$FILE"
+    echo -e "=> Pointers configured successfully."
+  else
+    echo -e "=> Pointers already configured."
   fi
 }
 
@@ -31,6 +42,7 @@ setup() {
 
   install_git
   configure_monitors
+  configure_pointer
 }
 
 setup
