@@ -1,11 +1,15 @@
 #!/bin/bash
 
+{{- if eq .chezmoi.os "linux" }}
+
 ###############
 # Directories #
 ###############
 
 xdg-user-dirs-update
 xdg-user-dirs-update --force
+
+{{ end -}}
 
 ####################
 #  Import GPG key  #
