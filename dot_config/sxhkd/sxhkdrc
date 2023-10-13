@@ -32,5 +32,5 @@ alt + {_,shift + }{Left,Down,Up,Right}
 
 # Focus or send to the given desktop
 alt + {_,shift + }{1-9,0}
-  bspc {desktop -f,node -d} '^{1-9,10}'
+  bspc {desktop -f,node -d} '{1-9,10}'
 
