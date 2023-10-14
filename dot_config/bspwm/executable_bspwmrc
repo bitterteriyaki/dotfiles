@@ -42,6 +42,7 @@ bspc config presel_feedback_color "$color1"
 #  Customization  #
 ###################
 
+picom -b
 feh --no-fehbg --bg-scale --no-xinerama "$HOME/.config/bspwm/wallpaper.png"
 
 ##############
