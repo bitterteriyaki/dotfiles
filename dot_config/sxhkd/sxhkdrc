@@ -8,7 +8,7 @@ alt + Escape
 
 # Program launcher
 alt + d
-  dmenu_run
+  rofi -show drun
 
 ###################
 #  bspwm hotkeys  #
