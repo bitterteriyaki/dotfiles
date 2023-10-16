@@ -1,0 +1,4 @@
+(defwidget sep [text size]
+  (label :text "${text}" :style "${size}rem;")
+)
+

@@ -1,0 +1,40 @@
+(defwidget controllers []
+  (box
+    :class "controllers"
+    :space-evenly false
+    :spacing 5
+    (volume)
+  )
+)
+
+(defwidget volume []
+  (eventbox
+    :onhover "eww update reveal_volume_controller=true"
+    :onhoverlost "eww update reveal_volume_controller=false"
+    (box
+      :space-evenly false
+      (label
+	:class "volume-icon"
+        :text {
+	  current_volume == 0 ? "󰖁" :
+	  current_volume < 33 ? "󰕿" :
+	  current_volume < 66 ? "󰖀" :
+	  "󰕾"
+        }
+      )
+      (revealer
+        :reveal reveal_volume_controller
+	:transition "slideright"
+        (scale
+	  :class "volume-slider"
+	  :value current_volume
+	  :min 0
+	  :max 101
+	  :timeout "50ms"
+	  :onchange "pamixer --set-volume {} && eww update current_volume={}"
+	)
+      )
+    )
+  )
+)
+

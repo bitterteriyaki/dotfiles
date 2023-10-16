@@ -1,5 +1,12 @@
 #!/bin/bash
 
+##############
+#  GPG Keys  #
+##############
+
+curl -sS https://github.com/elkowar.gpg | gpg --import -i -
+curl -sS https://github.com/web-flow.gpg | gpg --import -i -
+
 ######################
 #  Install packages  #
 ######################
@@ -21,12 +28,15 @@ packages=(
   openssh
   gnupg
   gnome-keyring
+  jq
+  pamixer
   # System and ricing:
   bspwm
   sxhkd
   picom
   starship
   rofi
+  eww-x11
   papirus-icon-theme
   # Other:
   xdg-user-dirs

@@ -45,6 +45,11 @@ bspc config presel_feedback_color "$color1"
 picom -b
 feh --no-fehbg --bg-scale --no-xinerama "$HOME/.config/bspwm/wallpaper.png"
 
+eww daemon
+eww open main
+
+eww update current_volume=$(pamixer --get-volume)
+
 ##############
 #  Programs  #
 ##############
