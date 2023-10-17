@@ -55,6 +55,7 @@ eww update current_volume=$(pamixer --get-volume)
 ##############
 
 pgrep -x sxhkd > /dev/null || sxhkd &
+pgrep -x dunst > /dev/null || dunst &
 
 pgrep -x Discord > /dev/null || discord &
 pgrep -x spotify > /dev/null || spotify &
