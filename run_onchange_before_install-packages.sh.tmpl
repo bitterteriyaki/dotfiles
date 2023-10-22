@@ -4,8 +4,8 @@
 #  GPG Keys  #
 ##############
 
-curl -sS https://github.com/elkowar.gpg | gpg --import -i -
-curl -sS https://github.com/web-flow.gpg | gpg --import -i -
+yes y | $(curl -sS https://github.com/elkowar.gpg | gpg --import -i -)
+yes y | $(curl -sS https://github.com/web-flow.gpg | gpg --import -i -)
 
 ######################
 #  Install packages  #
@@ -30,6 +30,10 @@ packages=(
   gnome-keyring
   jq
   pamixer
+  asdf-vm
+  docker
+  docker-compose
+  postgresql-libs
   # System and ricing:
   bspwm
   sxhkd
