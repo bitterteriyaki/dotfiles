@@ -2,8 +2,21 @@
   (box
     :class "controllers"
     :space-evenly false
-    :spacing 5
+    :spacing 10
+    (network)
     (volume)
+  )
+)
+
+(defwidget network []
+  (label
+    :class "network-label"
+    :text {
+      EWW_NET['enp3s0']['NET_DOWN'] != 0
+      && EWW_NET['enp3s0']['NET_UP'] != 0
+        ? '󰖟'
+        : '󰪎'
+      }
   )
 )
 
