@@ -22,10 +22,10 @@ return {
       local ibl = require("ibl")
       local hooks = require("ibl.hooks")
 
-      local highlight = { "RainbowRed" }
+      local highlight = { "RainbowMuted" }
 
       hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-        vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#ff0000" })
+        vim.api.nvim_set_hl(0, "RainbowMuted", { fg = "#6e6a86" })
       end)
 
       ibl.setup({

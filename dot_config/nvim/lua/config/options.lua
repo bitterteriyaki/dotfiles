@@ -12,3 +12,5 @@ opt.numberwidth = 4
 opt.wrap = false
 opt.showmode = false
 opt.cmdheight = 1
+opt.background = "dark"
+opt.termguicolors = true
