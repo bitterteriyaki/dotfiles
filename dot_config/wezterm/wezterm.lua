@@ -21,7 +21,7 @@ config.window_padding = require("window_padding")
 --
 -- Color scheme
 --
-config.color_scheme = "zenwritten_dark"
+config.color_scheme = "rose-pine-moon"
 
 --
 -- Underline
