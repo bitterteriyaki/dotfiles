@@ -10,3 +10,5 @@ opt.cursorline = true
 opt.number = true
 opt.numberwidth = 4
 opt.wrap = false
+opt.showmode = false
+opt.cmdheight = 1
