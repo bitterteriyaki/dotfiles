@@ -23,4 +23,12 @@ config.window_padding = require("window_padding")
 --
 config.color_scheme = "zenwritten_dark"
 
+--
+-- Underline
+--
+config.underline_position = "-3px"
+config.underline_thickness = "2px"
+-- Reset underline for the cursor
+config.cursor_thickness = "1px"
+
 return config

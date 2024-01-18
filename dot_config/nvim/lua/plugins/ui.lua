@@ -12,4 +12,26 @@ return {
       attach_to_untracked = true,
     },
   },
+  --
+  -- Indentation guides
+  --
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    config = function()
+      local ibl = require("ibl")
+      local hooks = require("ibl.hooks")
+
+      local highlight = { "RainbowRed" }
+
+      hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+        vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#ff0000" })
+      end)
+
+      ibl.setup({
+        indent = { char = "▏" },
+        scope = { highlight = highlight },
+      })
+    end,
+  },
 }
