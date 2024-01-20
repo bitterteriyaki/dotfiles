@@ -5,4 +5,12 @@ return {
   {
     "github/copilot.vim",
   },
+  --
+  -- Autopairs
+  --
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = true,
+  },
 }
