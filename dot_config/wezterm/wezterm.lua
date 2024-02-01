@@ -18,4 +18,9 @@ config.keys = require("keys")
 --
 config.window_padding = require("window_padding")
 
+--
+-- Color scheme
+--
+config.color_scheme = "zenwritten_dark"
+
 return config
