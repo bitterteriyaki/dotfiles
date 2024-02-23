@@ -20,9 +20,6 @@ Apple MacBook.
 
 | Component           | Name                                            |
 | ------------------- | ----------------------------------------------- |
-| Compositor          | [Hyprland](https://github.com/hyprwm/Hyprland)* |
-| Display manager     | [SDDM](https://github.com/sddm/sddm)*           |
-| Terminal            | [Wezterm](https://github.com/wez/wezterm)       |
 | Shell               | [Zsh](https://github.com/zsh-users/zsh)         |
 | Editor              | [Neovim](https://github.com/neovim/neovim)      |
 
@@ -30,17 +27,8 @@ Apple MacBook.
 
 ## Todo List
 
-- [ ] Add configuration for Hyprland
-- [ ] Add configuration for Wezterm
 - [ ] Add configuration for Neovim
-- [ ] Add configuration for Rofi
-- [ ] Add configuration for Dunst
 - [ ] Add configuration for Starship
 - [ ] Maybe change shell to Fish/Elvish
-- [ ] Add a status bar with `eww`
 - [ ] Add more stuff to this README
-- [ ] Find a good CLI web browser
-- [ ] How do I screenshot on Hyprland?
-- [ ] Set a custom wallpaper
-  - [ ] Maybe use an animated wallpaper
 - [ ] Add instructions to get started with the dotfiles
