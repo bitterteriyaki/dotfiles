@@ -2,7 +2,7 @@ local opt = vim.opt
 
 if not vim.env.SSH_TTY then
   -- only set clipboard if not in ssh mode, to make sure the OSC 52 integration
-  -- works automatically.
+  -- works automatically
   opt.clipboard = "unnamedplus" -- sync with system clipboard
 end
 
@@ -14,6 +14,7 @@ opt.shiftwidth = 2 -- the number of spaces inserted for each indentation
 opt.tabstop = 2 -- nuimber of spaces for a tab
 opt.cursorline = true -- highlight the current selected line
 opt.number = true -- set numbered lines
+opt.numberwidth = 4 -- set the number column width to 4
 opt.wrap = false -- do not wrap long lines
 opt.scrolloff = 8 -- minimal number of screen lines to keep aobe and below the cursor
 opt.sidescrolloff = 8 -- minimal number of screen lines to keep left and right of the cursor
