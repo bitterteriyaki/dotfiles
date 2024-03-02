@@ -36,7 +36,7 @@ packages=(
 
 yay -S --needed --noconfirm "${packages[@]}"
 {{ else if eq .chezmoi.os "darwin" }}
-# install casks
+# Install casks
 casks=(
   discord
   google-chrome
@@ -45,6 +45,7 @@ casks=(
 
 brew install --quiet --cask "${casks[@]}"
 
+# Install formulae
 formulae=(
   git
   chezmoi
