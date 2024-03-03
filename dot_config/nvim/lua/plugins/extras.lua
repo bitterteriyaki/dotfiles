@@ -1,5 +1,5 @@
 return {
-  -- integration with wakatime
+  -- Integration with Wakatime
   {
     "wakatime/vim-wakatime",
     lazy = false,

@@ -1,5 +1,5 @@
 return {
-  -- statusline
+  -- Statusline
   {
     "nvim-lualine/lualine.nvim",
     event = "VimEnter",

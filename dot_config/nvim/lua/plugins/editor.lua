@@ -1,5 +1,5 @@
 return {
-  -- highlights texts that have changed since the last git commit, and also
+  -- Highlights texts that have changed since the last git commit, and also
   -- lets you interactively stage and unstage hunks in a commit
   {
     "lewis6991/gitsigns.nvim",
@@ -8,7 +8,7 @@ return {
       current_line_blame_formatter = "<author> (<author_time:%d/%m/%Y>) - <summary>",
     },
   },
-  -- indent guides
+  -- Indent guides
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",

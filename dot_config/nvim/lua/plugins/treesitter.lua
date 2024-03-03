@@ -1,4 +1,5 @@
 return {
+  -- Treesitter plugin
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
