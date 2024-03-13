@@ -1,6 +1,7 @@
 local wezterm = require("wezterm")
 
 return {
+  -- Open a new tab
   {
     key = "t",
     mods = "LEADER",
@@ -11,6 +12,13 @@ return {
     mods = "LEADER|SHIFT",
     action = wezterm.action.SplitHorizontal { domain = "CurrentPaneDomain" },
   },
+  -- Close the current tab
+  {
+    key = "w",
+    mods = "LEADER",
+    action = wezterm.action.CloseCurrentPane { confirm = true },
+  },
+  -- Resize the current pane
   {
     key = "h",
     mods = "CTRL|SHIFT",
@@ -30,5 +38,26 @@ return {
     key = "l",
     mods = "CTRL|SHIFT",
     action = wezterm.action.AdjustPaneSize { 'Right', 1 },
+  },
+  -- Focus the pane with a direction
+  {
+    key = "h",
+    mods = "SHIFT",
+    action = wezterm.action.ActivatePaneDirection "Left",
+  },
+  {
+    key = "j",
+    mods = "SHIFT",
+    action = wezterm.action.ActivatePaneDirection "Down",
+  },
+  {
+    key = "k",
+    mods = "SHIFT",
+    action = wezterm.action.ActivatePaneDirection "Up",
+  },
+  {
+    key = "l",
+    mods = "SHIFT",
+    action = wezterm.action.ActivatePaneDirection "Right",
   },
 }
