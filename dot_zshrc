@@ -1,19 +1,9 @@
-###########################
-#  Environment variables  #
-###########################
+# environment variables
 
 export ZSH="$HOME/.oh-my-zsh"
 export GPG_TTY=$(tty)
 
-###################
-#  Customization  #
-###################
-
-(cat ~/.cache/wal/sequences &)
-
-######################
-# Oh My Zsh settings #
-######################
+# omz settings
 
 zstyle ':omz:update' mode auto
 zstyle ':omz:update' frequency 14
@@ -21,18 +11,11 @@ zstyle ':omz:update' frequency 14
 plugins=(
   git
   python
-  zsh-autosuggestions
-  zsh-syntax-highlighting
 )
 
-#############
-#  Scripts  #
-#############
+# scripts
 
 source $ZSH/oh-my-zsh.sh
 source /opt/asdf-vm/asdf.sh
 eval "$(starship init zsh)"
-
-autoload -Uz compinit
-compinit
 

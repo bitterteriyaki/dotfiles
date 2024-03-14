@@ -1,56 +1,28 @@
-#!/bin/bash
+#!/bin/sh
 
-##############
-#  GPG Keys  #
-##############
-
-yes y | $(curl -sS https://github.com/elkowar.gpg | gpg --import -i -)
-yes y | $(curl -sS https://github.com/web-flow.gpg | gpg --import -i -)
-
-######################
-#  Install packages  #
-######################
-
-{{- if eq .chezmoi.os "linux" }}
-
+{{ if eq .chezmoi.os "linux" }}
 packages=(
   # Applications:
   discord
   google-chrome
   spotify
-  flameshot
   # Fonts:
-  noto-fonts-emoji
-  ttf-jetbrains-mono-nerd
   ttf-dejavu
+  ttf-jetbrains-mono-nerd
   $(yay -Ssq adobe-source-han-sans)
   # Tools:
+  chezmoi
+  bitwarden-cli
+  asdf-vm
   openssh
   gnupg
-  gnome-keyring
   jq
-  pamixer
-  asdf-vm
-  docker
-  docker-compose
-  postgresql-libs
-  # System and ricing:
-  bspwm
-  sxhkd
-  picom
   starship
-  rofi
-  eww-x11
-  papirus-icon-theme
-  dunst
-  # Other:
-  xdg-user-dirs
-  libinput
-  xf86-input-libinput
+  wezterm
+  # Others:
+  gnome-shell-extension-appindicator
 )
 
-echo -e "=> Installing packages..."
 yay -S --needed --noconfirm "${packages[@]}"
 echo -e "=> Packages have been installed."
-{{- end }}
-
+{{ end }}

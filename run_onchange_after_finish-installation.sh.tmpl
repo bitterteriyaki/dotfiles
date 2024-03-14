@@ -1,41 +1,9 @@
-#!/bin/bash
+#!/bin/sh
 
-{{- if eq .chezmoi.os "linux" }}
+# import gpg keys
 
-###############
-# Directories #
-###############
-
-xdg-user-dirs-update
-xdg-user-dirs-update --force
-
-{{ end -}}
-
-####################
-#  Import GPG key  #
-####################
-
-echo -e "=> Importing GPG key..."
 export GPG_TTY=$(tty)
+
 echo "{{ (bitwarden "item" "gpg_public_key").notes }}" | gpg --import -
 echo "{{ (bitwarden "item" "gpg_private_key").notes }}" | gpg --import -
-
-##########################
-#  Change default shell  #
-##########################
-
-if [ "$SHELL" != "/bin/zsh" ]; then
-  echo -e "=> Changing default shell to Zsh..."
-  chsh -s /bin/zsh "$USER"
-  echo -e "=> Default shell changed to Zsh."
-else
-  echo -e "=> Default shell is already Zsh."
-fi
-
-############
-#  Docker  #
-############
-
-sudo systemctl enable --now docker
-sudo usermod -aG docker $USER
 

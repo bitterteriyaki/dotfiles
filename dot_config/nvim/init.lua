@@ -1,5 +1,3 @@
---
--- Modules
---
+-- modules
 require("modules.bootstrap"):init()
 
