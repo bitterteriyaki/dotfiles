@@ -19,3 +19,8 @@ source $ZSH/oh-my-zsh.sh
 source /opt/asdf-vm/asdf.sh
 eval "$(starship init zsh)"
 
+# aliases
+
+alias ls="eza --icons"
+alias cat="bat"
+
