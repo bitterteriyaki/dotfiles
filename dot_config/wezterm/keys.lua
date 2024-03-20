@@ -42,22 +42,22 @@ return {
   -- Focus the pane with a direction
   {
     key = "h",
-    mods = "SHIFT",
+    mods = "CTRL",
     action = wezterm.action.ActivatePaneDirection "Left",
   },
   {
     key = "j",
-    mods = "SHIFT",
+    mods = "CTRL",
     action = wezterm.action.ActivatePaneDirection "Down",
   },
   {
     key = "k",
-    mods = "SHIFT",
+    mods = "CTRL",
     action = wezterm.action.ActivatePaneDirection "Up",
   },
   {
     key = "l",
-    mods = "SHIFT",
+    mods = "CTRL",
     action = wezterm.action.ActivatePaneDirection "Right",
   },
 }
