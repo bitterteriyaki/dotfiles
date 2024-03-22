@@ -6,15 +6,3 @@ export GPG_TTY=$(tty)
 
 echo "{{ (bitwarden "item" "gpg_public_key").notes }}" | gpg --import -
 echo "{{ (bitwarden "item" "gpg_private_key").notes }}" | gpg --import -
-
-# install vim-plug
-
-VIM_PLUG_URL="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-VIM_PLUG_DIR="$HOME/.local/share/nvim/site/autoload/plug.vim"
-
-if [ ! -f "$VIM_PLUG_DIR" ]; then
-  sh -c "curl -fLo $VIM_PLUG_DIR --create-dirs $VIM_PLUG_URL"
-fi
-
-echo -e "=> vim-plug has been installed."
-
