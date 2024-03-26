@@ -1,0 +1,25 @@
+#!/bin/sh
+
+{{ if eq .chezmoi.os "linux" }}
+{{ else if eq .chezmoi.os "darwin" }}
+formulae=(
+  chezmoi
+  bitwarden-cli
+  coreutils
+  git
+  curl
+  asdf
+  openssh
+  gnupg
+  jq
+  starship
+  wezterm
+  bat
+  exa
+  tokei
+  zoxide
+)
+
+brew install --quiet "${formulae[@]}"
+echo "=> Formulae have been installed."
+{{ end }}
