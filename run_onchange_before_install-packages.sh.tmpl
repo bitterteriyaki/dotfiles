@@ -2,6 +2,17 @@
 
 {{ if eq .chezmoi.os "linux" }}
 {{ else if eq .chezmoi.os "darwin" }}
+# install casks
+casks=(
+  discord
+  google-chrome
+  spotify
+  godot
+  steam
+)
+
+brew install --quiet --cask "${casks[@]}"
+
 formulae=(
   chezmoi
   bitwarden-cli
