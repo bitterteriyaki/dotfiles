@@ -1,10 +1,10 @@
 #!/bin/sh
 
-#
-# import gpg keys
-#
-
+# Import GPG keys:
 export GPG_TTY=$(tty)
 
 echo "{{ (bitwarden "item" "gpg_public_key").notes }}" | gpg --import -
 echo "{{ (bitwarden "item" "gpg_private_key").notes }}" | gpg --import -
+
+# Install Oh My Zsh:
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
