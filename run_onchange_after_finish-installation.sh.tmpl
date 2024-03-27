@@ -8,3 +8,6 @@ echo "{{ (bitwarden "item" "gpg_private_key").notes }}" | gpg --import -
 
 # Install Oh My Zsh:
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
+# Change the default shell to Zsh
+chsh -s $(which zsh)
