@@ -1,6 +1,38 @@
 #!/bin/sh
 
 {{ if eq .chezmoi.os "linux" }}
+packages=(
+  # applications:
+  discord
+  google-chrome
+  spotify-launcher
+  godot
+  steam
+  # fonts:
+  ttf-dejavu
+  ttf-jetbrains-mono-nerd
+  $(yay -Ssq adobe-source-han-sans)
+  # tools:
+  git
+  chezmoi
+  bitwarden-cli
+  asdf-vm
+  openssh
+  gnupg
+  jq
+  starship
+  wezterm
+  bat
+  eza
+  tokei
+  zoxide
+  neovim
+  zsh
+  rofi
+  dunst
+)
+
+yay -S --needed --noconfirm "${packages[@]}"
 {{ else if eq .chezmoi.os "darwin" }}
 # install casks
 casks=(
