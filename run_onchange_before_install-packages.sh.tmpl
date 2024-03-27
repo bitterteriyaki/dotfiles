@@ -2,17 +2,16 @@
 
 {{ if eq .chezmoi.os "linux" }}
 packages=(
-  # applications:
+  # Applications:
   discord
   google-chrome
   spotify
   godot
-  steam
-  # fonts:
+  # Fonts:
   ttf-dejavu
   ttf-jetbrains-mono-nerd
   $(yay -Ssq adobe-source-han-sans)
-  # tools:
+  # Tools:
   git
   chezmoi
   bitwarden-cli
@@ -31,6 +30,10 @@ packages=(
   rofi
   dunst
   fzf
+  # Compatibility with NVIDIA and Wayland:
+  qt5-wayland
+  qt5ct
+  libva
 )
 
 yay -S --needed --noconfirm "${packages[@]}"
