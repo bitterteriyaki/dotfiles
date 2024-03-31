@@ -15,16 +15,18 @@ machines.
 > bindly use my settings unless you know what that entails. Use at your own
 > risk.
 
-Currently, I'm using two operating systems: a desktop PC with Arch Linux and an
+Currently, I'm using two operating systems: a desktop with Arch Linux and an
 Apple MacBook.
 
-| Component           | Name                                                        |
-| ------------------- | ----------------------------------------------------------- |
-| Window manager      | [Hyprland](https://github.com/hyprwm/Hyprland) (Linux only) |
-| Display manager     | [SDDM](https://github.com/sddm/sddm) (Linux only)           |
-| Terminal            | [Wezterm](https://github.com/wez/wezterm)                   |
-| Shell               | [Zsh](https://github.com/zsh-users/zsh)                     |
-| Editor              | [Neovim](https://github.com/neovim/neovim)                  |
+| Component           | Name                                            |
+| ------------------- | ----------------------------------------------- |
+| Compositor          | [Hyprland](https://github.com/hyprwm/Hyprland)* |
+| Display manager     | [SDDM](https://github.com/sddm/sddm)*           |
+| Terminal            | [Wezterm](https://github.com/wez/wezterm)       |
+| Shell               | [Zsh](https://github.com/zsh-users/zsh)         |
+| Editor              | [Neovim](https://github.com/neovim/neovim)      |
+
+\*: Only for Linux
 
 ## Todo List
 
