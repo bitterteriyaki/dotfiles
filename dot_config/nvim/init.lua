@@ -18,4 +18,6 @@ require("rc.options")
 
 -- plugins
 local plugins = require("rc.plugins")
+
 require("lazy").setup(plugins)
+require("rc.config.lualine")

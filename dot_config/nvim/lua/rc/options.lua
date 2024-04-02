@@ -10,6 +10,8 @@ local options = {
   wrap = false,           -- do not wrap long lines
   scrolloff = 8,          -- minimal number of screen lines to keep above and below the cursor
   sidescrolloff = 8,      -- minimal number of screen lines to keep left and right of the cursor
+  showmode = false,       -- do not show the default mode bar
+  cmdheight = 1,          -- space in neovim command line
 }
 
 for k, v in pairs(options) do
