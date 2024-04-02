@@ -1,5 +1,7 @@
 local opt = vim.opt
 
+vim.g.mapleader = " "
+
 if not vim.env.SSH_TTY then
   -- only set clipboard if not in ssh mode, to make sure the OSC 52 integration
   -- works automatically
