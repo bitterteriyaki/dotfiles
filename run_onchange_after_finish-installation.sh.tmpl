@@ -6,11 +6,6 @@ export GPG_TTY=$(tty)
 echo "{{ (bitwarden "item" "gpg_public_key").notes }}" | gpg --import -
 echo "{{ (bitwarden "item" "gpg_private_key").notes }}" | gpg --import -
 
-# Install Oh My Zsh:
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-fi
-
 {{ if eq .chezmoi.os "linux" }}
 # Change the default shell to Zsh
 chsh -s $(which zsh)
