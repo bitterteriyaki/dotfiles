@@ -15,4 +15,15 @@ return {
       attach_to_untracked = true,
     },
   },
+  -- Indentation guides
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    config = function()
+      require("ibl").setup({
+        indent = { char = "▏" },
+      })
+    end,
+  },
+  -- Rainbow parentheses
 }

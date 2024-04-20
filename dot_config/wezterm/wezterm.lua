@@ -9,4 +9,9 @@ config.animation_fps = 60
 config.leader = { key = "a", mods = "CTRL" }
 config.keys = require("keys")
 
+-- Underline cursor
+config.underline_thickness = "2px"
+config.underline_position = "-3px"
+config.cursor_thickness = "1px"
+
 return config
