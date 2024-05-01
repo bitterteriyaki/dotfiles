@@ -1,5 +1,7 @@
 local opt = vim.opt
 
+vim.g.mapleader = " "
+
 opt.fileencoding = "utf-8"
 opt.expandtab = true
 opt.tabstop = 2
