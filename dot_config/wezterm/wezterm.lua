@@ -5,4 +5,8 @@ local config = wezterm.config_builder()
 config.default_cursor_style = "BlinkingBar"
 config.animation_fps = 60
 
+-- Keybinding
+config.leader = { key = "a", mods = "CTRL" }
+config.keys = require("keys")
+
 return config
