@@ -9,6 +9,23 @@ to maintain consistency between the different machines I have.
 > for my particular cases. I make no guarantees that it will work out of the
 > box for anyone. It may also change drastically and without any warning.
 
+## 🚀 Features
+
+### 🎏 Aliases
+
+To speed up development, I added aliases for commands that I use frequently. I
+will be listing some (not all) in this section.
+
+#### 🌎 Global
+
+| **Alias** | **Command**                  |
+|-----------|------------------------------|
+| `ls`      | `eza --icons`                |
+| `cat`     | `bat`                        |
+| `vim`     | `nvim`                       |
+| `bbal`    | `sudo btrfs balance start /` |
+| `bdf`     | `sudo btrfs filesystem df /` |
+
 ## 🔨 Installation
 
 > [!CAUTION]
