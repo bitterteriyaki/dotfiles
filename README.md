@@ -89,3 +89,4 @@ above.
 - [cron - Arch Wiki](https://wiki.archlinux.org/title/cron)
 - [`grub-btrfs`](https://github.com/Antynea/grub-btrfs)
 - [`timeshift-autosnap`](https://gitlab.com/gobonja/timeshift-autosnap)
+- [This awesome blog post by Lorenzo Bettini](https://www.lorenzobettini.it/2022/07/timeshift-and-grub-btrfs-in-linux-arch/)
