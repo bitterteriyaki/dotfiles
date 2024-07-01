@@ -24,7 +24,7 @@ command to install the necessary dependencies:
 $ yay -S chezmoi
 ```
 
-## 📼 BTRFS and Timeshift
+## 📼 BTRFS, Timeshift and GRUB
 
 I use BTRFS as my filesystem on my Linux machines. This filesystem supports the
 creation of block-level snapshots, allowing the recovery of deleted or
@@ -71,7 +71,7 @@ Now change the execution command:
 + ExecStart=/usr/bin/grub-btrfsd --syslog --timeshift-auto
 ```
 
-You may want to restart the `grub-btrfs` service and regenerate the grub
+You may want to restart the `grub-btrfs` service and regenerate the GRUB
 configuration:
 
 ```sh
