@@ -36,9 +36,8 @@ eval "$(fzf --zsh)"
 #
 # Aliases
 #
-{{ if eq .chezmoi.os "linux" -}}
 alias ls="eza --icons"
-{{ else if eq .chezmoi.os "darwin" -}}
-alias ls="exa --icons"
-{{ end -}}
 alias cat="bat"
+alias vim="nvim"
+alias bbal="sudo btrfs balance start /"
+alias bdf="sudo btrfs filesystem df /"

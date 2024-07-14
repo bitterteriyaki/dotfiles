@@ -23,3 +23,60 @@ command to install the necessary dependencies:
 ```sh
 $ yay -S chezmoi
 ```
+
+## 📼 BTRFS and Timeshift
+
+I use BTRFS as my filesystem on my Linux machines. This filesystem supports the
+creation of block-level snapshots, allowing the recovery of deleted or
+corrupted files. Along with BTRFS, I use Timeshift to create periodic snapshots
+of the system. I recommend that you create at least 5 snapshots per hour, as
+these snapshots are relatively lightweight, as they do not copy the files
+themselves, but only their metadata.
+
+If you ran my automatic installation scripts, Timeshift and cron (needed to
+create background snapshots) should already be installed, and the cron service
+should already be enabled and running. If you haven't already performed this
+step, you can run the following commands to configure the environment:
+
+```sh
+$ yay -S timeshift cronie
+$ sudo systemctl enable --now cronie
+```
+
+Now that we have Timeshift configured, we can use `grub-btrfs` to access these
+snapshots during the system boot, in the bootloader. We can also install
+`timeshift-autosnap` so that a snapshot is created every time we update the
+system using `yay -Syu`, this way we avoid the danger of the system breaking
+after an update. These two packages should already be installed if you ran my
+automatic installation scripts, but if that's not the case, run the following
+two commands to install them:
+
+```sh
+$ yay -S grub-btrfs timeshift-autosnap inotify-tools
+$ sudo systemctl enable --now grub-btrfsd
+```
+
+By default, `grub-btrfs` looks for snapshots in the `/.snapshots` directory,
+however, Timeshift uses a different directory, so we have to update the daemon
+configuration. Run the following command to configure the `grub-btrfs` service:
+
+```sh
+$ sudo systemctl edit --full grub-btrfsd
+```
+
+Now we need to change the execution command:
+
+```diff
+- ExecStart=/usr/bin/grub-btrfsd --syslog /.snapshots
++ ExecStart=/usr/bin/grub-btrfsd --syslog --timeshift-auto
+```
+
+You may want to restart the `grub-btrfs` service and regenerate the grub
+configuration:
+
+```sh
+$ sudo systemctl restart grub-btrfsd 
+$ sudo grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+Everything should be working now.

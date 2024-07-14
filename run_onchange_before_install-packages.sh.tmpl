@@ -7,6 +7,7 @@ packages=(
   google-chrome
   spotify-launcher
   timeshift
+  httpie-desktop-bin
   # Fonts:
   ttf-dejavu
   ttf-jetbrains-mono-nerd
@@ -28,13 +29,18 @@ packages=(
   zsh
   man
   wezterm
-  cronie
+  docker
+  # Filesystem:
+  grub-btrfs
+  timeshift-autosnap
   # Other:
   tk
   fzf
   ripgrep
   zsh-syntax-highlighting
   zsh-autosuggestions
+  cronie
+  inotify-tools
 )
 
 yay -S --needed --noconfirm "${packages[@]}"

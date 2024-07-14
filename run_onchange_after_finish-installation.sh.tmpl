@@ -7,6 +7,20 @@ echo "{{ (bitwarden "item" "gpg_public_key").notes }}" | gpg --import -
 echo "{{ (bitwarden "item" "gpg_private_key").notes }}" | gpg --import -
 
 {{ if eq .chezmoi.os "linux" }}
-# Change the default shell to Zsh
-chsh -s $(which zsh)
+# Change the default shell to Zsh:
+if [ "$SHELL" != "$(which zsh)" ]; then
+  chsh -s $(which zsh)
+fi
+
+# Add the user to `docker` group:
+sudo usermod -aG docker $USER
+
+# Remove CoW from some some directories
+sudo chattr +C /var/log
+sudo chattr +C /var/lib/docker
+
+# Enable some important services:
+sudo systemctl enable --now docker
+sudo systemctl enable --now grub-btrfsd
+sudo systemctl enable --now cronie
 {{ end }}
