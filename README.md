@@ -1,34 +1,25 @@
 # `bitterteriyaki/dotfiles`
 
-This is my dotfiles repository, where I store my personal configurations for
-various programs and tools I use in my development environment. These files are
-essential to maintain consistency across my working environment on different
-machines.
+This my personal dotfiles, where I store my personal configurations files for
+some tools that I use in my development environment. I created this repository
+to maintain consistency between the different machines I have.
 
-> **Disclaimer:** this is *not* a community-driven repository. It's a private
-> configuration for my particular use cases. I make no guarantees that it will
-> work out of the box for anyone. It may also change drastically and without
-> any warning.
->
-> If you want to give those dotfiles a try, you should first fork this
-> repository, review the code, and remove things you don't want or need. Do not
-> bindly use my settings unless you know what that entails. Use at your own
-> risk.
+> [!WARNING]
+> This is **not** a community-driven repository. It's a private configuration
+> for my particular cases. I make no guarantees that it will work out of the
+> box for anyone. It may also change drastically and without any warning.
 
-Currently, I'm using two operating systems: a desktop with Arch Linux and an
-Apple MacBook.
+## 🔨 Installation
 
-| Component           | Name                                            |
-| ------------------- | ----------------------------------------------- |
-| Shell               | [Zsh](https://github.com/zsh-users/zsh)         |
-| Editor              | [Neovim](https://github.com/neovim/neovim)      |
+> [!CAUTION]
+> If you want to give my dotiles a try, you should first fork this repository,
+> review the code, and remove things you don't want or need. Do not bindly use
+> my settings unless you know what that entails. Use at your own risk.
 
-\*: Only for Linux
+Some dependencies are required to install dotfiles on your machine. If you,
+like me, are using Arch Linux as your distro, you can run the following
+command to install the necessary dependencies:
 
-## Todo List
-
-- [ ] Add configuration for Neovim
-- [ ] Add configuration for Starship
-- [ ] Maybe change shell to Fish/Elvish
-- [ ] Add more stuff to this README
-- [ ] Add instructions to get started with the dotfiles
+```sh
+$ yay -S chezmoi
+```
