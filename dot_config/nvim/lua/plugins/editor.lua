@@ -1,4 +1,4 @@
-local blame_formatter = "<author> (<author_time:%d/%m/%Y) | <summary>"
+local blame_formatter = "<author> (<author_time:%d/%m/%Y>) | <summary>"
 
 return {
   -- Fuzzy finder
