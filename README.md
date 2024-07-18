@@ -46,14 +46,11 @@ $ yay -S chezmoi
 I use BTRFS as my filesystem on my Linux machines. This filesystem supports the
 creation of block-level snapshots, allowing the recovery of deleted or
 corrupted files. Along with BTRFS, I use Timeshift to create periodic snapshots
-of the system, I recommend that you create at least 5 snapshots per hour, as
-these snapshots are relatively lightweight, as they do not copy the files
-themselves, but only their metadata.
-
-If you ran my automatic installation scripts, Timeshift and cron (needed to
-create snapshots in background) should already be installed, and the cron
-service should already be enabled and running. If you haven't already performed
-this step, you can run the following commands to configure the environment:
+of the system. If you ran my automatic installation scripts, Timeshift and cron
+(needed to create snapshots in background) should already be installed, and the
+cron service should already be enabled and running. If you haven't already
+performed this step, you can run the following commands to configure the
+environment:
 
 ```sh
 $ yay -S timeshift cronie
