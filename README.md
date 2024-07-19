@@ -59,7 +59,7 @@ Oh My Zsh. Here are some examples:
 
 | **Alias** | **Command**                |
 |-----------|----------------------------|
-| `cd`      | `z` (`zoxide`)             |
+| `cd`      | `zoxide`                   |
 | `ls`      | `eza --icons`              |
 | `cat`     | `bat`                      |
 | `find`    | `fd`                       |
