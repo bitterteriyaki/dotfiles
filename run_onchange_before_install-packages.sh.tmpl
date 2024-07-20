@@ -1,6 +1,8 @@
 #!/bin/sh
 
-{{ if eq .chezmoi.os "linux" }}
+#
+# List of packages to install
+#
 packages=(
   # Applications:
   discord
@@ -8,6 +10,7 @@ packages=(
   spotify-launcher
   timeshift
   httpie-desktop-bin
+  flameshot
   # Fonts:
   ttf-dejavu
   ttf-jetbrains-mono-nerd
@@ -20,72 +23,30 @@ packages=(
   openssh
   gnupg
   jq
+  neovim
+  tk
+  fzf
+  zsh-syntax-highlighting
+  zsh-autosuggestions
+  cronie
+  inotify-tools
   starship
   bat
   eza
   tokei
   zoxide
-  neovim
-  zsh
-  man
-  wezterm
-  docker
+  fd
+  ripgrep
   # Filesystem:
   grub-btrfs
   timeshift-autosnap
-  # Other:
-  tk
-  fzf
-  ripgrep
-  zsh-syntax-highlighting
-  zsh-autosuggestions
-  cronie
-  inotify-tools
 )
 
 yay -S --needed --noconfirm "${packages[@]}"
-{{ else if eq .chezmoi.os "darwin" }}
-# Install casks
-casks=(
-  discord
-  google-chrome
-  spotify
-)
 
-brew install --quiet --cask "${casks[@]}"
-
-# Install formulae
-formulae=(
-  git
-  chezmoi
-  bitwarden-cli
-  coreutils
-  curl
-  asdf
-  openssh
-  gnupg
-  jq
-  starship
-  bat
-  exa
-  tokei
-  zoxide
-  neovim
-  zsh
-  man-db
-  pfetch
-  wezterm
-  # Other:
-  fzf
-  zsh-syntax-highlighting
-  zsh-autosuggestions
-)
-
-brew install --quiet "${formulae[@]}"
-echo "=> Formulae have been installed."
-{{ end }}
-
-# Install Oh My Zsh:
+#
+# Install Oh My Zsh
+#
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
