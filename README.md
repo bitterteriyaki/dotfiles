@@ -11,6 +11,17 @@ machines with ease.
 > for my particular cases. I make no guarantees that it will work out of the
 > box for anyone. It may also change drastically and without any warning.
 
+## 📚 Table of Contents
+
+- [🚀 Features](#-features)
+  - [💻 System](#-system)
+  - [🔨 Alternative Tools](#-alternative-tools)
+  - [🎏 Aliases](#-aliases)
+- [📦 Dependencies](#-dependencies)
+- [🔒 Secrets Management](#-secrets-management)
+- [🔨 Installation](#-installation)
+- [📼 BTRFS, Timeshift and GRUB](#-btrfs-timeshift-and-grub)
+
 ## 🚀 Features
 
 ### 💻 System
@@ -40,33 +51,77 @@ better performance than the most common ones. Here are some examples:
 
 ### 🎏 Aliases
 
+To speed up my workflow, I use some aliases to run commands more quickly. Some
+of them are defined in the `.zshrc` file, and others are define by plugins on
+Oh My Zsh. Here are some examples:
+
 #### 🌎 Global Aliases
 
-| **Alias** | **Command**                  |
-|-----------|------------------------------|
-| `cd`      | `zoxide`                     |
-| `ls`      | `eza --icons`                |
-| `cat`     | `bat`                        |
-| `find`    | `fd`                         |
-| `grep`    | `rg`                         |
-| `vim`     | `nvim`                       |
-| `bbal`    | `sudo btrfs balance start /` |
-| `bdf`     | `sudo btrfs filesystem df /` |
+| **Alias** | **Command**                |
+|-----------|----------------------------|
+| `cd`      | `z` (`zoxide`)             |
+| `ls`      | `eza --icons`              |
+| `cat`     | `bat`                      |
+| `find`    | `fd`                       |
+| `grep`    | `rg`                       |
+| `vim`     | `nvim`                     |
+| `bbal`    | `sudo btrfs balance start` |
+| `bdf`     | `sudo btrfs filesystem df` |
+
+## 📦 Dependencies
+
+Some dependencies are required to install my dotfiles. You can install them by
+running the following command (assuming you are using Arch Linux):
+
+```sh
+$ yay -S git chezmoi bitwarden-cli
+```
+
+## 🔒 Secrets Management
+
+This repository has some secrets that are stored in a Bitwarden vault, such as
+SSH keys, GPG keys, API tokens, and other sensitive information. Some vault
+items are required to install the dotfiles, otherwise, the installation will
+fail. The following vault items are required:
+
+| **Secret**        | **Description**        |
+|-------------------|------------------------|
+| `ssh_public_key`  | Your SSH public key.   |
+| `ssh_private_key` | Your SSH private key.  |
+| `gpg_public_key`  | Your GPG public key.   |
+| `gpg_private_key` | Your GPG private key.  |
+| `wakatime_key`    | Your WakaTime API key. |
+
+```sh
+$ bw login
+$ export BW_SESSION=$(bw unlock --raw)
+```
 
 ## 🔨 Installation
 
 > [!CAUTION]
 > If you want to give my dotfiles a try, you should first fork this repository,
 > review the code, and remove things you don't want or need. Do not bindly use
-> my settings unless you know what that entails. Use at your own risk.
+> my settings unless you know what that entails, use at your own risk. This
+> also assumes you are using Arch Linux as your distro.
 
-Some dependencies are required to install dotfiles on your machine. If you,
-like me, are using Arch Linux as your distro, you can run the following
-command to install the necessary dependencies:
+After installing the dependencies and setting up the Bitwarden vault, you can
+install my dotfiles by running the following command:
 
 ```sh
-$ yay -S chezmoi
+$ chezmoi init bitterteriyaki --apply
 ```
+
+This command will clone this repository to your machine and apply the
+configurations to your system. If you want to update the configurations, you
+can run the following command:
+
+```sh
+$ chezmoi update
+```
+
+This command will pull the latest changes from this repository and apply them
+to your system.
 
 ## 📼 BTRFS, Timeshift and GRUB
 

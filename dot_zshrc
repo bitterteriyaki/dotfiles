@@ -19,15 +19,9 @@ plugins=(
 # Scripts
 #
 source $ZSH/oh-my-zsh.sh
-{{- if eq .chezmoi.os "linux" }}
 source /opt/asdf-vm/asdf.sh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
-{{- else if eq .chezmoi.os "darwin" }}
-source $(brew --prefix asdf)/libexec/asdf.sh
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-{{- end }}
 
 eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
@@ -38,6 +32,7 @@ eval "$(fzf --zsh)"
 #
 alias ls="eza --icons"
 alias cat="bat"
+alias find="fd"
 alias vim="nvim"
-alias bbal="sudo btrfs balance start /"
-alias bdf="sudo btrfs filesystem df /"
+alias bbal="sudo btrfs balance start"
+alias bdf="sudo btrfs filesystem df"
