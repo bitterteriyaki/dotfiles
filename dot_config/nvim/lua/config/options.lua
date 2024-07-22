@@ -14,3 +14,5 @@ opt.showmode = false
 opt.cmdheight = 1
 opt.background = "dark"
 opt.termguicolors = true
+opt.scrolloff = 6
+opt.sidescrolloff = 4
