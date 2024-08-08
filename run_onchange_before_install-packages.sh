@@ -11,6 +11,8 @@ packages=(
   timeshift
   httpie-desktop-bin
   flameshot
+  bitwarden
+  teams
   # Fonts:
   ttf-dejavu
   ttf-jetbrains-mono-nerd
@@ -37,6 +39,8 @@ packages=(
   zoxide
   fd
   ripgrep
+  docker
+  wezterm
   # Filesystem:
   grub-btrfs
   timeshift-autosnap
