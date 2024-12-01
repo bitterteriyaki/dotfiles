@@ -16,6 +16,7 @@ packages=(
   git
   neovim
   bitwarden-cli
+  zellij
   # Terminal:
   zsh
   zsh-syntax-highlighting
