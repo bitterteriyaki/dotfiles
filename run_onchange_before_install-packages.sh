@@ -1,56 +1,36 @@
-#!/bin/sh
+#!/bin/bash
 
-#
-# List of packages to install
-#
 packages=(
   # Applications:
-  discord
-  google-chrome
-  spotify-launcher
-  timeshift
-  httpie-desktop-bin
-  flameshot
+  firefox
   bitwarden
-  teams
+  obs-studio
+  pavucontrol
   # Fonts:
   ttf-dejavu
   ttf-jetbrains-mono-nerd
   $(yay -Ssq adobe-source-han-sans)
-  # Tools:
-  git
-  chezmoi
-  bitwarden-cli
-  asdf-vm
+  # Development Tools:
   openssh
   gnupg
-  jq
+  git
   neovim
-  tk
-  fzf
+  bitwarden-cli
+  # Terminal:
+  zsh
   zsh-syntax-highlighting
   zsh-autosuggestions
-  cronie
-  inotify-tools
-  starship
-  bat
-  eza
-  tokei
-  zoxide
-  fd
-  ripgrep
-  docker
   wezterm
-  # Filesystem:
-  grub-btrfs
-  timeshift-autosnap
+  starship
+  # Look & Feel:
+  swww
+  # Others:
+  imagemagick
+  wl-clipboard
 )
 
 yay -S --needed --noconfirm "${packages[@]}"
 
-#
-# Install Oh My Zsh
-#
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
