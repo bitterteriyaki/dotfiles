@@ -25,6 +25,7 @@ packages=(
   starship
   # Look & Feel:
   swww
+  eww
   # Others:
   imagemagick
   wl-clipboard
