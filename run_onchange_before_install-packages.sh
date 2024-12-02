@@ -29,6 +29,7 @@ packages=(
   # Others:
   imagemagick
   wl-clipboard
+  ripgrep
 )
 
 yay -S --needed --noconfirm "${packages[@]}"
