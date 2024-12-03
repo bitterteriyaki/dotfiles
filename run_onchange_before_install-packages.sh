@@ -23,13 +23,16 @@ packages=(
   zsh-autosuggestions
   wezterm
   starship
-  # Look & Feel:
+  # Look & feel:
   swww
   eww
+  # Useful tools:
+  zoxide
+  ripgrep
   # Others:
   imagemagick
   wl-clipboard
-  ripgrep
+  tree-sitter
 )
 
 yay -S --needed --noconfirm "${packages[@]}"
