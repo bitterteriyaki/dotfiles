@@ -9,6 +9,7 @@ packages=(
   # Fonts:
   ttf-dejavu
   ttf-jetbrains-mono-nerd
+  inter-font
   $(yay -Ssq adobe-source-han-sans)
   # Development Tools:
   openssh
@@ -27,6 +28,8 @@ packages=(
   swww
   eww
   # Useful tools:
+  jq
+  man
   zoxide
   ripgrep
   # Others:

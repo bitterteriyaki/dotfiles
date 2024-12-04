@@ -16,4 +16,14 @@ return {
       main_image = "file",
     },
   },
+  --
+  -- Support to Yuck language
+  --
+  {
+    "elkowar/yuck.vim",
+    config = function()
+      vim.g.yuck_align_keywords = 0
+      vim.g.yuck_list_indentation = 1
+    end,
+  },
 }

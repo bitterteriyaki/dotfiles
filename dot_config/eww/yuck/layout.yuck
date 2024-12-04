@@ -1,0 +1,27 @@
+(include "yuck/widgets/clock.yuck")
+
+(defwidget left []
+  (box
+    :halign "start"
+    :space-evenly false
+    :spacing 5
+    (label :text "left")
+  )
+)
+
+(defwidget right []
+  (box
+    :halign "end"
+    :space-evenly false
+    :spacing 5
+    (clock)
+  )
+)
+
+(defwidget bar []
+  (box
+    :class "bar"
+    (left)
+    (right)
+  )
+)
