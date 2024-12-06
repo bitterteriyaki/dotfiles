@@ -25,4 +25,11 @@ config.window_padding = {
   bottom = 20,
 }
 
+--
+-- Color scheme
+--
+config.colors = {
+  background = '#130C0F'
+}
+
 return config
