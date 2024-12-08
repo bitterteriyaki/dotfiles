@@ -12,6 +12,7 @@ packages=(
   ttf-dejavu
   ttf-jetbrains-mono-nerd
   inter-font
+  noto-fonts-emoji
   $(yay -Ssq adobe-source-han-sans)
   # Development Tools:
   openssh
