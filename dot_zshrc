@@ -21,6 +21,7 @@ source $ZSH_PLUGINS/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 
 eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+eval "$(mise activate zsh)"
 
 #
 # Aliases

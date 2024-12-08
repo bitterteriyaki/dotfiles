@@ -6,6 +6,8 @@ packages=(
   bitwarden
   obs-studio
   pavucontrol
+  spotify-launcher
+  discord
   # Fonts:
   ttf-dejavu
   ttf-jetbrains-mono-nerd
@@ -18,6 +20,7 @@ packages=(
   neovim
   bitwarden-cli
   zellij
+  mise
   # Terminal:
   zsh
   zsh-syntax-highlighting
@@ -36,6 +39,7 @@ packages=(
   imagemagick
   wl-clipboard
   tree-sitter
+  xdg-user-dirs
 )
 
 yay -S --needed --noconfirm "${packages[@]}"

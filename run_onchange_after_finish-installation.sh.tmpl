@@ -21,3 +21,12 @@ fi
 sudo chattr +C /var/log
 sudo chattr +C /var/cache/pacman/pkg
 # sudo chattr +C /var/lib/docker
+
+#
+# Directories
+#
+
+xdg-user-dirs-update
+xdg-user-dirs-update --force
+
+mkdir -p $HOME/Projects
