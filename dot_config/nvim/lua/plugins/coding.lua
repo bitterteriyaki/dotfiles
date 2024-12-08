@@ -8,4 +8,8 @@ return {
     config = true,
     dependencies = { "nvim-treesitter/nvim-treesitter" },
   },
+  --
+  -- nvim-cmp
+  --
+
 }
