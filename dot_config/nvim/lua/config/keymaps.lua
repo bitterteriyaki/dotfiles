@@ -1,7 +1,3 @@
-local map = vim.keymap.set
-
-local telescope = require("telescope.builtin")
-
-map("n", "<leader>ff", telescope.find_files, {})
-map("n", "<leader>fg", telescope.live_grep, {})
-map("n", "<leader>fh", telescope.help_tags, {})
+-- Keymaps are automatically loaded on the VeryLazy event
+-- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
+-- Add any additional keymaps here

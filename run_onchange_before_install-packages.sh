@@ -38,6 +38,7 @@ packages=(
   ripgrep
   imagemagick
   unzip
+  fzf
   # Others:
   wl-clipboard
   tree-sitter
