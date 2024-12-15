@@ -36,8 +36,9 @@ packages=(
   man
   zoxide
   ripgrep
-  # Others:
   imagemagick
+  unzip
+  # Others:
   wl-clipboard
   tree-sitter
   xdg-user-dirs
