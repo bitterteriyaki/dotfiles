@@ -19,11 +19,20 @@ return {
   --
   {
     "hrsh7th/nvim-cmp",
-    opts = {
-      sources = {
-        { name = "nvim_lsp" },
-      },
-    },
+    opts = function()
+      local cmp = require("cmp")
+
+      cmp.setup({
+        sources = cmp.config.sources({
+          { name = "nvim_lsp" },
+        }),
+        mapping = cmp.mapping.preset.insert({
+          ["<Tab>"] = cmp.mapping.select_next_item(),
+          ["<S-Tab>"] = cmp.mapping.select_prev_item(),
+          ["<CR>"] = cmp.mapping.confirm({ select = true }),
+        }),
+      })
+    end,
   },
   {
     "hrsh7th/cmp-nvim-lsp",

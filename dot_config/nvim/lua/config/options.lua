@@ -17,3 +17,4 @@ opt.background = "dark"
 opt.termguicolors = true
 opt.scrolloff = 6
 opt.sidescrolloff = 4
+opt.pumheight = 6
