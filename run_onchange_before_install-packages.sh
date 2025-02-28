@@ -24,6 +24,8 @@ packages=(
   bitwarden-cli
   zellij
   mise
+  docker
+  docker-compose
   # Terminal:
   zsh
   zsh-syntax-highlighting
@@ -45,6 +47,7 @@ packages=(
   cronie
   sbctl
   playerctl
+  postgresql-libs
   # Filesystem:
   grub-btrfs
   timeshift-autosnap

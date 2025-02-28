@@ -23,6 +23,7 @@ fi
 
 sudo systemctl enable --now grub-btrfsd
 sudo systemctl enable --now cronie
+sudo systemctl enable --now docker
 
 #
 # Disable Copy-on-Write on these directories
@@ -30,6 +31,7 @@ sudo systemctl enable --now cronie
 
 sudo chattr +C /var/log
 sudo chattr +C /var/cache/pacman/pkg
+sudo chattr +C /var/lib/docker
 
 #
 # Create home directories
@@ -40,3 +42,8 @@ xdg-user-dirs-update --force
 
 mkdir -p $HOME/Projects
 
+#
+# Add the user to theses groups
+#
+
+sudo usermod -aG docker $USER
