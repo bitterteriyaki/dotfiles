@@ -6,8 +6,10 @@ packages=(
   bitwarden
   obs-studio
   pavucontrol
-  spotify-launcher
   discord
+  spotify-launcher
+  timeshift
+  grub-customizer
   # Fonts:
   ttf-dejavu
   ttf-jetbrains-mono-nerd
@@ -26,23 +28,36 @@ packages=(
   zsh
   zsh-syntax-highlighting
   zsh-autosuggestions
-  wezterm
+  alacritty
   starship
-  # Look & feel:
-  swww
-  eww
-  # Useful tools:
+  # Useful Tools:
   jq
   man
   zoxide
+  bat
+  eza
+  tokei
+  fd
   ripgrep
   imagemagick
   unzip
   fzf
+  cronie
+  sbctl
+  playerctl
+  # Filesystem:
+  grub-btrfs
+  timeshift-autosnap
+  # Look & Feel:
+  swww
+  eww
+  rofi
   # Others:
+  tk
   wl-clipboard
   tree-sitter
   xdg-user-dirs
+  inotify-tools
 )
 
 yay -S --needed --noconfirm "${packages[@]}"

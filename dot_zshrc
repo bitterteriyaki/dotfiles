@@ -1,12 +1,14 @@
 #
-# Environment variables
+# Environment Variables
 #
+
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_PLUGINS="/usr/share/zsh/plugins"
 
 #
-# Oh My Zsh settings
+# Oh My Zsh Settings
 #
+
 zstyle ':omz:update' mode auto
 zstyle ':omz:update' frequency 14
 
@@ -15,6 +17,7 @@ plugins=(git python)
 #
 # Scripts
 #
+
 source $ZSH/oh-my-zsh.sh
 source $ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZSH_PLUGINS/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
@@ -22,11 +25,15 @@ source $ZSH_PLUGINS/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(mise activate zsh)"
+eval "$(fzf --zsh)"
 
 #
 # Aliases
 #
+
 alias vim="nvim"
+alias cat="bat"
+alias ls="eza --icons"
 
 alias btrfsbal="sudo btrfs balance start"
 alias btrfsdf="sudo btrfs filesystem df"
