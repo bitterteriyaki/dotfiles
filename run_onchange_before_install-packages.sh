@@ -58,6 +58,7 @@ packages=(
   tree-sitter
   xdg-user-dirs
   inotify-tools
+  socat
 )
 
 yay -S --needed --noconfirm "${packages[@]}"
