@@ -1,6 +1,15 @@
 #!/bin/bash
 
 #
+# Import GPG keys
+#
+
+export GPG_TTY=$(tty)
+
+echo "{{ (bitwarden "item" "gpg_public_key").notes }}" | gpg --import -
+echo "{{ (bitwarden "item" "gpg_private_key").notes }}" | gpg --import -
+
+#
 # Change the default shell to Zsh
 #
 

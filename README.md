@@ -14,6 +14,8 @@ apply them to different machines with ease.
 ## 📚 Table of Contents
 
 - [🏷 Secure Boot](#-secure-boot)
+- [📼 BTRFS, Timeshift and GRUB](-btrfs-timeshift-and-grub)
+- [🖥️ Dual boot with Windows](-dual-boot-with-windows)
 
 ## 🏷 Secure Boot
 
@@ -28,7 +30,7 @@ the most straightforward and simplest way. First of all, you may make use of
 CA Keys on GRUB, you can do that by running this following command, assuming
 that `/boot` is your EFI system partition (ESP):
 
-```sh
+```
 # grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB --modules="tpm" --disable-shim-lock
 ```
 
@@ -39,13 +41,13 @@ installation scripts, the `sbctl` tool should be already be installed on your
 system. If you didn't run my scripts, you can install this tool manually by
 running:
 
-```sh
+```
 # yay -S sbctl
 ```
 
 Once you log back in, check the secure boot status:
 
-```sh
+```
 $ sbctl status
 ```
 
@@ -53,14 +55,14 @@ You should see that `sbctl` is not installed and Secure Boot is disabled. Now,
 create your custom Secure Boot keys and enroll them with Microsoft's keys to
 the UEFI:
 
-```sh
+```
 # sbctl create-keys
 # sbctl enroll-keys -m
 ```
 
 Check the secure boot status again:
 
-```sh
+```
 $ sbctl status
 ```
 
@@ -68,13 +70,13 @@ The `sbctl` should be installed now, but Secure Boot will not work until the
 boot files have been signed with the keys you just created. Check what files
 need to be signed for secure boot to work:
 
-```sh
+```
 # sbctl verify
 ```
 
 Verify all the unsigned files with this:
 
-```sh
+```
 # sbctl verify | sed 's/✗ /sbctl sign -s /e'
 ```
 
@@ -105,7 +107,7 @@ enabled and running, but you still need to configure `grub-btrfs` to work with
 Timeshift. If you didn't run my scripts, you can install these tools by running
 the following commands:
 
-```sh
+```
 # yay -S timeshift cronie grub-btrfs timeshift-autosnap inotify-tools
 # systemctl enable --now cronie
 # systemctl enable --now grub-btrfsd
@@ -119,7 +121,7 @@ with Timeshift. By default, `grub-btrfs` looks for snapshots in the
 have to update the daemon configuration. Run the following command to configure
 the `grub-btrfs` service:
 
-```sh
+```
 # systemctl edit --full grub-btrfsd
 ```
 
@@ -132,7 +134,7 @@ Now change the execution command:
 
 Save the file, restart the service and update the GRUB configuration:
 
-```sh
+```
 # systemctl restart grub-btrfsd 
 # grub-mkconfig -o /boot/grub/grub.cfg
 ```
@@ -149,3 +151,34 @@ information or troubleshooting, check the references below.
 - [`grub-btrfs` repository](https://github.com/Antynea/grub-btrfs)
 - [`timeshift-autosnap` repository](https://gitlab.com/gobonja/timeshift-autosnap)
 - [An awesome blog post by Lorenzo Bettini](https://www.lorenzobettini.it/2022/07/timeshift-and-grub-btrfs-in-linux-arch/)
+
+# 🖥️ Dual boot with Windows
+
+> [!NOTE]
+> This section is a personal note about how I do dual boot with Windows. If you
+> are not interested in this topic, you can skip this section, as this section
+> is not related to the dotfiles themselves. This also assumes you are using
+> Arch Linux as your distro and GRUB as your bootloader.
+
+I usually create an new entry on GRUB to boot on GRUB to boot on Windows
+easily. I do not use `os-prober` because it seems to bug a lot when messing
+with `timeshift-autosnap`.
+
+To create a new entry on GRUB, you need first get the UUID of the Windows
+boot partition. You can do that by running this command:
+
+```
+# blkid /dev/sdX
+```
+
+Where `X` is the Windows boot partition. After that, edit the file
+`/etc/grub.d/40_custom` and add the following entry:
+
+```sh
+menuentry 'Windows 11' {
+    search --fs-uuid --no-floppy --set=root <UUID>
+    chainloader (${root})/EFI/Microsoft/Boot/bootmgfw.efi
+}
+```
+
+After that, the `Windows 11` entry must be appearing the GRUB screen.
