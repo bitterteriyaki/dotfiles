@@ -20,6 +20,10 @@ style = "Regular"
 [terminal]
 shell = { program = "zellij" }
 
+[window.padding]
+x = 5
+y = 5
+
 [colors.primary]
 background = "#040404"
 foreground = "#A8E7B4"
