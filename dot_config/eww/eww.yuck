@@ -7,14 +7,14 @@
 
 (defwindow main
   :monitor 1
-  :reserve (struts :side "top" :distance "45px")
+  :reserve (struts :side "top" :distance "0px")
   :stacking "bg"
   :exclusive true
   :namespace "eww"
   :geometry (geometry
-    :x "0%"
-    :y "8px"
-    :width "1895px"
+    :x "0px"
+    :y "0px"
+    :width "1920px"
     :height "40px"
     :anchor "top center"
   )

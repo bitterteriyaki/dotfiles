@@ -19,3 +19,7 @@ style = "Regular"
 
 [terminal]
 shell = { program = "zellij" }
+
+[colors.primary]
+background = "#040404"
+foreground = "#A8E7B4"
