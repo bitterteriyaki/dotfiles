@@ -43,4 +43,10 @@ return {
       })
     end,
   },
+  --
+  -- Yuck
+  --
+  {
+    "elkowar/yuck.vim",
+  },
 }

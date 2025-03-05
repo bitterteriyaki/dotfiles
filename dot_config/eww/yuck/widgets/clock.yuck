@@ -1,0 +1,8 @@
+(defwidget clock []
+  (box
+    :class "clock"
+    :spacing 2
+    :space-evenly false
+    (label :text "${time.hour}:${time.min} ${time.meridiem}")
+  )
+)

@@ -45,7 +45,7 @@ return {
 
       ibl.setup({
         indent = { char = "▏" },
-        scope = { highlight = highlight, show_start = false },
+        scope = { highlight = highlight, show_start = false, show_end = false },
       })
       rd.setup({ highlight = highlight })
 
