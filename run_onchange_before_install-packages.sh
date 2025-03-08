@@ -26,6 +26,7 @@ packages=(
   mise
   docker
   docker-compose
+  sysbox-ce
   # Terminal:
   zsh
   zsh-syntax-highlighting
