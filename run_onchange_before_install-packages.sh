@@ -49,6 +49,8 @@ packages=(
   sbctl
   playerctl
   postgresql-libs
+  fastfetch
+  unzip
   # Filesystem:
   grub-btrfs
   timeshift-autosnap
@@ -63,6 +65,9 @@ packages=(
   xdg-user-dirs
   inotify-tools
   socat
+  pipewire
+  wireplumber
+  xdg-desktop-portal-hyprland
 )
 
 yay -S --needed --noconfirm "${packages[@]}"

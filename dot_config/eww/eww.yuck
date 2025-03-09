@@ -8,7 +8,7 @@
 (defwindow main
   :monitor 1
   :reserve (struts :side "top" :distance "0px")
-  :stacking "bg"
+  :stacking "fg"
   :exclusive true
   :namespace "eww"
   :geometry (geometry
