@@ -10,6 +10,7 @@ packages=(
   spotify-launcher
   timeshift
   grub-customizer
+  httpie-desktop-bin
   # Fonts:
   ttf-dejavu
   ttf-jetbrains-mono-nerd
