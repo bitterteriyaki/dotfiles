@@ -1,4 +1,8 @@
-.workspaces {}
+.workspaces {
+  background-color: $slate-900;
+  border-radius: $border-radius;
+  padding: 0 0.4rem;
+}
 
 .workspace {
   padding: 0 0.25rem;

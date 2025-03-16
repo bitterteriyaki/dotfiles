@@ -1,5 +1,6 @@
 (include "yuck/widgets/clock.yuck")
 (include "yuck/widgets/workspaces.yuck")
+(include "yuck/widgets/volume.yuck")
 
 (defwidget left []
   (box
@@ -21,10 +22,11 @@
 
 (defwidget right []
   (box
+    :class "right"
     :halign "end"
     :space-evenly false
     :spacing 5
-    (label :text "Right")
+    (volume)
   )
 )
 

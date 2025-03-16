@@ -1,0 +1,6 @@
+(defwidget volume []
+  (box
+    :class "volume"
+    (label :text "${volume == 0 ? '󰖁' : (volume < 0.25 ? '󰕿' : (volume < 0.75 ? '󰖀' : '󰕾'))}" :style "font-size: 20px")
+  )
+)

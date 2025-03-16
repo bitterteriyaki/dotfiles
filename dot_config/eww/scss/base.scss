@@ -1,3 +1,5 @@
+$border-radius: 5px;
+
 * {
   all: unset;
   font-size: 1rem;
@@ -6,4 +8,12 @@
   color: $green-100;
 }
 
-$border-radius: 9999px;
+.right {
+  background-color: $slate-900;
+  border-radius: $border-radius;
+  padding: 0 0.6rem;
+}
+
+.right > * {
+  margin-top: 1px;
+}

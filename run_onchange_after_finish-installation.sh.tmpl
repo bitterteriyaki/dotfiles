@@ -48,3 +48,9 @@ mkdir -p $HOME/Projects
 #
 
 sudo usermod -aG docker $USER
+
+#
+# Set the timezone to local time
+#
+
+sudo timedatectl set-local-rtc 1
