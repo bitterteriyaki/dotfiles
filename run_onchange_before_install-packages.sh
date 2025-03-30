@@ -69,6 +69,7 @@ packages=(
   pipewire
   wireplumber
   xdg-desktop-portal-hyprland
+  gmp
 )
 
 yay -S --needed --noconfirm "${packages[@]}"
