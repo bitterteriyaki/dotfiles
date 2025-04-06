@@ -26,7 +26,7 @@
     :halign "end"
     :space-evenly false
     :spacing 5
-    (volume)
+    (label :text "Right")
   )
 )
 
