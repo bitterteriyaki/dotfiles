@@ -1,5 +1,7 @@
 (include "yuck/widgets/clock.yuck")
 (include "yuck/widgets/workspaces.yuck")
+(include "yuck/widgets/cpu.yuck")
+(include "yuck/widgets/ram.yuck")
 
 (defwidget left []
   (box
@@ -24,8 +26,9 @@
     :class "right"
     :halign "end"
     :space-evenly false
-    :spacing 5
-    (label :text "Right")
+    :spacing 14
+    (cpu)
+    (ram)
   )
 )
 
