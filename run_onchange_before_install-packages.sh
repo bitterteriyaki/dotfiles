@@ -70,6 +70,8 @@ packages=(
   wireplumber
   xdg-desktop-portal-hyprland
   gmp
+  nvidia-utils
+  xorg-xhost
 )
 
 yay -S --needed --noconfirm "${packages[@]}"

@@ -14,8 +14,9 @@ apply them to different machines with ease.
 ## 📚 Table of Contents
 
 - [🏷 Secure Boot](#-secure-boot)
-- [📼 BTRFS, Timeshift and GRUB](-btrfs-timeshift-and-grub)
-- [🖥️ Dual boot with Windows](-dual-boot-with-windows)
+- [📼 BTRFS, Timeshift and GRUB](#-btrfs-timeshift-and-grub)
+- [🖥️ Dual boot with Windows](#-dual-boot-with-windows)
+- [💻 NVIDIA](#-nvidia)
 
 ## 🏷 Secure Boot
 
@@ -182,3 +183,25 @@ menuentry 'Windows 11' {
 ```
 
 After that, the `Windows 11` entry must be appearing the GRUB screen.
+
+## 💻 NVIDIA
+
+> [!NOTE]
+> This section is a personal note about NVIDIA drivers. If you are not
+> interested in this topic, you can skip this section, as this section is not
+> related to the dotfiles themselves. This also assumes you are using Arch
+> Linux as your distro and GRUB as your bootloader.
+
+
+To use the NVIDIA drivers, edit the `/etc/mkinitcpio.conf` file and do the
+following steps:
+
+1. Remove `kms` from `HOOKS` array
+2. Add `nvidia`, `nvidia_modeset`, `nvidia_uvm`, `nvidia_drm` to `MODULES`
+   array
+
+Exit the file and regenerate the initramfs using:
+
+```
+# mkinitcpio -P
+```
