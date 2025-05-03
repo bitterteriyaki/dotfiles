@@ -72,6 +72,7 @@ packages=(
   gmp
   nvidia-utils
   xorg-xhost
+  uwsm
 )
 
 yay -S --needed --noconfirm "${packages[@]}"
