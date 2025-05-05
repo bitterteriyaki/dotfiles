@@ -1,7 +1,7 @@
 (include "yuck/widgets/clock.yuck")
 (include "yuck/widgets/workspaces.yuck")
-(include "yuck/widgets/cpu.yuck")
-(include "yuck/widgets/ram.yuck")
+(include "yuck/widgets/volume.yuck")
+(include "yuck/widgets/network.yuck")
 
 (defwidget left []
   (box
@@ -27,8 +27,8 @@
     :halign "end"
     :space-evenly false
     :spacing 14
-    (cpu)
-    (ram)
+    (network)
+    (volume)
   )
 )
 

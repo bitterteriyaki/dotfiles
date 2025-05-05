@@ -1,0 +1,6 @@
+(defwidget network []
+  (box
+    :class "network"
+    (label :class "icon" :text "")
+  )
+)

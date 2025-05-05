@@ -10,11 +10,10 @@ packages=(
   spotify-launcher
   timeshift
   grub-customizer
-  httpie-desktop-bin
   # Fonts:
+  otf-font-awesome
   ttf-dejavu
   ttf-jetbrains-mono-nerd
-  inter-font
   noto-fonts-emoji
   $(yay -Ssq adobe-source-han-sans)
   # Development Tools:
@@ -32,7 +31,7 @@ packages=(
   zsh
   zsh-syntax-highlighting
   zsh-autosuggestions
-  alacritty
+  wezterm
   starship
   # Useful Tools:
   jq
@@ -48,31 +47,29 @@ packages=(
   fzf
   cronie
   sbctl
-  playerctl
-  postgresql-libs
   fastfetch
-  unzip
+  wl-clipboard
   # Filesystem:
   grub-btrfs
   timeshift-autosnap
   # Look & Feel:
   swww
-  eww
   rofi
-  # Others:
-  tk
-  wl-clipboard
-  tree-sitter
-  xdg-user-dirs
-  inotify-tools
-  socat
-  pipewire
-  wireplumber
-  xdg-desktop-portal-hyprland
-  gmp
-  nvidia-utils
-  xorg-xhost
+  waybar
+  # Hyprland:
   uwsm
+  # C/C++ Libraries:
+  tk
+  gmp
+  tree-sitter
+  postgresql-libs
+  # Drivers:
+  nvidia-utils
+  # Others:
+  xdg-desktop-portal-hyprland
+  xdg-user-dirs
+  xorg-xhost
+  inotify-tools
 )
 
 yay -S --needed --noconfirm "${packages[@]}"

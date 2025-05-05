@@ -1,0 +1,3 @@
+pactl subscribe | while read -r line; do
+  pactl get-sink-volume @DEFAULT_SINK@ | grep -Po '\d+(?=%)' | head -n 1
+done
