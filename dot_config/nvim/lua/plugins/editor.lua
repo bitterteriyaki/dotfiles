@@ -1,6 +1,6 @@
 return {
   --
-  -- Fuzzy finder
+  -- Fuzzy Finder
   --
   {
     "nvim-telescope/telescope.nvim",

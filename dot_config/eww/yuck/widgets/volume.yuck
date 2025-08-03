@@ -1,8 +1,0 @@
-(defwidget volume []
-  (box
-    :class "volume"
-    :space-evenly false
-    :spacing 5
-    (label :class "icon" :text "")
-  )
-)

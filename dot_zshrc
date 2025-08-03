@@ -34,6 +34,3 @@ eval "$(fzf --zsh)"
 alias vim="nvim"
 alias cat="bat"
 alias ls="eza --icons"
-
-alias btrfsbal="sudo btrfs balance start"
-alias btrfsdf="sudo btrfs filesystem df"

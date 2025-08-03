@@ -1,11 +1,5 @@
 return {
   --
-  -- Integration with WakaTime
-  --
-  {
-    "wakatime/vim-wakatime",
-  },
-  --
   -- Discord Rich Presence
   --
   {

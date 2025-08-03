@@ -6,9 +6,6 @@ signingkey = "EBC1E8A435F9200F"
 [init]
 defaultBranch = "main"
 
-[core]
-editor = nvim
-
 [commit]
 gpgsign = true
 

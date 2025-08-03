@@ -1,17 +1,13 @@
-#!/bin/bash
+#!/bin/sh
 
 packages=(
   # Applications:
   firefox
-  bitwarden
-  obs-studio
-  pavucontrol
   discord
   spotify-launcher
   timeshift
-  grub-customizer
+  pwvucontrol
   # Fonts:
-  otf-font-awesome
   ttf-dejavu
   ttf-jetbrains-mono-nerd
   noto-fonts-emoji
@@ -21,17 +17,17 @@ packages=(
   gnupg
   git
   neovim
-  bitwarden-cli
   zellij
   mise
+  bitwarden-cli
   docker
   docker-compose
   sysbox-ce
   # Terminal:
+  wezterm
   zsh
   zsh-syntax-highlighting
   zsh-autosuggestions
-  wezterm
   starship
   # Useful Tools:
   jq
@@ -53,9 +49,7 @@ packages=(
   grub-btrfs
   timeshift-autosnap
   # Look & Feel:
-  swww
-  rofi
-  waybar
+  quickshell
   # Hyprland:
   uwsm
   # C/C++ Libraries:
