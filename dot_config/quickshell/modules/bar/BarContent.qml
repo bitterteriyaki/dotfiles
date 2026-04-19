@@ -1,45 +1,42 @@
 import qs.modules.common
+import qs.modules.common.widgets
+import qs.modules.bar.components
 
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Services.SystemTray
-import "components"
 
-Rectangle {
+Item {
   id: root
 
-  color: Appearance.colors.colLayer0
+  Rectangle {
+    id: background
+
+    anchors.fill: parent
+    color: Appearance.colors.colLayer0
+  }
+
+  StyledRectangularShadow {
+    target: background
+  }
+
+  Workspaces {
+    id: workspaces
+
+    anchors.centerIn: parent
+  }
 
   RowLayout {
-    anchors {
-      fill: parent
-      leftMargin: 12
-      rightMargin: 12
-    }
-    spacing: 0
+    id: right
 
-    // Left section: clock
-    ClockWidget {
-      Layout.alignment: Qt.AlignVCenter
-    }
+    anchors.left: workspaces.right
+    anchors.right: parent.right
+    anchors.top: parent.top
+    anchors.bottom: parent.bottom
 
-    Item { Layout.fillWidth: true }
+    layoutDirection: Qt.RightToLeft
 
-    // Center section: workspaces
-    WorkspaceWidget {
-      Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
-    }
-
-    Item { Layout.fillWidth: true }
-
-    // Right section: tray + system info
-    RowLayout {
-      Layout.alignment: Qt.AlignVCenter
-      spacing: 8
-
-      SystemInfoWidget {}
-      TrayWidget {}
-    }
+    ClockWidget {}
   }
 }

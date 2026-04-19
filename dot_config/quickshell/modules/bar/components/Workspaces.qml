@@ -1,3 +1,5 @@
+import qs.modules.common
+
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
@@ -6,13 +8,27 @@ import Quickshell.Hyprland
 Item {
   id: root
 
-  implicitWidth: row.implicitWidth
-  implicitHeight: 36
+  implicitWidth: row.implicitWidth + 28
+  implicitHeight: 28
+
+  Behavior on implicitWidth {
+    NumberAnimation {
+      duration: 150
+      easing.type: Easing.OutCubic
+    }
+  }
+
+  Rectangle {
+    anchors.fill: parent
+    color: Appearance.colors.colLayer1
+    radius: height / 2
+  }
 
   RowLayout {
     id: row
+
     anchors.centerIn: parent
-    spacing: 6
+    spacing: 18
 
     Repeater {
       model: Hyprland.workspaces.values
@@ -22,15 +38,16 @@ Item {
 
         readonly property bool active: modelData.id === Hyprland.focusedMonitor?.activeWorkspace?.id
 
-        width: active ? 8 : 6
-        height: active ? 8 : 6
+        Layout.alignment: Qt.AlignVCenter
+        Layout.preferredWidth: active ? 8 : 6
+        Layout.preferredHeight: active ? 8 : 6
 
         Rectangle {
           anchors.centerIn: parent
           width: parent.width
           height: parent.height
           radius: width / 2
-          color: parent.active ? "#cba6f7" : "#45475a"
+          color: parent.active ? "#e9243d" : Appearance.colors.grayLayer0
         }
 
         MouseArea {

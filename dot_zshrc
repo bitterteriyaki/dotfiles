@@ -3,6 +3,10 @@
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_PLUGINS="/usr/share/zsh/plugins"
 
+path+=(
+  "$HOME/.local/bin"
+)
+
 # Oh My Zsh Settings
 
 zstyle ':omz:update' mode auto
