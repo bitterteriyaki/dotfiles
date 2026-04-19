@@ -3,26 +3,28 @@
 packages=(
   # Applications:
   firefox
-  discord
+  webcord 
   spotify-launcher
   timeshift
-  pwvucontrol
+  # pwvucontrol
   # Fonts:
   ttf-dejavu
   ttf-jetbrains-mono-nerd
   noto-fonts-emoji
-  $(yay -Ssq adobe-source-han-sans)
+  $(yay -Ssq adone-source-han-sans)
   # Development Tools:
   openssh
+  openvpn
   gnupg
   git
   neovim
   zellij
   mise
   bitwarden-cli
-  docker
-  docker-compose
-  sysbox-ce
+  # docker
+  # docker-compose
+  # sysbox-ce
+  networkmanager
   # Terminal:
   wezterm
   zsh
@@ -38,20 +40,21 @@ packages=(
   tokei
   fd
   ripgrep
-  imagemagick
   unzip
   fzf
   cronie
   sbctl
   fastfetch
   wl-clipboard
+  proton-vpn-cli
   # Filesystem:
-  grub-btrfs
   timeshift-autosnap
   # Look & Feel:
   quickshell
   # Hyprland:
   uwsm
+  hyprmoncfg
+  xdg-desktop-portal-hyprland
   # C/C++ Libraries:
   tk
   gmp
@@ -60,9 +63,8 @@ packages=(
   # Drivers:
   nvidia-utils
   # Others:
-  xdg-desktop-portal-hyprland
   xdg-user-dirs
-  xorg-xhost
+  # xorg-xhost
   inotify-tools
 )
 
@@ -70,4 +72,8 @@ yay -S --needed --noconfirm "${packages[@]}"
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+fi
+
+if [ ! -f "$HOME/.local/bin/claude" ]; then
+  curl -fsSL https://claude.ai/install.sh | bash
 fi

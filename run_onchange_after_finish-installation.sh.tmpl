@@ -1,56 +1,38 @@
-#!/bin/bash
+#!/bin/sh
 
-#
 # Import GPG keys
-#
 
 export GPG_TTY=$(tty)
 
 echo "{{ (bitwarden "item" "gpg_public_key").notes }}" | gpg --import -
 echo "{{ (bitwarden "item" "gpg_private_key").notes }}" | gpg --import -
 
-#
-# Change the default shell to Zsh
-#
+# Change the default shell
 
 if [ "$SHELL" != "$(which zsh)" ]; then
-  chsh -s $(which zsh)
+	chsh -s $(which zsh)
 fi
 
-#
 # Enable and start services
-#
 
-sudo systemctl enable --now grub-btrfsd
+systemctl --user enable --now hyprmoncfgd
+
 sudo systemctl enable --now cronie
-sudo systemctl enable --now docker
-sudo systemctl enable --now sysbox
+sudo systemctl enable --now NetworkManager
 
-#
 # Disable Copy-on-Write on these directories
-#
 
 sudo chattr +C /var/log
 sudo chattr +C /var/cache/pacman/pkg
-sudo chattr +C /var/lib/docker
+# sudo chattr +C /var/lib/docker
 
-#
 # Create home directories
-#
 
 xdg-user-dirs-update
 xdg-user-dirs-update --force
 
 mkdir -p $HOME/Projects
 
-#
-# Add the user to theses groups
-#
-
-sudo usermod -aG docker $USER
-
-#
 # Set the timezone to local time
-#
 
 sudo timedatectl set-local-rtc 1

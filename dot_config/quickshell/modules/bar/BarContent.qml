@@ -1,32 +1,45 @@
-/* Copyright (C) 2025-present end-4
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
- */
-
 import qs.modules.common
 
 import QtQuick
+import QtQuick.Layouts
+import Quickshell
+import Quickshell.Services.SystemTray
+import "components"
 
-Item {
-    id: root
+Rectangle {
+  id: root
 
-    Rectangle {
-        id: barBackground
+  color: Appearance.colors.colLayer0
 
-        anchors.fill: parent
-
-        color: Config.options.bar.showBackground ? Appearance.colors.colLayer0 : "transparent"
-        radius: Config.options.bar.cornerStyle === 1 ? Appearance.rounding.windowRounding : 0
+  RowLayout {
+    anchors {
+      fill: parent
+      leftMargin: 12
+      rightMargin: 12
     }
+    spacing: 0
+
+    // Left section: clock
+    ClockWidget {
+      Layout.alignment: Qt.AlignVCenter
+    }
+
+    Item { Layout.fillWidth: true }
+
+    // Center section: workspaces
+    WorkspaceWidget {
+      Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+    }
+
+    Item { Layout.fillWidth: true }
+
+    // Right section: tray + system info
+    RowLayout {
+      Layout.alignment: Qt.AlignVCenter
+      spacing: 8
+
+      SystemInfoWidget {}
+      TrayWidget {}
+    }
+  }
 }
