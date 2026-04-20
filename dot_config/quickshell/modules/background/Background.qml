@@ -1,5 +1,6 @@
 pragma ComponentBehavior: Bound
 
+import qs.modules.common
 import qs.modules.common.widgets
 
 import QtQuick
@@ -12,6 +13,7 @@ Variants {
   model: Quickshell.screens
 
   readonly property var monitors: Hyprland.monitors.values
+  readonly property string wallpaper: `${Directories.wallpapers}/default.png`
 
   readonly property int minX: {
     let v = 0
@@ -77,7 +79,7 @@ Variants {
       clip: true
 
       StyledImage {
-        source: "/home/kyomi/.config/wallpaper.png"
+        source: root.wallpaper
         fillMode: Image.Stretch
 
         width: root.totalW

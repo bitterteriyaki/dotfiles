@@ -18,13 +18,8 @@ fi
 systemctl --user enable --now hyprmoncfgd
 
 sudo systemctl enable --now cronie
+sudo systemctl enable --now docker
 sudo systemctl enable --now NetworkManager
-
-# Disable Copy-on-Write on these directories
-
-sudo chattr +C /var/log
-sudo chattr +C /var/cache/pacman/pkg
-# sudo chattr +C /var/lib/docker
 
 # Create home directories
 
@@ -36,3 +31,36 @@ mkdir -p $HOME/Projects
 # Set the timezone to local time
 
 sudo timedatectl set-local-rtc 1
+
+# Tell GTK to prefer dark themes
+
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+
+# Install Firefox policies
+
+POLICY_DIR="/usr/lib/firefox/distribution"
+
+sudo mkdir -p "$POLICY_DIR"
+sudo tee "$POLICY_DIR/policies.json" > /dev/null << 'EOF'
+{
+  "policies": {
+    "SkipTermsOfUse": true,
+    "DisableTelemetry": true,
+    "DisableProfileImport": true,
+    "OfferToSaveLogins": false,
+    "Extensions": {
+      "Install": [
+        "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi",
+        "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
+      ]
+    },
+    "Homepage": {
+      "StartPage": "previous-session"
+    },
+    "PictureInPicture": {
+      "Enabled": false
+    }
+  }
+}
+EOF

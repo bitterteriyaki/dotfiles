@@ -3,13 +3,12 @@
 packages=(
   # Applications:
   firefox
-  webcord 
   spotify-launcher
   timeshift
-  # pwvucontrol
   # Fonts:
   ttf-dejavu
   ttf-jetbrains-mono-nerd
+  ttf-dm-fonts-git
   noto-fonts-emoji
   $(yay -Ssq adone-source-han-sans)
   # Development Tools:
@@ -21,15 +20,14 @@ packages=(
   zellij
   mise
   bitwarden-cli
-  # docker
-  # docker-compose
-  # sysbox-ce
+  docker
+  docker-compose
   networkmanager
   # Terminal:
-  wezterm
   zsh
   zsh-syntax-highlighting
   zsh-autosuggestions
+  wezterm
   starship
   # Useful Tools:
   jq
@@ -55,6 +53,7 @@ packages=(
   uwsm
   hyprmoncfg
   xdg-desktop-portal-hyprland
+  xdg-desktop-portal-gtk
   # C/C++ Libraries:
   tk
   gmp
@@ -64,7 +63,6 @@ packages=(
   nvidia-utils
   # Others:
   xdg-user-dirs
-  # xorg-xhost
   inotify-tools
 )
 

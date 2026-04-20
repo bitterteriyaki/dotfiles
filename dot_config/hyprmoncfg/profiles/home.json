@@ -1,0 +1,65 @@
+{
+  "name": "home",
+  "created_at": "2026-04-19T22:39:44.223347222Z",
+  "updated_at": "2026-04-19T22:40:10.249490494Z",
+  "outputs": [
+    {
+      "key": "aoc|24g2w1g4|atnmbxa003545",
+      "match_key": "aoc|24g2w1g4|atnmbxa003545",
+      "name": "HDMI-A-1",
+      "make": "AOC",
+      "model": "24G2W1G4",
+      "serial": "ATNMBXA003545",
+      "enabled": true,
+      "mode": "1920x1080@144.00Hz",
+      "width": 1920,
+      "height": 1080,
+      "refresh": 144,
+      "x": 0,
+      "y": 0,
+      "scale": 1,
+      "transform": 0,
+      "bitdepth": 8,
+      "cm": "srgb",
+      "sdr_brightness": 1,
+      "sdr_saturation": 1,
+      "sdr_min_luminance": 0.2,
+      "sdr_max_luminance": 80,
+      "min_luminance": 0
+    },
+    {
+      "key": "samsung electric company|syncmaster|hqcs906292",
+      "match_key": "samsung electric company|syncmaster|hqcs906292",
+      "name": "DVI-D-1",
+      "make": "Samsung Electric Company",
+      "model": "SyncMaster",
+      "serial": "HQCS906292",
+      "enabled": true,
+      "mode": "1360x768@60.02Hz",
+      "width": 1360,
+      "height": 768,
+      "refresh": 60.02,
+      "x": 1920,
+      "y": 150,
+      "scale": 1,
+      "transform": 0,
+      "bitdepth": 8,
+      "cm": "srgb",
+      "sdr_brightness": 1,
+      "sdr_saturation": 1,
+      "sdr_min_luminance": 0.2,
+      "sdr_max_luminance": 80,
+      "min_luminance": 0
+    }
+  ],
+  "workspaces": {
+    "enabled": true,
+    "strategy": "interleave",
+    "max_workspaces": 8,
+    "group_size": 1,
+    "monitor_order": [
+      "aoc|24g2w1g4|atnmbxa003545",
+      "samsung electric company|syncmaster|hqcs906292"
+    ]
+  }
+}
