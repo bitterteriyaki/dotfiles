@@ -8,9 +8,9 @@ packages=(
   # Fonts:
   ttf-dejavu
   ttf-jetbrains-mono-nerd
-  ttf-dm-fonts-git
+  noto-fonts
   noto-fonts-emoji
-  $(yay -Ssq adone-source-han-sans)
+  $(yay -Ssq adobe-source-han-sans)
   # Development Tools:
   openssh
   openvpn
@@ -32,6 +32,7 @@ packages=(
   # Useful Tools:
   jq
   man
+  less
   zoxide
   bat
   eza
@@ -45,6 +46,7 @@ packages=(
   fastfetch
   wl-clipboard
   proton-vpn-cli
+  playerctl
   # Filesystem:
   timeshift-autosnap
   # Look & Feel:
@@ -52,6 +54,7 @@ packages=(
   # Hyprland:
   uwsm
   hyprmoncfg
+  hyprshutdown
   xdg-desktop-portal-hyprland
   xdg-desktop-portal-gtk
   # C/C++ Libraries:
