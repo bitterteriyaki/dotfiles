@@ -6,11 +6,20 @@ import qs.modules.sidebar
 
 import QtQuick
 import Quickshell
+import Quickshell.Io
 import Quickshell.Wayland
 import Quickshell.Hyprland
 
 Scope {
   id: root
+
+  IpcHandler {
+    target: "sidebar"
+
+    function toggle(): void { SidebarState.toggle() }
+    function open(): void { SidebarState.open() }
+    function close(): void { SidebarState.close() }
+  }
 
   Variants {
     model: Quickshell.screens
@@ -31,16 +40,26 @@ Scope {
       Behavior on showAnim {
         NumberAnimation {
           duration: 260
-          easing.type: Easing.OutCubic
+
+          // Decelerate on the way in, accelerate on the way out. The
+          // branches read inverted on purpose: the binding is evaluated
+          // against the state the panel is leaving, not the one it is
+          // entering.
+          easing.type: SidebarState.visible
+            ? Easing.InCubic
+            : Easing.OutCubic
         }
       }
 
       WlrLayershell.namespace: "quickshell:sidebar"
       WlrLayershell.layer: WlrLayer.Overlay
 
-      WlrLayershell.keyboardFocus: visible && window.isBarScreen
-        ? WlrKeyboardFocus.Exclusive
-        : WlrKeyboardFocus.None
+      // Never Exclusive: an exclusive layer surface makes Hyprland route
+      // every pointer event to it, so a click on another monitor never
+      // reaches that monitor's scrim and the sidebar stays open. The
+      // HyprlandFocusGrab below already provides the keyboard focus Escape
+      // needs.
+      WlrLayershell.keyboardFocus: WlrKeyboardFocus.None
 
       exclusionMode: ExclusionMode.Ignore
       color: "transparent"
