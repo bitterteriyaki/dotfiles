@@ -1,4 +1,3 @@
-//@ pragma UseQApplication
 //@ pragma Env QT_QUICK_CONTROLS_STYLE=Basic
 //@ pragma Env QT_QUICK_FLICKABLE_WHEEL_DECELERATION=10000
 
@@ -10,8 +9,8 @@ import qs.modules.sidebar
 import Quickshell
 
 ShellRoot {
-  Bar {}
   Background {}
-  Launcher {}
+  Bar {}
   Sidebar {}
+  // Launcher {}
 }

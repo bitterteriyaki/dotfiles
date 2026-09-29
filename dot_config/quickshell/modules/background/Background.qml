@@ -12,9 +12,9 @@ Variants {
   id: root
   model: Quickshell.screens
 
-  readonly property var monitors: Hyprland.monitors.values
   // TODO: replace with a wallpaper picker
   readonly property string wallpaper: `${Directories.wallpapers}/default.png`
+  readonly property var monitors: Hyprland.monitors.values
 
   readonly property int minX: {
     let v = Infinity

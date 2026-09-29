@@ -1,11 +1,9 @@
 import qs.modules.common
-import qs.modules.common.widgets
 import qs.modules.bar.components
+// import qs.modules.common.widgets
 
 import QtQuick
 import QtQuick.Layouts
-import Quickshell
-import Quickshell.Services.SystemTray
 
 Item {
   id: root
@@ -17,9 +15,10 @@ Item {
     color: Appearance.colors.background
   }
 
-  StyledRectangularShadow {
-    target: background
-  }
+  // TODO: Verify why shadow is not working properly.
+  // StyledRectangularShadow {
+  //   target: background
+  // }
 
   Item {
     id: content
@@ -42,7 +41,7 @@ Item {
 
       spacing: 8
 
-      Clock {}
+      // Clock {}
       StatusIcons {}
     }
   }

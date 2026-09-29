@@ -2,7 +2,6 @@ import qs.modules.common
 import qs.modules.common.widgets
 
 import QtQuick
-import QtQuick.Layouts
 import Quickshell
 import Quickshell.Wayland
 
@@ -31,11 +30,9 @@ Scope {
       WlrLayershell.namespace: "quickshell:bar"
       implicitHeight: Appearance.sizes.barHeight + 50 + 25
 
-      anchors {
-        top: true
-        left: true
-        right: true
-      }
+      anchors.top: true
+      anchors.left: true
+      anchors.right: true
 
       mask: Region { item: content }
       color: "transparent"
