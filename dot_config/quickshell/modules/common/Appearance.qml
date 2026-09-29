@@ -21,7 +21,7 @@ Singleton {
 
   property QtObject fonts: QtObject {
     property string mono: "JetBrainsMono Nerd Font"
-    property string icons: "Material Icons"
+    property string icons: "JetBrainsMono Nerd Font"
   }
 
   property QtObject colors: QtObject {
