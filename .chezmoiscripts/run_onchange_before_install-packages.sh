@@ -82,3 +82,10 @@ if [ ! -f "$HOME/.local/bin/claude" ]; then
   printf '\033[1;33m=> Installing Claude Code\033[0m\n'
   curl -fsSL https://claude.ai/install.sh | bash
 fi
+
+# Runs before ~/.config/mise/config.toml is applied, so uv is requested
+# explicitly instead of relying on the global mise config.
+if [ ! -f "$HOME/.local/bin/specify" ]; then
+  printf '\033[1;33m=> Installing Spec Kit\033[0m\n'
+  mise exec uv@latest -- uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
+fi
