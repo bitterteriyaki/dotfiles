@@ -131,7 +131,7 @@ Execution steps:
 4. Generate (internally) a prioritized queue of candidate clarification questions (maximum 5). Do NOT output them all at once. Apply these constraints:
     - Maximum of 5 total questions across the whole session.
     - Each question must be answerable with EITHER:
-       - A short multiple‑choice selection (2–5 distinct, mutually exclusive options), OR
+       - A short multiple‑choice selection (2–4 distinct, mutually exclusive options), OR
        - A one-word / short‑phrase answer (explicitly constrain: "Answer in <=5 words").
     - Only include questions whose answers materially impact architecture, data modeling, task decomposition, test design, UX behavior, operational readiness, or compliance validation.
     - Ensure category coverage balance: attempt to cover the highest impact unresolved categories first; avoid asking two low-impact questions when a single high-impact area (e.g., security posture) is unresolved.
@@ -140,12 +140,12 @@ Execution steps:
     - If more than 5 categories remain unresolved, select the top 5 by (Impact * Uncertainty) heuristic.
 
 5. Sequential questioning loop (interactive):
-    - Present EXACTLY ONE question at a time.
+    - Ask EXACTLY ONE question at a time, always through the `AskUserQuestion` tool (a single question per call). Never print the question and its options as Markdown and wait for the user to type an answer in a prompt.
     - **Question writing quality (applies to every question, MC or short-answer):**
-       - Lead with `**Question:**` followed by a full interrogative that ends with `?`. The question text before the `?` must make sense on its own.
+       - The tool's `question` field is a full interrogative that ends with `?`. The question text before the `?` must make sense on its own.
        - NEVER use a topic label, section heading, or requirement id as the question itself. For example, `Acceptance device/runtime matrix (FR-023)` is INVALID — it is a label, not a question.
-       - After the `?`, the only permitted suffix is an optional parenthesized requirement/question id. Exact format: `**Question:** <interrogative>?` or `**Question:** <interrogative>? (FR-023)`. Never put the id before the `?`, and never use the id (alone or with a topic label) as the whole prompt.
-       - Immediately after the question line, add one plain-language "Why it matters" sentence (the stake for acceptance or shipping) before the recommendation/options.
+       - After the `?`, the only permitted suffix is an optional parenthesized requirement/question id, e.g. `<interrogative>? (FR-023)`. Never put the id before the `?`, and never use the id (alone or with a topic label) as the whole question.
+       - Give the question a short `header` (max 12 characters) naming the topic, and put the plain-language "why it matters" (the stake for acceptance or shipping) into the option descriptions rather than a separate message.
        - Use everyday wording; introduce jargon only if defined in the same sentence. Self-check: a reader who does not know Spec Kit must be able to answer from the Question line alone. Terse is fine; cryptic labels are not.
     - For multiple‑choice questions:
        - **Analyze all options** and determine the **most suitable option** based on:
@@ -153,26 +153,13 @@ Execution steps:
           - Common patterns in similar implementations
           - Risk reduction (security, performance, maintainability)
           - Alignment with any explicit project goals or constraints visible in the spec
-       - Present your **recommended option prominently** at the top with clear reasoning (1-2 sentences explaining why this is the best choice).
-       - Format as: `**Recommended:** Option [X] - <reasoning>`
-       - Then render all options as a Markdown table:
-
-       | Option | Description |
-       |--------|-------------|
-       | A | <Option A description> |
-       | B | <Option B description> |
-       | C | <Option C description> (add D/E as needed up to 5) |
-       | Short | Provide a different short answer (<=5 words) (Include only if free-form alternative is appropriate) |
-
-       - After the table, add: `You can reply with the option letter (e.g., "A"), accept the recommendation by saying "yes" or "recommended", or provide your own short answer.`
+       - Pass 2–4 options to `AskUserQuestion`. Put the recommended option first, append "(Recommended)" to its label, and explain the reasoning (1–2 sentences) in its `description`. Every other option's `description` states what choosing it means for the feature.
+       - Do not add a "Custom"/"Short answer" option: the tool already offers a free-text "Other" answer.
     - For short‑answer style (no meaningful discrete options):
-       - Provide your **suggested answer** based on best practices and context.
-       - Format as: `**Suggested:** <your proposed answer> - <brief reasoning>`
-       - Then output: `Format: Short answer (<=5 words). You can accept the suggestion by saying "yes" or "suggested", or provide your own answer.`
+       - Still use `AskUserQuestion`: offer your suggested answer as the first option, labelled with the answer itself plus "(Recommended)" and with the brief reasoning in its `description`, plus one or more plausible alternatives. The user can type their own answer through "Other" (ask them to keep it to <=5 words in the question text).
     - After the user answers:
-       - If the user replies with "yes", "recommended", or "suggested", use your previously stated recommendation/suggestion as the answer.
-       - Otherwise, validate the answer maps to one option or fits the <=5 word constraint.
-       - If ambiguous, ask for a quick disambiguation (count still belongs to same question; do not advance).
+       - Use the selected option, or the text they entered under "Other", as the answer.
+       - Validate that a free-text answer fits the <=5 word constraint; if it is ambiguous, ask a quick disambiguation with `AskUserQuestion` (count still belongs to the same question; do not advance).
        - Once satisfactory, record it in working memory (do not yet write to disk) and move to the next queued question.
     - Stop asking further questions when:
        - All critical ambiguities resolved early (remaining queued items become unnecessary), OR

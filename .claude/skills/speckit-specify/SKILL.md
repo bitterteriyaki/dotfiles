@@ -127,7 +127,7 @@ Given that feature description, do this:
          - The choice significantly impacts feature scope or user experience
          - Multiple reasonable interpretations exist with different implications
          - No reasonable default exists
-       - **LIMIT: Maximum 3 [NEEDS CLARIFICATION] markers total**
+       - There is no limit on the number of [NEEDS CLARIFICATION] markers: mark every decision that needs the user's input
        - Prioritize clarifications by impact: scope > security/privacy > user experience > technical details
     4. Fill User Scenarios & Testing section
        If no clear user flow: ERROR "Cannot determine user scenarios"
@@ -142,6 +142,8 @@ Given that feature description, do this:
     8. Return: SUCCESS (spec ready for planning)
 
 7. Write the specification to SPEC_FILE using the template structure, replacing placeholders with concrete details derived from the feature description (arguments) while preserving section order and headings.
+
+   **Input line**: never paste the raw arguments into the template's `**Input**: User description: "..."` line. Replace them with the feature description rewritten as clear, grammatically correct English — translated if the user wrote in another language, with typos, slang and run-on phrasing fixed. Keep the user's meaning, scope and every concrete detail (names, values, file paths, technical terms) intact; do not add requirements that the user did not state. The same applies to the short name from step 1, which must be derived from the English description.
 
 8. **Specification Quality Validation**: After writing the initial spec, validate it against quality criteria:
 
@@ -200,38 +202,13 @@ Given that feature description, do this:
 
       - **If [NEEDS CLARIFICATION] markers remain**:
         1. Extract all [NEEDS CLARIFICATION: ...] markers from the spec
-        2. **LIMIT CHECK**: If more than 3 markers exist, keep only the 3 most critical (by scope/security/UX impact) and make informed guesses for the rest
-        3. For each clarification needed (max 3), present options to user in this format:
-
-           ```markdown
-           ## Question [N]: [Topic]
-
-           **Context**: [Quote relevant spec section]
-
-           **What we need to know**: [Specific question from NEEDS CLARIFICATION marker]
-
-           **Suggested Answers**:
-
-           | Option | Answer | Implications |
-           |--------|--------|--------------|
-           | A      | [First suggested answer] | [What this means for the feature] |
-           | B      | [Second suggested answer] | [What this means for the feature] |
-           | C      | [Third suggested answer] | [What this means for the feature] |
-           | Custom | Provide your own answer | [Explain how to provide custom input] |
-
-           **Your choice**: _[Wait for user response]_
-           ```
-
-        4. **CRITICAL - Table Formatting**: Ensure markdown tables are properly formatted:
-           - Use consistent spacing with pipes aligned
-           - Each cell should have spaces around content: `| Content |` not `|Content|`
-           - Header separator must have at least 3 dashes: `|--------|`
-           - Test that the table renders correctly in markdown preview
-        5. Number questions sequentially (Q1, Q2, Q3 - max 3 total)
-        6. Present all questions together before waiting for responses
-        7. Wait for user to respond with their choices for all questions (e.g., "Q1: A, Q2: Custom - [details], Q3: B")
-        8. Update the spec by replacing each [NEEDS CLARIFICATION] marker with the user's selected or provided answer
-        9. Re-run validation after all clarifications are resolved
+        2. Ask every clarification with the `AskUserQuestion` tool — never print a table of options and wait for the user to type their choices in a prompt:
+           - One question per marker, with a short `header` and 2–4 concrete options; each option's `description` states what choosing it means for the feature. The tool adds a free-text "Other" answer on its own, so do not add a "Custom" option.
+           - If you recommend an option, put it first and append "(Recommended)" to its label.
+           - The tool takes at most 4 questions per call: group related questions together and make as many calls as needed until every marker has an answer. There is no limit on the total number of questions.
+           - Answers can open new gaps; ask about those too before finishing.
+        3. Update the spec by replacing each [NEEDS CLARIFICATION] marker with the user's selected or provided answer
+        4. Re-run validation after all clarifications are resolved
 
    d. **Update Checklist**: After each validation iteration, update the checklist file with current pass/fail status
 
@@ -299,7 +276,7 @@ When creating this spec from a user prompt:
 
 1. **Make informed guesses**: Use context, industry standards, and common patterns to fill gaps
 2. **Document assumptions**: Record reasonable defaults in the Assumptions section
-3. **Limit clarifications**: Maximum 3 [NEEDS CLARIFICATION] markers - use only for critical decisions that:
+3. **Clarify without a cap**: add a [NEEDS CLARIFICATION] marker for every decision that:
    - Significantly impact feature scope or user experience
    - Have multiple reasonable interpretations with different implications
    - Lack any reasonable default
