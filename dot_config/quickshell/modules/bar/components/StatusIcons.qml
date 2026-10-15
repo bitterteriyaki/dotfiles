@@ -80,14 +80,6 @@ Rectangle {
       font.family: Appearance.fonts.icons
       font.pixelSize: 18
     }
-
-//   //   Text {
-//   //     text: ""
-//   //     color: Appearance.colors.foreground
-//   //
-//   //     font.family: Appearance.fonts.mono
-//   //     font.pixelSize: 13
-//   //   }
   }
 
   HoverHandler {
