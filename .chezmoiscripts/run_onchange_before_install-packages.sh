@@ -66,6 +66,10 @@ packages=(
   unixodbc
   # Drivers:
   nvidia-utils
+  pipewire
+  pipewire-pulse
+  pipewire-alsa
+  wireplumber
   # Others:
   xdg-user-dirs
 )
