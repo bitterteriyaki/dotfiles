@@ -17,6 +17,9 @@ Singleton {
     property int sidebarWidth: 460
     property int sidebarMargin: 12
     property int sidebarRadius: 14
+    property int sidebarPadding: 20
+
+    property int calendarCellSize: 52
   }
 
   property QtObject fonts: QtObject {

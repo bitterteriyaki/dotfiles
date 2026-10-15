@@ -2,6 +2,7 @@ pragma ComponentBehavior: Bound
 
 import qs.modules.common
 import qs.modules.sidebar
+import qs.modules.sidebar.components
 // import qs.modules.common.widgets
 
 import QtQuick
@@ -144,14 +145,25 @@ Scope {
           radius: Appearance.sizes.sidebarRadius
           color: Appearance.colors.secondary
 
-          Text {
-            anchors.centerIn: parent
+          // Swallows clicks that miss the content, so they never reach the
+          // scrim underneath and close the sidebar.
+          MouseArea {
+            anchors.fill: parent
+          }
 
-            text: "Sidebar"
-            color: Appearance.colors.foreground
+          Loader {
+            active: window.isBarScreen
 
-            font.family: Appearance.fonts.mono
-            font.pixelSize: 14
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
+
+            anchors.margins: Appearance.sizes.sidebarPadding
+
+            // Room left above the calendar for the date and time (T-14.3).
+            anchors.topMargin: Appearance.sizes.sidebarPadding * 4
+
+            sourceComponent: Calendar {}
           }
         }
       }
