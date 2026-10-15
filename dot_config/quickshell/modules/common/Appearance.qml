@@ -27,7 +27,7 @@ Singleton {
     property int avatarSize: 48
     property int dateTimeReservedHeight: 56
 
-    property int calendarCellSize: 52
+    property int calendarCellSize: 40
 
     property int tabBarHeight: 36
     property int tabIconSize: 16
