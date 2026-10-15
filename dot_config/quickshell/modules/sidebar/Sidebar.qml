@@ -158,10 +158,7 @@ Scope {
           Loader {
             active: window.isBarScreen
 
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.top: parent.top
-
+            anchors.fill: parent
             anchors.margins: Appearance.sizes.sidebarPadding
 
             sourceComponent: ColumnLayout {
@@ -184,6 +181,11 @@ Scope {
                   anchors.left: parent.left
                   anchors.right: parent.right
                 }
+              }
+
+              SidebarTabs {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
               }
             }
           }

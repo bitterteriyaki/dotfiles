@@ -28,6 +28,16 @@ Singleton {
     property int dateTimeReservedHeight: 56
 
     property int calendarCellSize: 52
+
+    property int tabBarHeight: 36
+    property int tabIconSize: 16
+
+    property int volumeRowHeight: 40
+    property int volumeIconSize: 24
+    property int volumeLabelWidth: 44
+
+    property int sliderHeight: 6
+    property int sliderHandleSize: 14
   }
 
   property QtObject fonts: QtObject {
