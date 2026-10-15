@@ -2,6 +2,7 @@ README.md
 LICENSE
 .claude/
 .specify/
+specs/
 .luarc.json
 .config/quickshell/.qmlls.ini
 
