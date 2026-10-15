@@ -1,6 +1,7 @@
 pragma ComponentBehavior: Bound
 
 import qs.modules.common
+import qs.modules.common.widgets
 import qs.modules.sidebar
 
 import QtQuick
@@ -67,17 +68,15 @@ ColumnLayout {
     precision: SystemClock.Minutes
   }
 
-  component ArrowButton: Rectangle {
+  component ArrowButton: InteractiveRectangle {
     id: arrow
 
     required property string glyph
-    signal clicked()
 
     implicitWidth: root.cellSize
     implicitHeight: root.cellSize
 
     radius: width / 2
-    color: hover.hovered ? Appearance.colors.secondary : "transparent"
 
     Text {
       anchors.centerIn: parent
@@ -87,15 +86,6 @@ ColumnLayout {
 
       font.family: Appearance.fonts.icons
       font.pixelSize: 20
-    }
-
-    HoverHandler {
-      id: hover
-      cursorShape: Qt.PointingHandCursor
-    }
-
-    TapHandler {
-      onTapped: arrow.clicked()
     }
   }
 
@@ -179,6 +169,19 @@ ColumnLayout {
         width: root.cellSize
         height: root.cellSize
 
+        // Click target and hover/press feedback, under the marks below.
+        InteractiveRectangle {
+          anchors.centerIn: parent
+
+          width: parent.width - 6
+          height: width
+          radius: width / 2
+
+          enabled: cell.shown
+
+          onClicked: root.selectedDate = cell.date
+        }
+
         // Selection ring, drawn outside today's fill so both can show.
         Rectangle {
           anchors.centerIn: parent
@@ -220,15 +223,6 @@ ColumnLayout {
 
           font.family: Appearance.fonts.mono
           font.pixelSize: 13
-        }
-
-        MouseArea {
-          anchors.fill: parent
-
-          enabled: cell.shown
-          cursorShape: Qt.PointingHandCursor
-
-          onClicked: root.selectedDate = cell.date
         }
       }
     }

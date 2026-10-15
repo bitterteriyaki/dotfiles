@@ -1,6 +1,7 @@
 pragma ComponentBehavior: Bound
 
 import qs.modules.common
+import qs.modules.common.widgets
 
 import QtQuick
 import QtQuick.Layouts
@@ -33,12 +34,13 @@ ColumnLayout {
 
   spacing: 2
 
-  Rectangle {
+  InteractiveRectangle {
     Layout.fillWidth: true
     Layout.preferredHeight: 28
 
     radius: 6
-    color: currentHover.hovered ? Appearance.colors.secondary : "transparent"
+
+    onClicked: root.expanded = !root.expanded
 
     RowLayout {
       anchors.fill: parent
@@ -76,21 +78,12 @@ ColumnLayout {
         font.pixelSize: 16
       }
     }
-
-    HoverHandler {
-      id: currentHover
-      cursorShape: Qt.PointingHandCursor
-    }
-
-    TapHandler {
-      onTapped: root.expanded = !root.expanded
-    }
   }
 
   Repeater {
     model: root.expanded ? root.devices : []
 
-    Rectangle {
+    InteractiveRectangle {
       id: option
 
       required property var modelData
@@ -100,7 +93,8 @@ ColumnLayout {
       Layout.preferredHeight: 26
 
       radius: 6
-      color: optionHover.hovered ? Appearance.colors.secondary : "transparent"
+
+      onClicked: root.choose(option.modelData)
 
       RowLayout {
         anchors.fill: parent
@@ -129,15 +123,6 @@ ColumnLayout {
           font.family: Appearance.fonts.icons
           font.pixelSize: 14
         }
-      }
-
-      HoverHandler {
-        id: optionHover
-        cursorShape: Qt.PointingHandCursor
-      }
-
-      TapHandler {
-        onTapped: root.choose(option.modelData)
       }
     }
   }

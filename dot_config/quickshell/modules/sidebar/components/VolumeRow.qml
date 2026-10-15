@@ -1,6 +1,7 @@
 pragma ComponentBehavior: Bound
 
 import qs.modules.common
+import qs.modules.common.widgets
 import qs.modules.sidebar.components
 
 import QtQuick
@@ -103,12 +104,16 @@ RowLayout {
     font.pixelSize: 12
   }
 
-  Rectangle {
+  InteractiveRectangle {
     Layout.preferredWidth: 28
     Layout.preferredHeight: 28
 
     radius: width / 2
-    color: hover.hovered ? Appearance.colors.secondary : "transparent"
+
+    onClicked: {
+      if (root.node?.audio)
+        root.node.audio.muted = !root.muted
+    }
 
     Text {
       anchors.centerIn: parent
@@ -119,18 +124,6 @@ RowLayout {
 
       font.family: Appearance.fonts.icons
       font.pixelSize: 16
-    }
-
-    HoverHandler {
-      id: hover
-      cursorShape: Qt.PointingHandCursor
-    }
-
-    TapHandler {
-      onTapped: {
-        if (root.node?.audio)
-          root.node.audio.muted = !root.muted
-      }
     }
   }
 }

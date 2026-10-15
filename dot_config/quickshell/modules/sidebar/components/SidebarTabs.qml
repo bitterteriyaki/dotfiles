@@ -1,6 +1,8 @@
 pragma ComponentBehavior: Bound
 
 import qs.modules.common
+import qs.modules.common.functions
+import qs.modules.common.widgets
 import qs.modules.sidebar
 import qs.modules.sidebar.components
 
@@ -25,7 +27,7 @@ Rectangle {
     }
   }
 
-  component TabButton: Rectangle {
+  component TabButton: InteractiveRectangle {
     id: tab
 
     required property string key
@@ -38,7 +40,12 @@ Rectangle {
     Layout.fillHeight: true
 
     radius: Appearance.sizes.cardRadius - 2
-    color: tab.selected || hover.hovered ? Appearance.colors.secondary : "transparent"
+
+    baseColor: tab.selected
+      ? Appearance.colors.secondary
+      : ColorUtils.transparentize(Appearance.colors.secondary, 1)
+
+    onClicked: root.currentTab = tab.key
 
     RowLayout {
       anchors.centerIn: parent
@@ -62,15 +69,6 @@ Rectangle {
         font.pixelSize: 13
         font.bold: tab.selected
       }
-    }
-
-    HoverHandler {
-      id: hover
-      cursorShape: Qt.PointingHandCursor
-    }
-
-    TapHandler {
-      onTapped: root.currentTab = tab.key
     }
   }
 

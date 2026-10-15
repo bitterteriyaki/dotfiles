@@ -57,4 +57,8 @@ Singleton {
 
     property color shadow: ColorUtils.transparentize("#000000", 0.4)
   }
+
+  property QtObject animation: QtObject {
+    property int hoverDuration: 150
+  }
 }

@@ -1,11 +1,12 @@
 import qs.modules.common
+import qs.modules.common.widgets
 import qs.modules.sidebar
 
 import QtQuick
 import QtQuick.Layouts
 import Quickshell.Networking
 
-Rectangle {
+InteractiveRectangle {
   id: root
 
   readonly property var wiredDevice: {
@@ -65,7 +66,6 @@ Rectangle {
   implicitHeight: row.implicitHeight + 4
 
   radius: 8
-  color: hoverHandler.hovered ? Appearance.colors.secondary : "transparent"
 
   RowLayout {
     id: row
@@ -82,13 +82,5 @@ Rectangle {
     }
   }
 
-  HoverHandler {
-    id: hoverHandler
-
-    cursorShape: Qt.PointingHandCursor
-  }
-
-  TapHandler {
-    onTapped: SidebarState.open()
-  }
+  onClicked: SidebarState.open()
 }

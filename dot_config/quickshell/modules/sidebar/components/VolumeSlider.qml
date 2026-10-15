@@ -42,7 +42,30 @@ Slider {
     height: width
     radius: width / 2
 
-    color: Appearance.colors.foreground
+    // Grows under the pointer and darkens while dragged, like the other
+    // clickable controls.
+    scale: root.hovered || root.pressed ? 1.2 : 1
+    color: root.pressed
+      ? Qt.darker(Appearance.colors.foreground, 1.4)
+      : Appearance.colors.foreground
+
+    Behavior on scale {
+      NumberAnimation {
+        duration: Appearance.animation.hoverDuration
+        easing.type: Easing.OutCubic
+      }
+    }
+
+    Behavior on color {
+      ColorAnimation {
+        duration: Appearance.animation.hoverDuration
+        easing.type: Easing.OutCubic
+      }
+    }
+  }
+
+  HoverHandler {
+    cursorShape: Qt.PointingHandCursor
   }
 
   WheelHandler {
