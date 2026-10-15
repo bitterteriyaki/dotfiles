@@ -77,7 +77,7 @@ ColumnLayout {
     implicitHeight: root.cellSize
 
     radius: width / 2
-    color: hover.hovered ? Appearance.colors.muted : "transparent"
+    color: hover.hovered ? Appearance.colors.secondary : "transparent"
 
     Text {
       anchors.centerIn: parent

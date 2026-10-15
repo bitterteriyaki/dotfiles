@@ -3,9 +3,10 @@ pragma ComponentBehavior: Bound
 import qs.modules.common
 import qs.modules.sidebar
 import qs.modules.sidebar.components
-// import qs.modules.common.widgets
+import qs.modules.common.widgets
 
 import QtQuick
+import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
 import Quickshell.Wayland
@@ -133,9 +134,9 @@ Scope {
           }
         }
 
-        // StyledRectangularShadow {
-        //   target: panel
-        // }
+        StyledRectangularShadow {
+          target: panel
+        }
 
         Rectangle {
           id: panel
@@ -144,6 +145,9 @@ Scope {
 
           radius: Appearance.sizes.sidebarRadius
           color: Appearance.colors.secondary
+
+          border.width: Appearance.sizes.sidebarBorderWidth
+          border.color: Appearance.colors.border
 
           // Swallows clicks that miss the content, so they never reach the
           // scrim underneath and close the sidebar.
@@ -160,10 +164,28 @@ Scope {
 
             anchors.margins: Appearance.sizes.sidebarPadding
 
-            // Room left above the calendar for the date and time (T-14.3).
-            anchors.topMargin: Appearance.sizes.sidebarPadding * 4
+            sourceComponent: ColumnLayout {
+              spacing: Appearance.sizes.sidebarSpacing
 
-            sourceComponent: Calendar {}
+              SidebarHeader {
+                Layout.fillWidth: true
+              }
+
+              // Room left for the date and time (T-14.3).
+              Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: Appearance.sizes.dateTimeReservedHeight
+              }
+
+              SidebarCard {
+                Layout.fillWidth: true
+
+                Calendar {
+                  anchors.left: parent.left
+                  anchors.right: parent.right
+                }
+              }
+            }
           }
         }
       }

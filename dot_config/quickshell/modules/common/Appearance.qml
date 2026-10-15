@@ -11,13 +11,21 @@ Singleton {
 
   property QtObject sizes: QtObject {
     property int barHeight: 40
-    property real elevationMargin: 10
+    property real elevationMargin: 16
     property int barPaddingHorizontal: 16
 
     property int sidebarWidth: 460
     property int sidebarMargin: 12
     property int sidebarRadius: 14
     property int sidebarPadding: 20
+    property int sidebarSpacing: 12
+    property int sidebarBorderWidth: 1
+
+    property int cardRadius: 10
+    property int cardPadding: 12
+
+    property int avatarSize: 48
+    property int dateTimeReservedHeight: 56
 
     property int calendarCellSize: 52
   }
@@ -34,6 +42,9 @@ Singleton {
     property color secondary: "#1E151D"
     property color muted: "#393F4E"
 
-    property color shadow: ColorUtils.transparentize("#000000", 0.7)
+    property color border: ColorUtils.transparentize(muted, 0.4)
+    property color card: background
+
+    property color shadow: ColorUtils.transparentize("#000000", 0.4)
   }
 }
