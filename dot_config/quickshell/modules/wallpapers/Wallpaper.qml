@@ -12,8 +12,6 @@ Variants {
   id: root
   model: Quickshell.screens
 
-  // TODO: replace with a wallpaper picker
-  readonly property string wallpaper: `${Directories.wallpapers}/default.png`
   readonly property var monitors: Hyprland.monitors.values
 
   readonly property int minX: {
@@ -79,9 +77,40 @@ Variants {
       anchors.fill: parent
       clip: true
 
+      // Last resort, shown when neither the saved wallpaper nor
+      // default.png can be loaded.
+      Rectangle {
+        anchors.fill: parent
+        color: Appearance.colors.background
+      }
+
       StyledImage {
-        source: root.wallpaper
+        id: image
+
+        // Set when the saved wallpaper fails to load, until another one is
+        // applied.
+        property bool failed: false
+
+        source: image.failed ? Directories.defaultWallpaper : WallpaperState.current
         fillMode: Image.PreserveAspectCrop
+
+        // StyledImage hides itself while loading; the wallpaper must keep
+        // the previous image on screen until the new one is decoded, so the
+        // switch happens in a single frame.
+        opacity: 1
+
+        onStatusChanged: {
+          if (image.status === Image.Error)
+            image.failed = true
+        }
+
+        Connections {
+          target: WallpaperState
+
+          function onCurrentChanged(): void {
+            image.failed = false
+          }
+        }
 
         width: root.totalW
         height: root.totalH

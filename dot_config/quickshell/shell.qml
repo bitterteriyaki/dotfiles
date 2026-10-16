@@ -2,15 +2,16 @@
 //@ pragma Env QT_QUICK_FLICKABLE_WHEEL_DECELERATION=10000
 
 import qs.modules.bar
-import qs.modules.background
 import qs.modules.launcher
 import qs.modules.sidebar
+import qs.modules.wallpapers
 
 import Quickshell
 
 ShellRoot {
-  Background {}
+  Wallpaper {}
   Bar {}
   Sidebar {}
+  WallpaperSelector {}
   // Launcher {}
 }

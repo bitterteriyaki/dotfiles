@@ -21,6 +21,12 @@ Singleton {
     property int sidebarSpacing: 12
     property int sidebarBorderWidth: 1
 
+    property int wallpaperSelectorMaxWidth: 1200
+    property int wallpaperSelectorPadding: 14
+    property int wallpaperThumbnailWidth: 214
+    property int wallpaperThumbnailHeight: 120
+    property int wallpaperThumbnailSpacing: 10
+
     property int cardRadius: 10
     property int cardPadding: 12
 

@@ -17,4 +17,10 @@ Singleton {
   property string config: `${Directories.path}/${Directories.name}`
 
   property string wallpapers: `${Directories.local}/share/wallpapers`
+  property string defaultWallpaper: `${Directories.wallpapers}/default.png`
+
+  property string state: `${Directories.local}/state/quickshell`
+  property string wallpaperState: `${Directories.state}/wallpaper.json`
+
+  property string thumbnails: `${Quickshell.env("HOME")}/.cache/quickshell/wallpaper-thumbnails`
 }
